@@ -6,4 +6,4 @@
 yarn lint
 
 # Run Jest tests
-yarn test
+# yarn test

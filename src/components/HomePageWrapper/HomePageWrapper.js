@@ -3,7 +3,7 @@ import { TextCarousel } from "@/Common";
 const HomePageWrapper = () => {
   return (
     <div>
-      <div className="text-5xl pb-8">Hello, I'm Alvin Huynh.</div>
+      <div className="text-5xl pb-8">Hello, I&apos;m Alvin Huynh.</div>
       <TextCarousel
         text={[
           "Software Engineer.",

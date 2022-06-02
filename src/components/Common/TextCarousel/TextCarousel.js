@@ -21,7 +21,7 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
     }
 
     return () => clearInterval(interval);
-  }, [index, setIndex, isActive]);
+  }, [index, setIndex, isActive, text.length]);
 
   const getLines = () => {
     let lines = [];
