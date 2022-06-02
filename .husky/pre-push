@@ -1,0 +1,9 @@
+#!/bin/sh
+
+. "$(dirname "$0")/_/husky.sh"
+
+# Lint files
+yarn lint
+
+# Run Jest tests
+yarn test

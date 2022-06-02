@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/Common": ["./src/components/Common/index"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/slices": ["./src/slices/index"],
+      "@/slices/*": ["./src/lib/*"],
+      "@/styles/*": ["./styles/*"]
+    }
+  },
+  "exclude": ["node_modules", "out", ".next"]
+}

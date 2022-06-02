@@ -1,0 +1,6 @@
+#!/bin/sh
+
+. "$(dirname "$0")/_/husky.sh"
+
+# Run prettier code formatter on staged files
+yarn pretty-quick --staged
