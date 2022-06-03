@@ -1,4 +1,4 @@
-import { TextCarousel } from "@/Common";
+import { TextCarousel } from "./TextCarousel";
 
 const HomePageWrapper = () => {
   return (

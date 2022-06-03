@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
   const [index, setIndex] = useState(startingIndex % (text.length * 2));
