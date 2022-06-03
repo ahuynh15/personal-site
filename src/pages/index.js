@@ -11,9 +11,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex justify-between h-full">
+      <main className="flex h-full">
         {/* Content */}
-        <div className="ml-16">
+        <div className="ml-16 grow">
           <HomePageWrapper />
         </div>
 
