@@ -9,7 +9,7 @@ const getDirectories = (source) =>
     });
 
 export default function (plop) {
-  // let directories = getDirectories("./src/components");
+  let directories = getDirectories("./src/components");
 
   /* === Component Generator === */
 
@@ -38,8 +38,8 @@ export default function (plop) {
     ],
     actions: (data) => {
       const path = data.isCommon
-        ? "src/component/Common/"
-        : "src/component/" + data.page + "/";
+        ? "src/components/Common/"
+        : "src/components/" + data.page + "/";
 
       let actions = data.isCommon
         ? [
@@ -47,13 +47,13 @@ export default function (plop) {
             {
               type: "add",
               path: path + "{{pascalCase name}}/{{pascalCase name}}.js",
-              templateFile: "plopTemplates/Component.js.hbs",
+              templateFile: "plopTemplates/component/Component.js.hbs",
             },
             // Create an index file
             {
               type: "add",
               path: path + "{{pascalCase name}}/index.js",
-              templateFile: "plopTemplate/Index.js.hbs",
+              templateFile: "plopTemplates/component/Component.index.js.hbs",
             },
             // Export the component from the common index
             {
@@ -62,18 +62,18 @@ export default function (plop) {
               pattern: "/* PLOP_INJECT_EXPORT */",
               template: "export * from './{{pascalCase name}}';",
             },
-            // Generate a test file
-            {
-              type: "add",
-              path: path + "{{pascalCase name}}/{{pascalCase name}}.test.js",
-              templateFile: "plopTemplate/Component.test.js.hbs",
-            },
-            // Generate a storybook file
-            {
-              type: "add",
-              path: path + "{{pascalCase name}}/{{pascalCase name}}.stories.js",
-              templateFile: "plopTemplate/Component.stories.js.hbs",
-            },
+            // // Generate a test file
+            // {
+            //   type: "add",
+            //   path: path + "{{pascalCase name}}/{{pascalCase name}}.test.js",
+            //   templateFile: "plopTemplate/Component.test.js.hbs",
+            // },
+            // // Generate a storybook file
+            // {
+            //   type: "add",
+            //   path: path + "{{pascalCase name}}/{{pascalCase name}}.stories.js",
+            //   templateFile: "plopTemplate/Component.stories.js.hbs",
+            // },
           ]
         : [];
 
