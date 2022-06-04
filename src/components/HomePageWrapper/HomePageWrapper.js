@@ -1,18 +1,18 @@
-import { TextCarousel } from "./TextCarousel";
+import { TextCarousel } from './TextCarousel';
 
 const HomePageWrapper = () => {
   return (
-    <div className="flex items-center h-screen">
+    <div className="flex h-screen items-center">
       <div className="w-full">
-        <div className="text-5xl pb-8">Hello, I&apos;m Alvin Huynh...</div>
+        <div className="mb-8 text-5xl">Hello, I&apos;m Alvin Huynh...</div>
         <TextCarousel
           text={[
-            "Software Engineer.",
-            "Front End Developer.",
-            "Certified Solutions Architect.",
-            "Hobbyist Game Dev.",
-            "Tech Enthusiast.",
-            "Team Player.",
+            'Software Engineer.',
+            'Front End Developer.',
+            'Certified Solutions Architect.',
+            'Hobbyist Game Dev.',
+            'Tech Enthusiast.',
+            'Team Player.',
           ]}
           displayLimit={3}
           startingIndex={0}
