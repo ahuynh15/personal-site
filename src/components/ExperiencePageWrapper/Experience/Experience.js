@@ -54,6 +54,11 @@ const Experience = ({ title, startDate, endDate, description }) => {
   );
 };
 
-Experience.propTypes = {};
+Experience.propTypes = {
+  title: PropTypes.string.isRequired,
+  startDate: PropTypes.instanceOf(Date),
+  endDate: PropTypes.instanceOf(Date),
+  description: PropTypes.string.isRequired,
+};
 
 export default Experience;
