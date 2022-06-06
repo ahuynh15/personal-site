@@ -120,11 +120,11 @@ export default function (plop) {
     actions: () => {
       let actions = [
         // Add a new route in pages directory
-        {
-          type: 'add',
-          path: 'src/pages/{{lowerCase name}}/index.js',
-          templateFile: 'plopTemplates/pages/index.js.hbs',
-        },
+        // {
+        //   type: 'add',
+        //   path: 'src/pages/{{lowerCase name}}/index.js',
+        //   templateFile: 'plopTemplates/pages/index.js.hbs',
+        // },
         // Generate the page wrapper
         {
           type: 'add',

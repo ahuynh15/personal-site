@@ -1,7 +1,8 @@
 import { Sidebar } from '@/Common';
 import Head from 'next/head';
 import { HomePageWrapper } from '@/components/HomePageWrapper';
-import SkillsPageWrapper from './skills';
+import { SkillsPageWrapper } from '@/components/SkillsPageWrapper';
+import { ExperiencePageWrapper } from '@/components/ExperiencePageWrapper';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <div className="ml-16 grow">
           <HomePageWrapper />
           <SkillsPageWrapper />
+          <ExperiencePageWrapper />
         </div>
 
         {/* Fixed Sidebar */}
