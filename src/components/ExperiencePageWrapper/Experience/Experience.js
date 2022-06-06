@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 const Experience = ({ title, startDate, endDate, description }) => {
+  // Calculate the time between two dates in years and months
   const getTimespan = (startDate, endDate) => {
     let years = endDate.getFullYear() - startDate.getFullYear();
     let months = endDate.getMonth() - startDate.getMonth();
