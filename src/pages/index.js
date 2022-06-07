@@ -13,7 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex h-full">
+      <main className="flex h-full pb-8">
         {/* Content */}
         <div className="ml-16 grow">
           <HomePageWrapper />

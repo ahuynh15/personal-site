@@ -19,6 +19,14 @@ const SkillList = ({ skills }) => {
   );
 };
 
-SkillList.propTypes = {};
+SkillList.propTypes = {
+  skills: PropTypes.arrayOf(
+    PropTypes.shape({
+      index: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      subskill: PropTypes.arrayOf(PropTypes.string),
+    })
+  ),
+};
 
 export default SkillList;
