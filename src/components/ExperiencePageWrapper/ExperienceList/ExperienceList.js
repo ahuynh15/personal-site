@@ -1,7 +1,16 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import { Experience } from '../Experience';
+import { selectFilteredExperiences } from '@/slices/ExperiencesSlice';
 
-const ExperienceList = ({ experiences }) => {
+/**
+ * TODO:
+ * - Animate items being removed from the list when filtered
+ */
+
+const ExperienceList = () => {
+  const experiences = useSelector((state) => selectFilteredExperiences(state));
+
   return (
     <>
       {experiences.map((experience, index) => {
@@ -21,16 +30,6 @@ const ExperienceList = ({ experiences }) => {
   );
 };
 
-ExperienceList.propTypes = {
-  experiences: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      startDate: PropTypes.instanceOf(Date),
-      endDate: PropTypes.instanceOf(Date),
-      description: PropTypes.string.isRequired,
-      tags: PropTypes.arrayOf(PropTypes.string),
-    })
-  ),
-};
+ExperienceList.propTypes = {};
 
 export default ExperienceList;

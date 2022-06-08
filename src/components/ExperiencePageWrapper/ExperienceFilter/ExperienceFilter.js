@@ -1,20 +1,26 @@
 import { XIcon } from '@/components/Common';
+import { clearFilters, toggleFilter } from '@/slices/ExperiencesSlice';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+/**
+ * TODO:
+ * - Dynamically generate list of filters that can be used
+ * - Limit the amount of filters and provide a way to expand for more filters
+ */
 
 const ExperienceFilter = ({ tags }) => {
-  const [activeFilters, setActiveFilters] = useState([]);
+  const dispatch = useDispatch();
+  const activeFilters = useSelector(
+    (state) => state.experiences.filters.active
+  );
 
-  const toggleFilter = (tag) => {
-    if (activeFilters.includes(tag)) {
-      setActiveFilters(activeFilters.filter((filter) => filter !== tag));
-    } else {
-      setActiveFilters([...activeFilters, tag]);
-    }
+  const onClick = (tag) => {
+    dispatch(toggleFilter({ tag }));
   };
 
-  const clearFilters = () => {
-    setActiveFilters([]);
+  const onClear = () => {
+    dispatch(clearFilters());
   };
 
   return (
@@ -29,14 +35,14 @@ const ExperienceFilter = ({ tags }) => {
                   : 'text-orange-500'
               }`}
               key={index}
-              onClick={() => toggleFilter(tag)}
+              onClick={() => onClick(tag)}
             >
               {tag}
             </button>
           );
         })}
         <div>
-          <button className="text-gray-500" onClick={() => clearFilters()}>
+          <button className="text-gray-500" onClick={() => onClear()}>
             <div className="flex items-center gap-1">
               Clear
               <XIcon size={16} />

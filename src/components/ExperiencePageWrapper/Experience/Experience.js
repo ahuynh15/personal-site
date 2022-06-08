@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 const Experience = ({ title, startDate, endDate, description, tags }) => {
   // Calculate the time between two dates in years and months
   const getTimespan = (startDate, endDate) => {
-    let years = endDate.getFullYear() - startDate.getFullYear();
-    let months = endDate.getMonth() - startDate.getMonth();
+    let years = endDate.year - startDate.year;
+    let months = endDate.month - startDate.month;
     let timespan = '';
 
     if (years > 0) {
@@ -36,12 +36,15 @@ const Experience = ({ title, startDate, endDate, description, tags }) => {
         <div>
           {/* Date */}
           <div className="text-2xl text-orange-500">
-            {startDate.toLocaleString('default', {
-              month: 'short',
-              year: 'numeric',
-            })}
+            {new Date(startDate.year, startDate.month).toLocaleString(
+              'default',
+              {
+                month: 'short',
+                year: 'numeric',
+              }
+            )}
             &nbsp;-&nbsp;
-            {endDate.toLocaleString('default', {
+            {new Date(endDate.year, endDate.month).toLocaleString('default', {
               month: 'short',
               year: 'numeric',
             })}
