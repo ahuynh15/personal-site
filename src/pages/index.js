@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { HomePageWrapper } from '@/components/HomePageWrapper';
 import { SkillsPageWrapper } from '@/components/SkillsPageWrapper';
 import { ExperiencePageWrapper } from '@/components/ExperiencePageWrapper';
+import { EducationPageWrapper } from '@/components/EducationPageWrapper';
 
 export default function Home() {
   return (
@@ -15,10 +16,11 @@ export default function Home() {
 
       <main className="flex h-full pb-8">
         {/* Content */}
-        <div className="ml-16 grow">
+        <div className="mx-16 grow">
           <HomePageWrapper />
           <SkillsPageWrapper />
           <ExperiencePageWrapper />
+          <EducationPageWrapper />
         </div>
 
         {/* Fixed Sidebar */}

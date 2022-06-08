@@ -1,25 +1,13 @@
 import PropTypes from 'prop-types';
 
-const Experience = ({ title, startDate, endDate, description, tags }) => {
-  // Calculate the time between two dates in years and months
-  const getTimespan = (startDate, endDate) => {
-    let years = endDate.year - startDate.year;
-    let months = endDate.month - startDate.month;
-    let timespan = '';
-
-    if (years > 0) {
-      timespan += `${years} ${years > 1 ? 'years' : 'year'}`;
-    }
-
-    if (months > 0) {
-      timespan += `${years > 0 ? ' ' : ''}${months} ${
-        months > 1 ? 'months' : 'month'
-      }`;
-    }
-
-    return timespan;
-  };
-
+const Education = ({
+  title,
+  location,
+  startDate,
+  endDate,
+  description,
+  additionalHeaders,
+}) => {
   return (
     <li className="list-none">
       <div className="flex gap-4">
@@ -34,8 +22,10 @@ const Experience = ({ title, startDate, endDate, description, tags }) => {
           <div className="mx-auto h-1/2 w-1 bg-orange-500"></div>
         </div>
         <div>
-          {/* Date */}
           <div className="text-2xl text-orange-500">
+            {/* Location */}
+            {location}&nbsp;&#8226;&nbsp;
+            {/* Date */}
             {new Date(startDate.year, startDate.month).toLocaleString(
               'default',
               {
@@ -48,34 +38,24 @@ const Experience = ({ title, startDate, endDate, description, tags }) => {
               month: 'short',
               year: 'numeric',
             })}
-            &nbsp;&#8226;&nbsp;{getTimespan(startDate, endDate)}
+            {/* Other Headers */}
+            &nbsp;&#8226;&nbsp;{additionalHeaders?.join(' • ')}
           </div>
           {/* Description */}
           <div className="pt-4 text-3xl">{description}</div>
         </div>
       </div>
-      <div className="ml-8 flex gap-4">
-        {tags.map((tag, index) => {
-          return (
-            <div
-              key={index}
-              className="items-center gap-2 rounded-full border-2 border-orange-500 px-4 py-1 text-base uppercase text-orange-500"
-            >
-              <div>{tag}</div>
-            </div>
-          );
-        })}
-      </div>
     </li>
   );
 };
 
-Experience.propTypes = {
+Education.propTypes = {
   title: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
   startDate: PropTypes.instanceOf(Date).isRequired,
   endDate: PropTypes.instanceOf(Date).isRequired,
   description: PropTypes.string.isRequired,
-  tags: PropTypes.arrayOf(PropTypes.string),
+  additionalHeaders: PropTypes.arrayOf(PropTypes.string),
 };
 
-export default Experience;
+export default Education;
