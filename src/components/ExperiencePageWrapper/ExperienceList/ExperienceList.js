@@ -6,11 +6,6 @@ import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from 'tailwind.config';
 
-/**
- * TODO:
- * - Animate items being removed from the list when filtered
- */
-
 const ExperienceList = () => {
   const tailwind = resolveConfig(tailwindConfig);
   const experiences = useSelector((state) => selectFilteredExperiences(state));
