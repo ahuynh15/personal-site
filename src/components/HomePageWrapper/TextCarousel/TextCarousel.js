@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { motion } from "framer-motion";
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
 
 const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
   const [index, setIndex] = useState(startingIndex % (text.length * 2));
@@ -48,7 +48,7 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
 
         return (
           <motion.div
-            className="text-5xl pb-8"
+            className="pb-8 text-5xl"
             key={id}
             layoutId={id}
             style={{

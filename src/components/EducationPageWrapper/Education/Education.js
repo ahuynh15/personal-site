@@ -22,7 +22,7 @@ const Education = ({
           <div className="mx-auto h-1/2 w-1 bg-orange-500"></div>
         </div>
         <div>
-          <div className="text-2xl text-orange-500">
+          <div className="text-xl text-orange-500">
             {/* Location */}
             {location}&nbsp;&#8226;&nbsp;
             {/* Date */}
@@ -42,7 +42,7 @@ const Education = ({
             &nbsp;&#8226;&nbsp;{additionalHeaders?.join(' • ')}
           </div>
           {/* Description */}
-          <div className="pt-4 text-3xl">{description}</div>
+          <div className="pt-4 text-xl">{description}</div>
         </div>
       </div>
     </li>

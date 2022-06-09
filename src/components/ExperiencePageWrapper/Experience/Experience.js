@@ -1,6 +1,13 @@
 import PropTypes from 'prop-types';
 
-const Experience = ({ title, startDate, endDate, description, tags }) => {
+const Experience = ({
+  title,
+  startDate,
+  endDate,
+  description,
+  tags,
+  className,
+}) => {
   // Calculate the time between two dates in years and months
   const getTimespan = (startDate, endDate) => {
     let years = endDate.year - startDate.year;
@@ -21,7 +28,7 @@ const Experience = ({ title, startDate, endDate, description, tags }) => {
   };
 
   return (
-    <li className="list-none">
+    <li className={`list-none ${className}`}>
       <div className="flex gap-4">
         {/* Bullet Point */}
         <div className="h-4 w-4 shrink-0 grow-0 self-center rounded-full bg-gray-300"></div>
@@ -35,7 +42,7 @@ const Experience = ({ title, startDate, endDate, description, tags }) => {
         </div>
         <div>
           {/* Date */}
-          <div className="text-2xl text-orange-500">
+          <div className="text-xl text-orange-500">
             {new Date(startDate.year, startDate.month).toLocaleString(
               'default',
               {
@@ -51,7 +58,7 @@ const Experience = ({ title, startDate, endDate, description, tags }) => {
             &nbsp;&#8226;&nbsp;{getTimespan(startDate, endDate)}
           </div>
           {/* Description */}
-          <div className="pt-4 text-3xl">{description}</div>
+          <div className="pt-4 text-xl">{description}</div>
         </div>
       </div>
       <div className="ml-8 flex gap-4">

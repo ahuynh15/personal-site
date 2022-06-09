@@ -10,6 +10,7 @@ const ExperiencesSlice = createSlice({
   initialState: {
     data: [
       {
+        id: 1,
         title: 'Position',
         startDate: { year: 2020, month: 7 },
         endDate: { year: 2021, month: 8 },
@@ -18,6 +19,7 @@ const ExperiencesSlice = createSlice({
         tags: ['Tag A'],
       },
       {
+        id: 2,
         title: 'Position',
         startDate: { year: 2020, month: 7 },
         endDate: { year: 2021, month: 8 },
@@ -26,6 +28,7 @@ const ExperiencesSlice = createSlice({
         tags: ['Tag B'],
       },
       {
+        id: 3,
         title: 'Position',
         startDate: { year: 2020, month: 7 },
         endDate: { year: 2021, month: 8 },
@@ -34,6 +37,7 @@ const ExperiencesSlice = createSlice({
         tags: ['Tag C'],
       },
       {
+        id: 4,
         title: 'Position',
         startDate: { year: 2020, month: 7 },
         endDate: { year: 2021, month: 8 },
