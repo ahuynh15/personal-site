@@ -1,6 +1,6 @@
 import { TextCarousel } from './TextCarousel';
 
-const HomePageWrapper = () => {
+const AboutPageWrapper = () => {
   return (
     <div className="flex h-screen items-center">
       <div className="w-full">
@@ -22,4 +22,4 @@ const HomePageWrapper = () => {
   );
 };
 
-export default HomePageWrapper;
+export default AboutPageWrapper;

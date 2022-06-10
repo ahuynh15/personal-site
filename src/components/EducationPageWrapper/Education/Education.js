@@ -52,8 +52,14 @@ const Education = ({
 Education.propTypes = {
   title: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  startDate: PropTypes.instanceOf(Date).isRequired,
-  endDate: PropTypes.instanceOf(Date).isRequired,
+  startDate: PropTypes.shape({
+    year: PropTypes.number.isRequired,
+    month: PropTypes.number.isRequired,
+  }).isRequired,
+  endDate: PropTypes.shape({
+    year: PropTypes.number.isRequired,
+    month: PropTypes.number.isRequired,
+  }).isRequired,
   description: PropTypes.string.isRequired,
   additionalHeaders: PropTypes.arrayOf(PropTypes.string),
 };
