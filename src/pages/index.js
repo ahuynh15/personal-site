@@ -14,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex h-full pb-8">
+      <main className="flex h-full">
         {/* Content */}
         <div className="mx-16 grow">
           <div id="about">
@@ -29,6 +29,7 @@ export default function Home() {
           <div id="education">
             <EducationPageWrapper />
           </div>
+          <div id="contact"></div>
         </div>
 
         {/* Fixed Sidebar */}

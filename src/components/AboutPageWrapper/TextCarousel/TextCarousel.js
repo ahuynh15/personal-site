@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
+import { motion, LayoutGroup } from 'framer-motion';
 
 const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
   const [index, setIndex] = useState(startingIndex % (text.length * 2));
@@ -41,33 +41,35 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
   };
 
   return (
-    <div className="text-carousel flex flex-col">
-      {getLines().map((line, index) => {
-        const rgb = 255 - 255 / Math.pow(2, index);
-        const id = `${line.text} ${line.index}`;
+    <LayoutGroup id="text-carousel">
+      <div className="text-carousel flex flex-col">
+        {getLines().map((line, index) => {
+          const rgb = 255 - 255 / Math.pow(2, index);
+          const id = `${line.text} ${line.index}`;
 
-        return (
-          <motion.div
-            className="pb-8 text-5xl"
-            key={id}
-            layoutId={id}
-            style={{
-              originX: 0,
-            }}
-            initial={{
-              opacity: 0,
-              color: `rgb(${rgb}, ${rgb}, ${rgb})`,
-            }}
-            animate={{
-              opacity: 1,
-              color: `rgb(${rgb}, ${rgb}, ${rgb})`,
-            }}
-          >
-            {line.text}
-          </motion.div>
-        );
-      })}
-    </div>
+          return (
+            <motion.div
+              className="pb-8 text-5xl"
+              key={id}
+              layoutId={id}
+              style={{
+                originX: 0,
+              }}
+              initial={{
+                opacity: 0,
+                color: `rgb(${rgb}, ${rgb}, ${rgb})`,
+              }}
+              animate={{
+                opacity: 1,
+                color: `rgb(${rgb}, ${rgb}, ${rgb})`,
+              }}
+            >
+              {line.text}
+            </motion.div>
+          );
+        })}
+      </div>
+    </LayoutGroup>
   );
 };
 
