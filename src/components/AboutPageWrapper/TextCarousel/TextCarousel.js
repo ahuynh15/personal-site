@@ -2,8 +2,11 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion, LayoutGroup } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useSelector } from 'react-redux';
+import { selectDarkMode } from '@/slices/DarkModeSlice';
 
 const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
+  const darkMode = useSelector((state) => selectDarkMode(state));
   const [index, setIndex] = useState(startingIndex % (text.length * 2));
 
   // Calculate how many lines need to be displayed
@@ -42,11 +45,19 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
     return lines;
   };
 
+  const calculateRgb = (index, darkMode) => {
+    if (darkMode) {
+      return 255 / Math.pow(2, index);
+    } else {
+      return 255 - 255 / Math.pow(2, index);
+    }
+  };
+
   return (
     <LayoutGroup id="text-carousel">
       <div className="text-carousel flex flex-col" ref={ref}>
         {getLines().map((line, index) => {
-          const rgb = 39 + (216 - 216 / Math.pow(2, index));
+          const rgb = calculateRgb(index, darkMode);
           const id = `${line.text} ${line.index}`;
 
           return (

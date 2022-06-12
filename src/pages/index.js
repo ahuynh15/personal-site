@@ -5,6 +5,7 @@ import { SkillsPageWrapper } from '@/components/SkillsPageWrapper';
 import { ExperiencePageWrapper } from '@/components/ExperiencePageWrapper';
 import { EducationPageWrapper } from '@/components/EducationPageWrapper';
 import { ContactPageWrapper } from '@/components/ContactPageWrapper';
+import { DarkModeToggle } from '@/components/Common/DarkModeToggle';
 
 export default function Home() {
   return (
@@ -15,7 +16,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex h-full text-black">
+      <main className="flex h-full bg-white text-black dark:bg-black dark:text-white">
+        {/* Fixed Dark Mode Toggle */}
+        <div className="fixed top-8 right-8 z-10">
+          <DarkModeToggle />
+        </div>
+
         {/* Content */}
         <div className="mx-16 grow">
           <div id="about" className="h-screen">
