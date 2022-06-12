@@ -1,3 +1,5 @@
 import XIcon from './XIcon';
+import LinkedInIcon from './LinkedInIcon';
+import LinkIcon from './LinkIcon';
 
-export { XIcon };
+export { XIcon, LinkedInIcon, LinkIcon };

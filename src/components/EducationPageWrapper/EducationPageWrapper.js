@@ -14,7 +14,7 @@ const EducationPageWrapper = () => {
 
   return (
     <div ref={ref}>
-      <div className="pb-2 text-5xl">I have completed...</div>
+      <div className="text-5xl">I have completed...</div>
       <div className="mt-8">
         <EducationList />
       </div>

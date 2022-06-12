@@ -15,8 +15,6 @@ const Sidebar = () => {
 
   // TODO: Layout projects do not work perfect with sticky components...issue opened on github: https://github.com/framer/motion/issues/1535
 
-  console.log(styleConfig.theme.colors);
-
   return (
     <nav className="sticky top-0 mx-8 flex h-screen items-center text-2xl">
       <LayoutGroup id="sidebar">
