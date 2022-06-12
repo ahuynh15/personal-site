@@ -44,7 +44,7 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
     <LayoutGroup id="text-carousel">
       <div className="text-carousel flex flex-col">
         {getLines().map((line, index) => {
-          const rgb = 255 - 255 / Math.pow(2, index);
+          const rgb = 39 + (216 - 216 / Math.pow(2, index));
           const id = `${line.text} ${line.index}`;
 
           return (

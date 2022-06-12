@@ -4,6 +4,7 @@ import { AboutPageWrapper } from '@/components/AboutPageWrapper';
 import { SkillsPageWrapper } from '@/components/SkillsPageWrapper';
 import { ExperiencePageWrapper } from '@/components/ExperiencePageWrapper';
 import { EducationPageWrapper } from '@/components/EducationPageWrapper';
+import { ContactPageWrapper } from '@/components/ContactPageWrapper';
 
 export default function Home() {
   return (
@@ -14,22 +15,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex h-full">
+      <main className="flex h-full text-black">
         {/* Content */}
         <div className="mx-16 grow">
-          <div id="about">
+          <div id="about" className="h-screen">
             <AboutPageWrapper />
           </div>
-          <div id="skills">
+          <div id="skills" className="pt-16">
             <SkillsPageWrapper />
           </div>
-          <div id="experience">
+          <div id="experience" className="pt-16">
             <ExperiencePageWrapper />
           </div>
-          <div id="education">
+          <div id="education" className="pt-16">
             <EducationPageWrapper />
           </div>
-          <div id="contact"></div>
+          <div id="contact" className="h-screen pt-16">
+            <ContactPageWrapper />
+          </div>
         </div>
 
         {/* Fixed Sidebar */}

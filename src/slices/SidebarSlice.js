@@ -38,7 +38,6 @@ export const selectCurrentSection = (state) => {
         currentSection = visibleSections[i];
       }
     }
-    console.log(currentSection.id);
     return currentSection.id;
   } else {
     return '';

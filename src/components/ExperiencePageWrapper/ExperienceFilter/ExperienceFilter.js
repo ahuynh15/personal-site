@@ -42,7 +42,7 @@ const ExperienceFilter = ({ tags }) => {
           );
         })}
         <div>
-          <button className="text-gray-500" onClick={() => onClear()}>
+          <button onClick={() => onClear()}>
             <div className="flex items-center gap-1">
               Clear
               <XIcon size={16} />

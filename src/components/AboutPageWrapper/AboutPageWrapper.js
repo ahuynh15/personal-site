@@ -13,7 +13,7 @@ const AboutPageWrapper = () => {
   });
 
   return (
-    <div className="flex h-screen items-center" ref={ref}>
+    <div className="flex h-full items-center" ref={ref}>
       <div className="w-full">
         <div className="mb-8 text-5xl" ref={ref}>
           Hello, I&apos;m Alvin Huynh...
