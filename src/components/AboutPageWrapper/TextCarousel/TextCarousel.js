@@ -1,18 +1,20 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion, LayoutGroup } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
   const [index, setIndex] = useState(startingIndex % (text.length * 2));
-  const [pause, setPause] = useState(false);
 
   // Calculate how many lines need to be displayed
   const linesToRender =
     displayLimit <= text.length ? displayLimit : text.length;
 
+  const { ref, inView } = useInView();
+
   useEffect(() => {
     let interval = null;
-    if (!pause) {
+    if (inView) {
       interval = setInterval(() => {
         setIndex((index + 1) % (text.length * 2));
       }, 5000);
@@ -21,7 +23,7 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
     }
 
     return () => clearInterval(interval);
-  }, [index, setIndex, pause, text.length]);
+  }, [index, setIndex, inView, text.length]);
 
   const getLines = () => {
     let lines = [];
@@ -42,7 +44,7 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
 
   return (
     <LayoutGroup id="text-carousel">
-      <div className="text-carousel flex flex-col">
+      <div className="text-carousel flex flex-col" ref={ref}>
         {getLines().map((line, index) => {
           const rgb = 39 + (216 - 216 / Math.pow(2, index));
           const id = `${line.text} ${line.index}`;
