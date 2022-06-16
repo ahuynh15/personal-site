@@ -2,7 +2,10 @@ import { Sidebar } from '@/Common';
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
-import { selectDarkMode } from '@/slices/DarkModeSlice';
+import {
+  selectIsDarkMode,
+  selectIsDarkModePreferred,
+} from '@/slices/ThemeSlice';
 import { AboutPageWrapper } from '@/components/AboutPageWrapper';
 import { SkillsPageWrapper } from '@/components/SkillsPageWrapper';
 import { ExperiencePageWrapper } from '@/components/ExperiencePageWrapper';
@@ -12,10 +15,13 @@ import { DarkModeToggle } from '@/components/Common/DarkModeToggle';
 import { animateDarkMode } from '@/lib/animationVariants';
 
 export default function Home() {
-  const darkMode = useSelector((state) => selectDarkMode(state));
+  const isDarkModePreferred = useSelector((state) =>
+    selectIsDarkModePreferred(state)
+  );
+  const isDarkMode = useSelector((state) => selectIsDarkMode(state));
 
   return (
-    <div className={`${darkMode && 'dark'}`}>
+    <div>
       <Head>
         <title>Alvin Huynh</title>
         <meta name="description" content="Alvin Huynh's Personal Site" />
@@ -25,7 +31,8 @@ export default function Home() {
       <motion.main
         className="flex h-full"
         variants={animateDarkMode(['background', 'text'])}
-        animate={darkMode ? 'dark' : 'light'}
+        initial={isDarkModePreferred ? 'dark' : 'light'}
+        animate={isDarkMode ? 'dark' : 'light'}
       >
         {/* Fixed Dark Mode Toggle */}
         <div className="fixed top-8 right-8 z-10">

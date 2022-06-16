@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { motion, LayoutGroup } from 'framer-motion';
+import { motion, LayoutGroup, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useSelector } from 'react-redux';
-import { selectDarkMode } from '@/slices/DarkModeSlice';
+import { selectIsDarkMode } from '@/slices/ThemeSlice';
 
 const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
-  const darkMode = useSelector((state) => selectDarkMode(state));
+  const isDarkMode = useSelector((state) => selectIsDarkMode(state));
   const [index, setIndex] = useState(startingIndex % (text.length * 2));
 
   // Calculate how many lines need to be displayed
@@ -54,35 +54,37 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
   };
 
   return (
-    <LayoutGroup id="text-carousel">
-      <div className="text-carousel flex flex-col" ref={ref}>
-        {getLines().map((line, index) => {
-          const rgb = calculateRgb(index, darkMode);
-          const id = `${line.text} ${line.index}`;
+    <AnimatePresence initial={false}>
+      <LayoutGroup id="text-carousel">
+        <div className="text-carousel flex flex-col" ref={ref}>
+          {getLines().map((line, index) => {
+            const rgb = calculateRgb(index, isDarkMode);
+            const id = `${line.text} ${line.index}`;
 
-          return (
-            <motion.div
-              className="pb-8 text-5xl"
-              key={id}
-              layoutId={id}
-              style={{
-                originX: 0,
-              }}
-              initial={{
-                opacity: 0,
-                color: `rgb(${rgb}, ${rgb}, ${rgb})`,
-              }}
-              animate={{
-                opacity: 1,
-                color: `rgb(${rgb}, ${rgb}, ${rgb})`,
-              }}
-            >
-              {line.text}
-            </motion.div>
-          );
-        })}
-      </div>
-    </LayoutGroup>
+            return (
+              <motion.div
+                className="pb-8 text-5xl"
+                key={id}
+                layoutId={id}
+                style={{
+                  originX: 0,
+                }}
+                initial={{
+                  opacity: 0,
+                  color: `rgb(${rgb}, ${rgb}, ${rgb})`,
+                }}
+                animate={{
+                  opacity: 1,
+                  color: `rgb(${rgb}, ${rgb}, ${rgb})`,
+                }}
+              >
+                {line.text}
+              </motion.div>
+            );
+          })}
+        </div>
+      </LayoutGroup>
+    </AnimatePresence>
   );
 };
 

@@ -31,7 +31,5 @@ export const animateDarkMode = (properties) => {
     };
   }
 
-  console.log(darkMode);
-
   return darkMode;
 };

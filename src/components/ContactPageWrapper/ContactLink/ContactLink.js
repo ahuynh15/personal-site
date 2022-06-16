@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from 'tailwindConfig';
-import { selectDarkMode } from '@/slices/DarkModeSlice';
+import { selectIsDarkMode } from '@/slices/ThemeSlice';
 
 const ContactLink = ({ label, href, icon = <LinkIcon size={24} /> }) => {
   const styleConfig = resolveConfig(tailwindConfig);
-  const darkMode = useSelector((state) => selectDarkMode(state));
+  const isDarkMode = useSelector((state) => selectIsDarkMode(state));
 
   return (
     <div className="inline-block">
@@ -16,7 +16,7 @@ const ContactLink = ({ label, href, icon = <LinkIcon size={24} /> }) => {
         href={href}
         className="flex items-center text-4xl"
         animate={{
-          color: darkMode
+          color: isDarkMode
             ? styleConfig.theme.colors['white']
             : styleConfig.theme.colors['black'],
         }}

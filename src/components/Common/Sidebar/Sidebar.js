@@ -7,13 +7,19 @@ import { LayoutGroup, motion } from 'framer-motion';
 import Link from 'next/link';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from 'tailwindConfig';
-import { selectDarkMode } from '@/slices/DarkModeSlice';
+import {
+  selectIsDarkMode,
+  selectIsDarkModePreferred,
+} from '@/slices/ThemeSlice';
 
 const Sidebar = () => {
   const styleConfig = resolveConfig(tailwindConfig);
   const pageSections = useSelector((state) => selectPageSections(state));
   const currentSection = useSelector((state) => selectCurrentSection(state));
-  const darkMode = useSelector((state) => selectDarkMode(state));
+  const isDarkModePreferred = useSelector((state) =>
+    selectIsDarkModePreferred(state)
+  );
+  const isDarkMode = useSelector((state) => selectIsDarkMode(state));
 
   // TODO: Layout projects do not work perfect with sticky components...issue opened on github: https://github.com/framer/motion/issues/1535
 
@@ -26,8 +32,17 @@ const Sidebar = () => {
               <div className="mb-12 box-border flex" key={pageSection}>
                 <motion.li
                   className={`${currentSection !== pageSection && 'pb-0.5'}`}
+                  initial={{
+                    color: isDarkModePreferred
+                      ? currentSection !== pageSection
+                        ? styleConfig.theme.colors['gray']['700']
+                        : styleConfig.theme.colors['white']
+                      : currentSection !== pageSection
+                      ? styleConfig.theme.colors['gray']['300']
+                      : styleConfig.theme.colors['black'],
+                  }}
                   animate={{
-                    color: darkMode
+                    color: isDarkMode
                       ? currentSection !== pageSection
                         ? styleConfig.theme.colors['gray']['700']
                         : styleConfig.theme.colors['white']
@@ -36,7 +51,7 @@ const Sidebar = () => {
                       : styleConfig.theme.colors['black'],
                   }}
                   whileHover={{
-                    color: darkMode
+                    color: isDarkMode
                       ? styleConfig.theme.colors['white']
                       : styleConfig.theme.colors['black'],
                   }}
