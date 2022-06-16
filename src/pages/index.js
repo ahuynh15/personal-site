@@ -1,4 +1,4 @@
-import { Sidebar } from '@/Common';
+import { ScrollIndicator, Sidebar } from '@/Common';
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
@@ -37,6 +37,11 @@ export default function Home() {
         {/* Fixed Dark Mode Toggle */}
         <div className="fixed top-8 right-8 z-10">
           <DarkModeToggle />
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="fixed left-1/2 bottom-4 z-10 -translate-x-1/2">
+          <ScrollIndicator />
         </div>
 
         {/* Content */}
