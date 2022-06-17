@@ -35,25 +35,29 @@ const Sidebar = () => {
                   initial={{
                     color: isDarkModePreferred
                       ? currentSection !== pageSection
-                        ? styleConfig.theme.colors['gray']['700']
-                        : styleConfig.theme.colors['white']
+                        ? styleConfig.theme.colors['sidebar']['inactive'][
+                            'dark'
+                          ]
+                        : styleConfig.theme.colors['sidebar']['active']['dark']
                       : currentSection !== pageSection
-                      ? styleConfig.theme.colors['gray']['300']
-                      : styleConfig.theme.colors['black'],
+                      ? styleConfig.theme.colors['sidebar']['inactive']['light']
+                      : styleConfig.theme.colors['sidebar']['active']['light'],
                   }}
                   animate={{
                     color: isDarkMode
                       ? currentSection !== pageSection
-                        ? styleConfig.theme.colors['gray']['700']
-                        : styleConfig.theme.colors['white']
+                        ? styleConfig.theme.colors['sidebar']['inactive'][
+                            'dark'
+                          ]
+                        : styleConfig.theme.colors['sidebar']['active']['dark']
                       : currentSection !== pageSection
-                      ? styleConfig.theme.colors['gray']['300']
-                      : styleConfig.theme.colors['black'],
+                      ? styleConfig.theme.colors['sidebar']['inactive']['light']
+                      : styleConfig.theme.colors['sidebar']['active']['light'],
                   }}
                   whileHover={{
                     color: isDarkMode
-                      ? styleConfig.theme.colors['white']
-                      : styleConfig.theme.colors['black'],
+                      ? styleConfig.theme.colors['sidebar']['active']['dark']
+                      : styleConfig.theme.colors['sidebar']['active']['light'],
                   }}
                 >
                   <Link href={`#${pageSection}`}>{`${pageSection}.`}</Link>

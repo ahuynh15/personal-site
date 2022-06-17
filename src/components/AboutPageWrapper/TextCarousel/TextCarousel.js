@@ -49,7 +49,7 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
     if (darkMode) {
       return 255 / Math.pow(2, index);
     } else {
-      return 255 - 255 / Math.pow(2, index);
+      return 255 - 225 / Math.pow(2, index);
     }
   };
 

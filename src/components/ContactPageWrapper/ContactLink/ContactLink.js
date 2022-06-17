@@ -4,22 +4,27 @@ import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from 'tailwindConfig';
-import { selectIsDarkMode } from '@/slices/ThemeSlice';
+import {
+  selectIsDarkMode,
+  selectIsDarkModePreferred,
+} from '@/slices/ThemeSlice';
+import { animateDarkMode } from '@/lib/animationVariants';
 
 const ContactLink = ({ label, href, icon = <LinkIcon size={24} /> }) => {
   const styleConfig = resolveConfig(tailwindConfig);
   const isDarkMode = useSelector((state) => selectIsDarkMode(state));
+  const isDarkModePreferred = useSelector((state) =>
+    selectIsDarkModePreferred(state)
+  );
 
   return (
     <div className="inline-block">
       <motion.a
         href={href}
         className="flex items-center text-4xl"
-        animate={{
-          color: isDarkMode
-            ? styleConfig.theme.colors['white']
-            : styleConfig.theme.colors['black'],
-        }}
+        variants={animateDarkMode(['background', 'text'])}
+        initial={isDarkModePreferred ? 'dark' : 'light'}
+        animate={isDarkMode ? 'dark' : 'light'}
         whileHover={{
           color: styleConfig.theme.colors['orange']['500'],
         }}

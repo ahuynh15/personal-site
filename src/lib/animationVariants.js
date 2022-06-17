@@ -12,22 +12,33 @@ export const animateDarkMode = (properties) => {
   if (properties.includes('background')) {
     darkMode.dark = {
       ...darkMode.dark,
-      background: styleConfig.theme.colors['black'],
+      background: styleConfig.theme.colors['background']['dark'],
     };
     darkMode.light = {
       ...darkMode.light,
-      background: styleConfig.theme.colors['white'],
+      background: styleConfig.theme.colors['background']['light'],
     };
   }
 
   if (properties.includes('text')) {
     darkMode.dark = {
       ...darkMode.dark,
-      color: styleConfig.theme.colors['white'],
+      color: styleConfig.theme.colors['text']['dark'],
     };
     darkMode.light = {
       ...darkMode.light,
-      color: styleConfig.theme.colors['black'],
+      color: styleConfig.theme.colors['text']['light'],
+    };
+  }
+
+  if (properties.includes('container')) {
+    darkMode.dark = {
+      ...darkMode.dark,
+      background: styleConfig.theme.colors['container']['dark'],
+    };
+    darkMode.light = {
+      ...darkMode.light,
+      background: styleConfig.theme.colors['container']['light'],
     };
   }
 
