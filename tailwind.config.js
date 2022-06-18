@@ -17,6 +17,7 @@ module.exports = {
           active: { dark: '#ffffff', light: '#1e1e1e' },
           inactive: { dark: '#3e3e3e', light: '#d6d6d6' },
         },
+        overlay: 'rgba(0,0,0,0.8)',
       },
     },
   },
