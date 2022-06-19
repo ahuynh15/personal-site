@@ -100,13 +100,13 @@ const ExpandedExperience = ({
                 {description}
               </motion.div>
 
-              {/* Less Info */}
+              {/* Less Details */}
               <button
                 className="text-l mt-2 text-primary underline"
                 type="button"
                 onClick={onExitClick}
               >
-                Less Info
+                Less Details
               </button>
             </div>
           </div>
