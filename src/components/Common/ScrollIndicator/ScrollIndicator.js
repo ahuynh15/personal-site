@@ -17,7 +17,7 @@ const ScrollIndicator = () => {
         opacity: opacity,
       }}
     >
-      <DownIcon size={'24'} />
+      <DownIcon size={24} />
     </motion.div>
   );
 };

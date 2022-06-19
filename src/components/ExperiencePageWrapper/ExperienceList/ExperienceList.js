@@ -34,6 +34,7 @@ const ExperienceList = () => {
           {experiences.map((experience) => {
             return (
               <Experience
+                key={experience.id}
                 id={experience.id}
                 title={experience.title}
                 startDate={experience.startDate}

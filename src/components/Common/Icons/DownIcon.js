@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const LinkedInIcon = ({ size = 32, color = 'currentColor' }) => {
+const DownIcon = ({ size = 32, color = 'currentColor' }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -20,9 +20,9 @@ const LinkedInIcon = ({ size = 32, color = 'currentColor' }) => {
   );
 };
 
-LinkedInIcon.propTypes = {
+DownIcon.propTypes = {
   size: PropTypes.number,
   color: PropTypes.string,
 };
 
-export default LinkedInIcon;
+export default DownIcon;

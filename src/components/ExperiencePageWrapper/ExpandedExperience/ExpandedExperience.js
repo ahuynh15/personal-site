@@ -94,7 +94,7 @@ const ExpandedExperience = ({
 
               {/* Description */}
               <motion.div
-                className="pt-4 text-xl"
+                className="text-l mt-2"
                 layoutId={`experience-description-${id}`}
               >
                 {description}
@@ -102,11 +102,11 @@ const ExpandedExperience = ({
 
               {/* Less Info */}
               <button
-                className="text-l pt-2 font-semibold tracking-wider"
+                className="text-l mt-2 text-primary underline"
                 type="button"
                 onClick={onExitClick}
               >
-                Show Less
+                Less Info
               </button>
             </div>
           </div>

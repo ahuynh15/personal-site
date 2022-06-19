@@ -80,13 +80,14 @@ const Education = ({
             )}
           </div>
           {/* Description */}
-          <div className="mt-4 whitespace-pre-line text-xl">{description}</div>
+          <div className="text-l mt-2 whitespace-pre-line">{description}</div>
           {/* Links */}
           {credential && (
             <div className="mt-2">
               <a
                 href={credential.href}
                 target="_blank"
+                rel="noreferrer"
                 className="text-primary underline"
               >
                 Show Credential
@@ -113,8 +114,7 @@ Education.propTypes = {
   description: PropTypes.string.isRequired,
   additionalHeaders: PropTypes.arrayOf(PropTypes.string),
   credential: PropTypes.shape({
-    label: PropTypes.number.isRequired,
-    href: PropTypes.number.isRequired,
+    href: PropTypes.string.isRequired,
   }),
 };
 
