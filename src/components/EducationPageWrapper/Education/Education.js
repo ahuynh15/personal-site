@@ -14,6 +14,7 @@ const Education = ({
   endDate,
   description,
   additionalHeaders,
+  credential,
 }) => {
   const isDarkMode = useSelector((state) => selectIsDarkMode(state));
   const isDarkModePreferred = useSelector((state) =>
@@ -43,23 +44,55 @@ const Education = ({
             {/* Location */}
             {location}&nbsp;&#8226;&nbsp;
             {/* Date */}
-            {new Date(startDate.year, startDate.month).toLocaleString(
-              'default',
-              {
-                month: 'short',
-                year: 'numeric',
-              }
+            {startDate.year === endDate.year &&
+            startDate.month === startDate.month ? (
+              <>
+                {new Date(startDate.year, startDate.month).toLocaleString(
+                  'default',
+                  {
+                    month: 'short',
+                    year: 'numeric',
+                  }
+                )}
+              </>
+            ) : (
+              <>
+                {new Date(startDate.year, startDate.month).toLocaleString(
+                  'default',
+                  {
+                    month: 'short',
+                    year: 'numeric',
+                  }
+                )}
+                &nbsp;-&nbsp;
+                {new Date(endDate.year, endDate.month).toLocaleString(
+                  'default',
+                  {
+                    month: 'short',
+                    year: 'numeric',
+                  }
+                )}
+              </>
             )}
-            &nbsp;-&nbsp;
-            {new Date(endDate.year, endDate.month).toLocaleString('default', {
-              month: 'short',
-              year: 'numeric',
-            })}
             {/* Other Headers */}
-            &nbsp;&#8226;&nbsp;{additionalHeaders?.join(' • ')}
+            {additionalHeaders?.length > 0 && (
+              <>&nbsp;&#8226;&nbsp;{additionalHeaders?.join(' • ')}</>
+            )}
           </div>
           {/* Description */}
-          <div className="pt-4 text-xl">{description}</div>
+          <div className="mt-4 whitespace-pre-line text-xl">{description}</div>
+          {/* Links */}
+          {credential && (
+            <div className="mt-2">
+              <a
+                href={credential.href}
+                target="_blank"
+                className="text-primary underline"
+              >
+                Show Credential
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </motion.li>
@@ -79,6 +112,10 @@ Education.propTypes = {
   }).isRequired,
   description: PropTypes.string.isRequired,
   additionalHeaders: PropTypes.arrayOf(PropTypes.string),
+  credential: PropTypes.shape({
+    label: PropTypes.number.isRequired,
+    href: PropTypes.number.isRequired,
+  }),
 };
 
 export default Education;

@@ -16,6 +16,7 @@ const EducationList = () => {
               endDate={item.endDate}
               description={item.description}
               additionalHeaders={item.additionalHeaders}
+              credential={item.credential}
             />
           </div>
         );
