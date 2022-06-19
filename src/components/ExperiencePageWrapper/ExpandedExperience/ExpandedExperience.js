@@ -26,12 +26,12 @@ const ExpandedExperience = ({
   return (
     <div>
       {/* Overlay */}
-      {/* <motion.div
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="pointer-events-auto fixed top-0 left-0 z-10 flex h-full w-full bg-overlay"
-      ></motion.div> */}
+      ></motion.div>
 
       {/* Container */}
       <div className="fixed top-0 left-0 z-10 flex h-full w-full items-center justify-center">

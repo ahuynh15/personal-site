@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Experience } from '../Experience';
 import { selectFilteredExperiences } from '@/slices/ExperiencesSlice';
@@ -15,6 +15,16 @@ const ExperienceList = () => {
     setSelectedExperience(null);
   };
 
+  useEffect(() => {
+    if (selectedExperience) {
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedExperience]);
+
   // TODO: EXPAND EXPERIENCE ON CLICK (Example -> https://www.framer.com/motion/)
 
   return (
@@ -23,29 +33,17 @@ const ExperienceList = () => {
         <AnimatePresence initial={false}>
           {experiences.map((experience) => {
             return (
-              <motion.div
-                className="mb-8 overflow-hidden rounded-2xl"
-                key={experience.id}
-                variants={{
-                  visible: { opacity: 2, height: 'auto', marginBottom: '32px' },
-                  hidden: { opacity: 0, height: 0, marginBottom: '0px' },
+              <Experience
+                id={experience.id}
+                title={experience.title}
+                startDate={experience.startDate}
+                endDate={experience.endDate}
+                description={experience.description}
+                tags={experience.tags}
+                onExpand={() => {
+                  setSelectedExperience(experience);
                 }}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-              >
-                <Experience
-                  id={experience.id}
-                  title={experience.title}
-                  startDate={experience.startDate}
-                  endDate={experience.endDate}
-                  description={experience.description}
-                  tags={experience.tags}
-                  onExpand={() => {
-                    setSelectedExperience(experience);
-                  }}
-                />
-              </motion.div>
+              />
             );
           })}
         </AnimatePresence>
