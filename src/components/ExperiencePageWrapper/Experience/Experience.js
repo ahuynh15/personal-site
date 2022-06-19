@@ -35,7 +35,7 @@ const Experience = ({
       exit="hidden"
     >
       <motion.div
-        className={`list-none p-4 shadow-md`}
+        className={`p-4 shadow-md`}
         layoutId={`experience-${id}`}
         variants={animateDarkMode(['container'])}
         initial={isDarkModePreferred ? 'dark' : 'light'}

@@ -1,4 +1,11 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { motion } from 'framer-motion';
+import {
+  selectIsDarkMode,
+  selectIsDarkModePreferred,
+} from '@/slices/ThemeSlice';
+import { animateDarkMode } from '@/lib/animationVariants';
 
 const Education = ({
   title,
@@ -8,8 +15,18 @@ const Education = ({
   description,
   additionalHeaders,
 }) => {
+  const isDarkMode = useSelector((state) => selectIsDarkMode(state));
+  const isDarkModePreferred = useSelector((state) =>
+    selectIsDarkModePreferred(state)
+  );
+
   return (
-    <li className="list-none">
+    <motion.li
+      className="shadow-m list-none rounded-2xl bg-red-50 p-4"
+      variants={animateDarkMode(['container'])}
+      initial={isDarkModePreferred ? 'dark' : 'light'}
+      animate={isDarkMode ? 'dark' : 'light'}
+    >
       <div className="flex gap-4">
         {/* Bullet Point */}
         <div className="h-4 w-4 shrink-0 grow-0 self-center rounded-full bg-gray-300"></div>
@@ -45,7 +62,7 @@ const Education = ({
           <div className="pt-4 text-xl">{description}</div>
         </div>
       </div>
-    </li>
+    </motion.li>
   );
 };
 
