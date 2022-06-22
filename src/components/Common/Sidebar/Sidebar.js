@@ -63,7 +63,7 @@ const Sidebar = () => {
                   <Link href={`#${pageSection}`}>{`${pageSection}.`}</Link>
                   {currentSection === pageSection && (
                     <motion.div
-                      className="h-0.5 w-full bg-orange-500"
+                      className="h-0.5 w-full bg-primary"
                       layoutId="indicator"
                     ></motion.div>
                   )}

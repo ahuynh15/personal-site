@@ -2,18 +2,11 @@ import { SkillList } from './SkillList';
 import { useInView } from 'react-intersection-observer';
 import { useDispatch } from 'react-redux';
 import { setPageAnchor } from '@/slices/SidebarSlice';
+import { PageContainer } from '@/Common';
 
 const SkillsPageWrapper = () => {
-  const dispatch = useDispatch();
-  const { ref } = useInView({
-    threshold: 0.1,
-    onChange: (inView) => {
-      dispatch(setPageAnchor({ pageAnchor: 'skills', visible: inView }));
-    },
-  });
-
   return (
-    <div ref={ref}>
+    <div className="flex h-full flex-col bg-red-600">
       <div className="mb-8 text-5xl">I have experience with...</div>
       <div className="ml-16 mt-4">
         <SkillList

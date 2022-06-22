@@ -37,10 +37,10 @@ const Education = ({
       <div className="flex gap-4 pb-4">
         {/* Accent */}
         <div className="w-4 shrink-0 grow-0">
-          <div className="mx-auto h-1/2 w-1 bg-orange-500"></div>
+          <div className="mx-auto h-1/2 w-1 bg-primary"></div>
         </div>
         <div>
-          <div className="text-xl text-orange-500">
+          <div className="text-xl text-primary">
             {/* Location */}
             {location}&nbsp;&#8226;&nbsp;
             {/* Date */}

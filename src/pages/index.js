@@ -1,7 +1,7 @@
-import { ScrollIndicator, Sidebar } from '@/Common';
+import { ScrollIndicator, Sidebar, PageContainer } from '@/Common';
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import {
   selectIsDarkMode,
   selectIsDarkModePreferred,
@@ -13,12 +13,42 @@ import { EducationPageWrapper } from '@/components/EducationPageWrapper';
 import { ContactPageWrapper } from '@/components/ContactPageWrapper';
 import { DarkModeToggle } from '@/components/Common/DarkModeToggle';
 import { animateDarkMode } from '@/lib/animationVariants';
+import { HomePageWrapper } from '@/components/HomePageWrapper';
+import { useState } from 'react';
 
 export default function Home() {
   const isDarkModePreferred = useSelector((state) =>
     selectIsDarkModePreferred(state)
   );
   const isDarkMode = useSelector((state) => selectIsDarkMode(state));
+
+  const pages = {
+    about: { index: 1, component: <AboutPageWrapper /> },
+    skills: {
+      index: 2,
+      component: <SkillsPageWrapper />,
+    },
+    experience: {
+      index: 3,
+      component: <ExperiencePageWrapper />,
+    },
+    education: {
+      index: 4,
+      component: <EducationPageWrapper />,
+    },
+    contact: {
+      index: 5,
+      component: <ContactPageWrapper />,
+    },
+  };
+
+  const [pageData, setPageData] = useState({
+    currentPage: 'about',
+    currentIndex: 1,
+    prevIndex: 0,
+  });
+
+  const [isAnimating, setIsAnimating] = useState(false);
 
   return (
     <div>
@@ -28,44 +58,52 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <motion.main
-        className="flex h-full"
-        variants={animateDarkMode(['background', 'text'])}
-        initial={isDarkModePreferred ? 'dark' : 'light'}
-        animate={isDarkMode ? 'dark' : 'light'}
-      >
-        {/* Fixed Dark Mode Toggle */}
-        <div className="fixed top-8 right-8 z-10">
-          <DarkModeToggle />
-        </div>
+      <main className="relative flex h-screen w-screen overflow-hidden">
+        <AnimatePresence
+          onExitComplete={() => {
+            console.log(`loaded`);
+            setIsAnimating(false);
+          }}
+          custom={{ nextIndex: pageData.currentIndex }}
+        >
+          <PageContainer
+            key={pageData.currentIndex}
+            index={pageData.currentIndex}
+            prevIndex={pageData.prevIndex}
+          >
+            {pages[pageData.currentPage].component}
+          </PageContainer>
+        </AnimatePresence>
 
-        {/* Scroll Indicator */}
-        <div className="fixed left-1/2 bottom-4 z-10 -translate-x-1/2">
-          <ScrollIndicator />
-        </div>
-
-        {/* Content */}
-        <div className="mx-16 grow">
-          <div id="about" className="h-screen">
-            <AboutPageWrapper />
+        {!isAnimating && (
+          <div className="fixed right-0 z-20">
+            <button
+              onClick={() => {
+                setIsAnimating(true);
+                setPageData({
+                  currentPage: 'about',
+                  currentIndex: 1,
+                  prevIndex: pageData.currentIndex,
+                });
+              }}
+            >
+              About
+            </button>
+            <button
+              onClick={() => {
+                setIsAnimating(true);
+                setPageData({
+                  currentPage: 'skills',
+                  currentIndex: 2,
+                  prevIndex: pageData.currentIndex,
+                });
+              }}
+            >
+              Skill
+            </button>
           </div>
-          <div id="skills" className="pt-16">
-            <SkillsPageWrapper />
-          </div>
-          <div id="experience" className="pt-16">
-            <ExperiencePageWrapper />
-          </div>
-          <div id="education" className="pt-16">
-            <EducationPageWrapper />
-          </div>
-          <div id="contact" className="h-screen pt-16">
-            <ContactPageWrapper />
-          </div>
-        </div>
-
-        {/* Fixed Sidebar */}
-        <Sidebar />
-      </motion.main>
+        )}
+      </main>
     </div>
   );
 }

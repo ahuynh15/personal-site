@@ -29,7 +29,7 @@ const DarkModeToggle = () => {
             initial="initial"
             animate="animate"
           >
-            <SunIcon color={styleConfig.theme.colors['orange']['500']} />
+            <SunIcon color={styleConfig.theme.colors['primary']} />
           </motion.div>
         ) : (
           <motion.div

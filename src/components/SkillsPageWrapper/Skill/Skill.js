@@ -5,7 +5,7 @@ const Skill = ({ index, name, subskills }) => {
     <>
       <div className="flex items-baseline">
         <span className="text-2xl">{index}.&nbsp;</span>
-        <span className="relative pb-2 text-4xl before:absolute before:bottom-0 before:w-1/2 before:border-2 before:border-solid before:border-orange-500 before:content-['']">
+        <span className="relative pb-2 text-4xl before:absolute before:bottom-0 before:w-1/2 before:border-2 before:border-solid before:border-primary before:content-['']">
           {name}.
         </span>
       </div>

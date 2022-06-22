@@ -26,7 +26,7 @@ const ContactLink = ({ label, href, icon = <LinkIcon size={24} /> }) => {
         initial={isDarkModePreferred ? 'dark' : 'light'}
         animate={isDarkMode ? 'dark' : 'light'}
         whileHover={{
-          color: styleConfig.theme.colors['orange']['500'],
+          color: styleConfig.theme.colors['primary'],
         }}
       >
         <span className="mr-4">{icon}</span>

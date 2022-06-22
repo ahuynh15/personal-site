@@ -29,10 +29,10 @@ const ExperienceFilter = ({ tags }) => {
         {tags.map((tag, index) => {
           return (
             <button
-              className={`box-border items-center gap-2 rounded-full border-2 border-orange-500 px-4 py-1 text-base uppercase ${
+              className={`box-border items-center gap-2 rounded-full border-2 border-primary px-4 py-1 text-base uppercase ${
                 activeFilters.includes(tag)
-                  ? 'bg-orange-500 text-white'
-                  : 'text-orange-500'
+                  ? 'bg-primary text-white'
+                  : 'text-primary'
               }`}
               key={index}
               onClick={() => onClick(tag)}

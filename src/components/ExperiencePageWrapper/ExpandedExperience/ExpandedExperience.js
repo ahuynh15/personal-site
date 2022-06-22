@@ -63,7 +63,7 @@ const ExpandedExperience = ({
             {/* Accent */}
             <div className="w-4 shrink-0 grow-0">
               <motion.div
-                className="mx-auto h-1/2 w-1 bg-orange-500"
+                className="mx-auto h-1/2 w-1 bg-primary"
                 layoutId={`experience-accent-${id}`}
               ></motion.div>
             </div>
@@ -71,7 +71,7 @@ const ExpandedExperience = ({
             <div className="flex flex-col items-start">
               {/* Date */}
               <motion.div
-                className="text-xl text-orange-500"
+                className="text-xl text-primary"
                 layoutId={`experience-date-${id}`}
               >
                 {new Date(startDate.year, startDate.month).toLocaleString(
@@ -116,7 +116,7 @@ const ExpandedExperience = ({
               return (
                 <motion.div
                   key={tag}
-                  className="items-center gap-2 rounded-full border-2 border-orange-500 px-4 py-1 text-base uppercase text-orange-500"
+                  className="items-center gap-2 rounded-full border-2 border-primary px-4 py-1 text-base uppercase text-primary"
                   layoutId={`experience-tag-${id}-${tag}`}
                 >
                   {tag}
