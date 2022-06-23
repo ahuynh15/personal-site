@@ -8,6 +8,7 @@
       "@/slices": ["./src/slices/index"],
       "@/slices/*": ["./src/slices/*"],
       "@/styles/*": ["./styles/*"],
+      "@/hooks/*": ["./src/hooks/*"],
       "tailwindConfig": ["./tailwind.config.js"]
     }
   },

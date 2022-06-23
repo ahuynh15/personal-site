@@ -11,7 +11,7 @@ import { SkillsPageWrapper } from '@/components/SkillsPageWrapper';
 import { ExperiencePageWrapper } from '@/components/ExperiencePageWrapper';
 import { EducationPageWrapper } from '@/components/EducationPageWrapper';
 import { ContactPageWrapper } from '@/components/ContactPageWrapper';
-import { DarkModeToggle } from '@/components/Common/DarkModeToggle';
+import { DarkModeToggle } from '@/components/Common/ThemeToggle';
 import { animateDarkMode } from '@/lib/animationVariants';
 
 export default function Home() {

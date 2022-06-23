@@ -1,9 +1,9 @@
+import { configureStore } from '@reduxjs/toolkit';
 import ThemeReducer from '@/slices/ThemeSlice';
 import EducationReducer from '@/slices/EducationSlice';
 import ExperiencesReducer from '@/slices/ExperiencesSlice';
 import SidebarReducer from '@/slices/SidebarSlice';
-
-import { configureStore } from '@reduxjs/toolkit';
+import PageReducer from '@/slices/PageSlice';
 
 export default configureStore({
   reducer: {
@@ -11,5 +11,6 @@ export default configureStore({
     education: EducationReducer,
     sidebar: SidebarReducer,
     theme: ThemeReducer,
+    page: PageReducer,
   },
 });

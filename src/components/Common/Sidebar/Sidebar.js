@@ -11,15 +11,13 @@ import {
   selectIsDarkMode,
   selectIsDarkModePreferred,
 } from '@/slices/ThemeSlice';
+import useDarkMode from '@/hooks/useDarkMode';
 
 const Sidebar = () => {
   const styleConfig = resolveConfig(tailwindConfig);
   const pageSections = useSelector((state) => selectPageSections(state));
   const currentSection = useSelector((state) => selectCurrentSection(state));
-  const isDarkModePreferred = useSelector((state) =>
-    selectIsDarkModePreferred(state)
-  );
-  const isDarkMode = useSelector((state) => selectIsDarkMode(state));
+  const [preferredTheme, sessionTheme] = useDarkMode();
 
   // TODO: Layout projects do not work perfect with sticky components...issue opened on github: https://github.com/framer/motion/issues/1535
 

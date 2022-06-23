@@ -4,14 +4,15 @@ import { MoonIcon, SunIcon } from '../Icons';
 import { AnimatePresence, motion } from 'framer-motion';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from 'tailwindConfig';
+import useDarkMode from '@/hooks/useDarkMode';
 
 const DarkModeToggle = () => {
   const dispatch = useDispatch();
   const styleConfig = resolveConfig(tailwindConfig);
-  const isDarkMode = useSelector((state) => selectIsDarkMode(state));
+  const [theme] = useDarkMode();
 
   const toggleDarkMode = () => {
-    dispatch(setTheme(isDarkMode ? 'light' : 'dark'));
+    dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
   };
 
   const variants = {
@@ -22,7 +23,7 @@ const DarkModeToggle = () => {
   return (
     <AnimatePresence initial={false}>
       <button onClick={() => toggleDarkMode()}>
-        {isDarkMode ? (
+        {theme === 'light' ? (
           <motion.div
             key="lightModeToggle"
             variants={variants}

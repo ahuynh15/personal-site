@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
+// Note, Z-Index ranges from 0-20 for animations
+
 const PageContainer = ({ index, prevIndex, children }) => {
   return (
     <motion.div
