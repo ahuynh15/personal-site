@@ -9,6 +9,7 @@
       "@/slices/*": ["./src/slices/*"],
       "@/styles/*": ["./styles/*"],
       "@/hooks/*": ["./src/hooks/*"],
+      "@/constants/*": ["./src/constants/*"],
       "tailwindConfig": ["./tailwind.config.js"]
     }
   },

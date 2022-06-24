@@ -23,7 +23,7 @@ const DarkModeToggle = () => {
   return (
     <AnimatePresence initial={false}>
       <button onClick={() => toggleDarkMode()}>
-        {theme === 'light' ? (
+        {theme === 'dark' ? (
           <motion.div
             key="lightModeToggle"
             variants={variants}

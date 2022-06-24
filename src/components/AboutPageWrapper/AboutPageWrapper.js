@@ -1,11 +1,8 @@
 import { TextCarousel } from './TextCarousel';
-import { useInView } from 'react-intersection-observer';
-import { useDispatch } from 'react-redux';
-import { setPageAnchor } from '@/slices/SidebarSlice';
 
 const AboutPageWrapper = () => {
   return (
-    <div className="flex h-full flex-col bg-blue-600">
+    <div className="flex h-full flex-col justify-center bg-zinc-100 p-8 transition-colors dark:bg-zinc-900">
       <div className="mb-8 text-5xl">Hello, I&apos;m Alvin Huynh...</div>
       <TextCarousel
         text={[

@@ -7,26 +7,16 @@ import {
 import Head from 'next/head';
 import { useSelector, useDispatch } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
-import { AboutPageWrapper } from '@/components/AboutPageWrapper';
-import { SkillsPageWrapper } from '@/components/SkillsPageWrapper';
-import { ExperiencePageWrapper } from '@/components/ExperiencePageWrapper';
-import { EducationPageWrapper } from '@/components/EducationPageWrapper';
-import { ContactPageWrapper } from '@/components/ContactPageWrapper';
 import { ThemeToggle } from '@/components/Common/ThemeToggle';
 import { useState } from 'react';
 import { selectPage, setPage } from '@/slices/PageSlice';
+import useDarkMode from '@/hooks/useDarkMode';
+import { pages } from '@/constants/pages';
 
 export default function Home() {
   const dispatch = useDispatch();
   const page = useSelector((state) => selectPage(state));
-
-  const pages = [
-    { name: 'about', component: <AboutPageWrapper /> },
-    { name: 'skills', component: <SkillsPageWrapper /> },
-    { name: 'experience', component: <ExperiencePageWrapper /> },
-    { name: 'education', component: <EducationPageWrapper /> },
-    { name: 'contact', component: <ContactPageWrapper /> },
-  ];
+  const [theme] = useDarkMode();
 
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -38,7 +28,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="relative flex h-screen w-screen overflow-hidden">
+      <main
+        className={`relative flex h-screen w-screen overflow-hidden ${theme}`}
+        onWheel={(e) => console.log(e)}
+      >
         {/* Pages */}
         <AnimatePresence
           onExitComplete={() => {
@@ -62,34 +55,13 @@ export default function Home() {
         </div>
 
         {/* Page Indicator */}
-        <div className="absolute right-8 top-1/2 z-30">
+        <div className="absolute right-8 top-1/2 z-30 -translate-y-1/2">
           <PageIndicator
-            pageName={page.name}
+            pageName={pages[page.index].name}
             pageNumber={page.index + 1}
             totalPages={pages.length}
           />
         </div>
-
-        {!isAnimating && (
-          <div className="fixed right-0 z-20">
-            <button
-              onClick={() => {
-                setIsAnimating(true);
-                dispatch(setPage({ name: 'about', index: 0 }));
-              }}
-            >
-              About
-            </button>
-            <button
-              onClick={() => {
-                setIsAnimating(true);
-                dispatch(setPage({ name: 'skill', index: 1 }));
-              }}
-            >
-              Skill
-            </button>
-          </div>
-        )}
       </main>
     </div>
   );

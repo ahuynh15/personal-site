@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 const PageContainer = ({ index, prevIndex, children }) => {
   return (
     <motion.div
-      className="absolute h-full w-full"
+      className={`absolute h-full w-full`}
       variants={{
         enter: () => {
           console.log('index', index);
@@ -42,7 +42,7 @@ const PageContainer = ({ index, prevIndex, children }) => {
       animate="visible"
       exit="exit"
     >
-      {children}
+      <div className="h-full w-full">{children}</div>
     </motion.div>
   );
 };
