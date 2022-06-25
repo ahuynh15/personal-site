@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 
-const LinkedInIcon = ({ size = 32, color = 'currentColor' }) => {
+const LinkedInIcon = ({
+  size = 32,
+  strokeWidth = 2,
+  color = 'currentColor',
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,7 +13,7 @@ const LinkedInIcon = ({ size = 32, color = 'currentColor' }) => {
       viewBox="0 0 24 24"
       fill="none"
       stroke={color}
-      strokeWidth="2"
+      strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
       className="feather feather-linkedin"
