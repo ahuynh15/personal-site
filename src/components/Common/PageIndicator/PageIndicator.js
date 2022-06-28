@@ -107,7 +107,7 @@ const PageIndicator = ({
   );
 
   return (
-    <div className={`flex items-center gap-4`}>
+    <div className="flex items-center gap-4">
       {isExpanded ? (
         <>{renderPageLinks(pages, pageNumber)}</>
       ) : (
@@ -219,7 +219,7 @@ const PageIndicator = ({
             {pageNumber}
           </motion.div>
         </AnimatePresence>
-        <div className=" my-2 h-[2px] w-4 rounded bg-zinc-900 transition-colors dark:bg-white"></div>
+        <div className="my-2 h-[2px] w-4 rounded bg-zinc-900 transition-colors dark:bg-white"></div>
         <div
           className="text-xl transition-colors dark:text-zinc-100"
           data-testid="page-indicator__total"
