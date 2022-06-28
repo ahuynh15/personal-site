@@ -31,7 +31,7 @@ const ExperienceFilter = ({ tags }) => {
             <button
               className={`box-border items-center gap-2 rounded-full border-2 border-primary px-4 py-1 text-base uppercase ${
                 activeFilters.includes(tag)
-                  ? 'bg-primary text-white'
+                  ? 'bg-primary text-zinc-100'
                   : 'text-primary'
               }`}
               key={index}
