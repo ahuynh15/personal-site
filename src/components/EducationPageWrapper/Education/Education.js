@@ -1,10 +1,5 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
-import {
-  selectIsDarkMode,
-  selectIsDarkModePreferred,
-} from '@/slices/ThemeSlice';
 import { animateDarkMode } from '@/lib/animationVariants';
 
 const Education = ({
@@ -16,18 +11,8 @@ const Education = ({
   additionalHeaders,
   credential,
 }) => {
-  const isDarkMode = useSelector((state) => selectIsDarkMode(state));
-  const isDarkModePreferred = useSelector((state) =>
-    selectIsDarkModePreferred(state)
-  );
-
   return (
-    <motion.li
-      className="shadow-m list-none rounded-2xl bg-red-50 p-4"
-      variants={animateDarkMode(['container'])}
-      initial={isDarkModePreferred ? 'dark' : 'light'}
-      animate={isDarkMode ? 'dark' : 'light'}
-    >
+    <motion.li className="shadow-m list-none rounded-2xl bg-zinc-300 p-4 text-zinc-900 transition-colors dark:bg-zinc-700 dark:text-zinc-100">
       <div className="flex gap-4">
         {/* Bullet Point */}
         <div className="h-4 w-4 shrink-0 grow-0 self-center rounded-full bg-gray-300"></div>

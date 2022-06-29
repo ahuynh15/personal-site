@@ -6,8 +6,13 @@ import {
   useTransform,
 } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { nextPage, prevPage, setPage } from '@/slices/PageSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  nextPage,
+  prevPage,
+  selectIsTransitioning,
+  setPage,
+} from '@/slices/PageSlice';
 import { ChevronUpIcon, ChevronDownIcon } from '@/Common';
 import { pages } from '@/constants/pages';
 import classNames from 'classnames';
@@ -20,8 +25,10 @@ const PageIndicator = ({
   dragDistance = 30,
 }) => {
   const dispatch = useDispatch();
-  const constraintsRef = useRef(null);
+  const isTransitioning = useSelector((state) => selectIsTransitioning(state));
   const [isExpanded, setIsExpanded] = useState(false);
+
+  console.log(isTransitioning);
 
   // Use motion values to animate the component while being dragged
   const y = useMotionValue(0);
@@ -57,7 +64,6 @@ const PageIndicator = ({
     const isEven = totalPages % 2 === 0;
     const midpoint = Math.round(totalPages / 2);
     const pagesFromMidpoint = midpoint - pageNumber;
-    console.log(pagesFromMidpoint);
 
     if (isEven) {
       return height * 1;
@@ -67,8 +73,6 @@ const PageIndicator = ({
   };
 
   const renderPageLinks = (pages, currentPageNumber) => (
-    // [36*-2] [36*-1] [36*0] [36*1] [36*2]
-    // [36*-1.5] [36*-0.5] [36*0.5] [36*1.5]
     <motion.div
       className="flex flex-col items-end gap-4"
       initial={{
@@ -83,15 +87,16 @@ const PageIndicator = ({
         const isActive = currentPageNumber === pageNumber;
 
         return (
-          <motion.div
+          <motion.button
             className={classNames(
               'cursor-pointer text-xl capitalize leading-5 tracking-wide transition-colors',
               isActive
                 ? 'text-zinc-900 dark:text-zinc-100'
-                : 'text-zinc-600 dark:text-zinc-400'
+                : 'text-zinc-400 dark:text-zinc-600'
             )}
             key={`page-indicator__name--${pageNumber}`}
             onClick={() => onPageClick(isActive, index)}
+            disabled={isTransitioning}
             initial={{
               opacity: isActive ? 1 : 0,
             }}
@@ -100,7 +105,7 @@ const PageIndicator = ({
             }}
           >
             {page.name}
-          </motion.div>
+          </motion.button>
         );
       })}
     </motion.div>
@@ -111,10 +116,7 @@ const PageIndicator = ({
       {isExpanded ? (
         <>{renderPageLinks(pages, pageNumber)}</>
       ) : (
-        <div
-          className="relative flex flex-col justify-center"
-          ref={constraintsRef}
-        >
+        <div className="relative flex flex-col justify-center">
           {/* Up Arrow */}
           <div className="flex flex-col items-center">
             <motion.div
@@ -126,7 +128,13 @@ const PageIndicator = ({
               <ChevronUpIcon strokeWidth={1} />
             </motion.div>
 
-            {/* Draggable Label */}
+            {/**
+             * Rendering a static component when the page is transitioning.
+             *
+             * There is a bug in Framer Motion where drag constraints are lost
+             * on rerender (https://github.com/framer/motion/issues/1454).
+             * The workaround in the comments suggests updating the key.
+             **/}
             <div
               style={{
                 height: `${dragDistance * 2}px`,
@@ -134,13 +142,19 @@ const PageIndicator = ({
               className="flex flex-col justify-center"
             >
               {/* Active Page */}
-              <AnimatePresence exitBeforeEnter initial={false}>
+              <AnimatePresence
+                exitBeforeEnter
+                initial={false}
+                key={`page-indicator__presence${isTransitioning && '--static'}`}
+              >
                 <motion.div
-                  key={`page-indicator__name--${pageNumber}`}
+                  key={`page-indicator__name--${pageNumber}${
+                    isTransitioning && '--static'
+                  }`}
                   className="cursor-grab"
                   data-testid="page-indicator__name"
-                  // Disable drag feature if expanded
-                  drag={isExpanded ? false : 'y'}
+                  // Disable drag feature if the page is changing
+                  drag={isTransitioning ? false : 'y'}
                   dragConstraints={{
                     top: pageNumber === 1 ? 0 : -dragDistance,
                     bottom: pageNumber === totalPages ? 0 : dragDistance,

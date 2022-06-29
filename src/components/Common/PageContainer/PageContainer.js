@@ -10,28 +10,26 @@ const PageContainer = ({ index, prevIndex, children }) => {
       className={`absolute h-full w-full`}
       variants={{
         enter: () => {
-          console.log('index', index);
-          console.log('custom', prevIndex);
-          // Next page grows from circle
+          // Page transitions in the foreground
           if (index > prevIndex) {
-            return { clipPath: 'circle(0% at 50% 50%)', zIndex: 10 };
+            return { clipPath: 'circle(0% at 50% 50%)', zIndex: 20 };
           }
-          // Next page scales down
+          // Page scales in the background
           else {
             return {
               clipPath: 'circle(100% at 50% 50%)',
-              zIndex: 10,
+              zIndex: 0,
               scale: 2,
             };
           }
         },
         visible: { clipPath: 'circle(100% at 50% 50%)', zIndex: 10, scale: 1 },
         exit: (custom) => {
-          // Current page scales up
+          // Pages scales up in the background
           if (index < custom?.nextIndex) {
-            return { scale: 2, zIndex: 0 };
+            return { clipPath: 'circle(100% at 50% 50%)', scale: 2, zIndex: 0 };
           }
-          // Current page shrinks into circle
+          // Page transitions out in the foreground
           else {
             return { clipPath: 'circle(0% at 50% 50%)', zIndex: 20 };
           }

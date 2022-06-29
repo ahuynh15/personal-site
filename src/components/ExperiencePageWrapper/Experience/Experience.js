@@ -1,11 +1,5 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
-import {
-  selectIsDarkMode,
-  selectIsDarkModePreferred,
-} from '@/slices/ThemeSlice';
-import { animateDarkMode } from '@/lib/animationVariants';
 import { getTimespan } from '@/lib/util';
 
 const Experience = ({
@@ -17,11 +11,6 @@ const Experience = ({
   tags,
   onExpand,
 }) => {
-  const isDarkMode = useSelector((state) => selectIsDarkMode(state));
-  const isDarkModePreferred = useSelector((state) =>
-    selectIsDarkModePreferred(state)
-  );
-
   return (
     <motion.div
       className="mb-8 overflow-hidden rounded-2xl"
@@ -35,11 +24,8 @@ const Experience = ({
       exit="hidden"
     >
       <motion.div
-        className={`p-4 shadow-md`}
+        className="p-4 text-zinc-900 shadow-md transition-colors dark:text-zinc-100"
         layoutId={`experience-${id}`}
-        variants={animateDarkMode(['container'])}
-        initial={isDarkModePreferred ? 'dark' : 'light'}
-        animate={isDarkMode ? 'dark' : 'light'}
       >
         <div className="flex gap-4">
           {/* Bullet Point */}

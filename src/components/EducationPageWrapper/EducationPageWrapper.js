@@ -13,8 +13,10 @@ const EducationPageWrapper = () => {
   });
 
   return (
-    <div ref={ref}>
-      <div className="text-5xl">I have completed...</div>
+    <div className="h-full bg-zinc-200 p-8 transition-colors dark:bg-zinc-800">
+      <div className="text-5xl text-zinc-900 transition-colors dark:text-zinc-100">
+        I have completed...
+      </div>
       <div className="mt-8">
         <EducationList />
       </div>

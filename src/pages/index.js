@@ -1,15 +1,9 @@
-import {
-  ScrollIndicator,
-  Sidebar,
-  PageContainer,
-  PageIndicator,
-} from '@/Common';
+import { PageContainer, PageIndicator } from '@/Common';
 import Head from 'next/head';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 import { ThemeToggle } from '@/components/Common/ThemeToggle';
-import { useState } from 'react';
-import { selectPage, setPage } from '@/slices/PageSlice';
+import { selectPage, setIsTransitioning } from '@/slices/PageSlice';
 import useDarkMode from '@/hooks/useDarkMode';
 import { pages } from '@/constants/pages';
 
@@ -17,8 +11,6 @@ export default function Home() {
   const dispatch = useDispatch();
   const page = useSelector((state) => selectPage(state));
   const [theme] = useDarkMode();
-
-  const [isAnimating, setIsAnimating] = useState(false);
 
   return (
     <div>
@@ -35,8 +27,7 @@ export default function Home() {
         {/* Pages */}
         <AnimatePresence
           onExitComplete={() => {
-            console.log(`loaded`);
-            setIsAnimating(false);
+            dispatch(setIsTransitioning({ isTransitioning: false }));
           }}
           custom={{ nextIndex: page.index }}
         >
@@ -50,7 +41,7 @@ export default function Home() {
         </AnimatePresence>
 
         {/* Fixed Dark Mode Toggle */}
-        <div className="fixed top-8 right-8 z-10">
+        <div className="fixed top-8 right-8 z-30">
           <ThemeToggle />
         </div>
 

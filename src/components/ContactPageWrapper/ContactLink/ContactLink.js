@@ -1,33 +1,18 @@
 import { LinkIcon } from '@/Common';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import { useSelector } from 'react-redux';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from 'tailwindConfig';
-import {
-  selectIsDarkMode,
-  selectIsDarkModePreferred,
-} from '@/slices/ThemeSlice';
 import { animateDarkMode } from '@/lib/animationVariants';
 
 const ContactLink = ({ label, href, icon = <LinkIcon size={24} /> }) => {
   const styleConfig = resolveConfig(tailwindConfig);
-  const isDarkMode = useSelector((state) => selectIsDarkMode(state));
-  const isDarkModePreferred = useSelector((state) =>
-    selectIsDarkModePreferred(state)
-  );
 
   return (
     <div className="inline-block">
       <motion.a
         href={href}
-        className="flex items-center text-4xl"
-        variants={animateDarkMode(['background', 'text'])}
-        initial={isDarkModePreferred ? 'dark' : 'light'}
-        animate={isDarkMode ? 'dark' : 'light'}
-        whileHover={{
-          color: styleConfig.theme.colors['primary'],
-        }}
+        className="flex items-center text-4xl text-zinc-900 transition-colors hover:text-primary dark:text-zinc-100 dark:hover:text-primary"
       >
         <span className="mr-4">{icon}</span>
         {label}
