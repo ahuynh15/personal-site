@@ -24,7 +24,7 @@ const Experience = ({
       exit="hidden"
     >
       <motion.div
-        className="p-4 text-zinc-900 shadow-md transition-colors dark:text-zinc-100"
+        className="p-4 text-zinc-900 shadow-md transition-colors duration-500 dark:text-zinc-100"
         layoutId={`experience-${id}`}
       >
         <div className="flex gap-4">

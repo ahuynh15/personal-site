@@ -12,7 +12,7 @@ const Education = ({
   credential,
 }) => {
   return (
-    <motion.li className="shadow-m list-none rounded-2xl bg-zinc-300 p-4 text-zinc-900 transition-colors dark:bg-zinc-700 dark:text-zinc-100">
+    <motion.li className="shadow-m list-none rounded-2xl bg-zinc-300 p-4 text-zinc-900 transition-colors duration-500 dark:bg-zinc-700 dark:text-zinc-100">
       <div className="flex gap-4">
         {/* Bullet Point */}
         <div className="h-4 w-4 shrink-0 grow-0 self-center rounded-full bg-gray-300"></div>

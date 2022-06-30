@@ -6,8 +6,8 @@ import { PageContainer } from '@/Common';
 
 const SkillsPageWrapper = () => {
   return (
-    <div className="flex h-full flex-col bg-zinc-200 p-8 transition-colors dark:bg-zinc-800">
-      <div className="mb-8 text-5xl text-zinc-900 transition-colors dark:text-zinc-100">
+    <div className="flex h-full flex-col bg-zinc-200 p-8 transition-colors duration-500 dark:bg-zinc-800">
+      <div className="mb-8 text-5xl text-zinc-900 transition-colors duration-500 dark:text-zinc-100">
         I have experience with...
       </div>
       <div className="ml-16 mt-4">

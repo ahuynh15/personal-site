@@ -14,8 +14,8 @@ const ContactPageWrapper = () => {
   });
 
   return (
-    <div className="h-full bg-zinc-100 p-8 transition-colors dark:bg-zinc-900">
-      <div className="mb-8 text-5xl text-zinc-900 transition-colors dark:text-zinc-100">
+    <div className="h-full bg-zinc-100 p-8 transition-colors duration-500 dark:bg-zinc-900">
+      <div className="mb-8 text-5xl text-zinc-900 transition-colors duration-500 dark:text-zinc-100">
         I can be contacted at...
       </div>
       <ContactLink

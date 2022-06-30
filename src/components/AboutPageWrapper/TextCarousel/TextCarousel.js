@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion, LayoutGroup, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useSelector } from 'react-redux';
-import { selectIsDarkMode } from '@/slices/ThemeSlice';
+import useDarkMode from '@/hooks/useDarkMode';
 
 const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
-  const isDarkMode = useSelector((state) => selectIsDarkMode(state));
   const [index, setIndex] = useState(startingIndex % (text.length * 2));
+  const [theme] = useDarkMode();
+  const isDarkMode = theme === 'dark';
 
   // Calculate how many lines need to be displayed
   const linesToRender =
@@ -45,11 +45,24 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
     return lines;
   };
 
+  // Calculate RGB values for the given index
   const calculateRgb = (index, darkMode) => {
+    let r = 0;
+    let g = 0;
+    let b = 0;
+
     if (darkMode) {
-      return 255 / Math.pow(2, index);
+      return [
+        244 / Math.pow(2, index),
+        244 / Math.pow(2, index),
+        245 / Math.pow(2, index),
+      ];
     } else {
-      return 255 - 225 / Math.pow(2, index);
+      return [
+        255 - 231 / Math.pow(2, index),
+        255 - 231 / Math.pow(2, index),
+        255 - 228 / Math.pow(2, index),
+      ];
     }
   };
 
@@ -58,24 +71,20 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
       <LayoutGroup id="text-carousel">
         <div className="text-carousel flex flex-col" ref={ref}>
           {getLines().map((line, index) => {
-            const rgb = calculateRgb(index, isDarkMode);
+            const [r, b, g] = calculateRgb(index, isDarkMode);
             const id = `${line.text} ${line.index}`;
 
             return (
               <motion.div
-                className="pb-8 text-5xl"
+                className="pb-8 text-5xl transition-colors duration-500"
+                style={{ color: `rgb(${r},${b},${g})` }}
                 key={id}
                 layoutId={id}
-                style={{
-                  originX: 0,
-                }}
                 initial={{
                   opacity: 0,
-                  color: `rgb(${rgb}, ${rgb}, ${rgb})`,
                 }}
                 animate={{
                   opacity: 1,
-                  color: `rgb(${rgb}, ${rgb}, ${rgb})`,
                 }}
               >
                 {line.text}

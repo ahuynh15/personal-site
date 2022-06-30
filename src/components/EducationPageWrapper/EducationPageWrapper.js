@@ -13,8 +13,8 @@ const EducationPageWrapper = () => {
   });
 
   return (
-    <div className="h-full bg-zinc-200 p-8 transition-colors dark:bg-zinc-800">
-      <div className="text-5xl text-zinc-900 transition-colors dark:text-zinc-100">
+    <div className="h-full bg-zinc-200 p-8 transition-colors duration-500 dark:bg-zinc-800">
+      <div className="text-5xl text-zinc-900 transition-colors duration-500 dark:text-zinc-100">
         I have completed...
       </div>
       <div className="mt-8">

@@ -12,7 +12,7 @@ const ContactLink = ({ label, href, icon = <LinkIcon size={24} /> }) => {
     <div className="inline-block">
       <motion.a
         href={href}
-        className="flex items-center text-4xl text-zinc-900 transition-colors hover:text-primary dark:text-zinc-100 dark:hover:text-primary"
+        className="flex items-center text-4xl text-zinc-900 transition-colors duration-500 hover:text-primary dark:text-zinc-100 dark:hover:text-primary"
       >
         <span className="mr-4">{icon}</span>
         {label}
