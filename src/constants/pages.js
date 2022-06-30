@@ -4,10 +4,60 @@ import { ExperiencePageWrapper } from '@/components/ExperiencePageWrapper';
 import { EducationPageWrapper } from '@/components/EducationPageWrapper';
 import { ContactPageWrapper } from '@/components/ContactPageWrapper';
 
+import resolveConfig from 'tailwindcss/resolveConfig';
+import tailwindConfig from 'tailwindConfig';
+
+const styleConfig = resolveConfig(tailwindConfig);
+
 export const pages = [
-  { name: 'about', component: <AboutPageWrapper /> },
-  { name: 'skills', component: <SkillsPageWrapper /> },
-  { name: 'experience', component: <ExperiencePageWrapper /> },
-  { name: 'education', component: <EducationPageWrapper /> },
-  { name: 'contact', component: <ContactPageWrapper /> },
+  {
+    name: 'about',
+    component: <AboutPageWrapper />,
+    theme: {
+      backgroundColor: {
+        light: styleConfig.theme.colors['zinc']['700'],
+        dark: styleConfig.theme.colors['zinc']['300'],
+      },
+    },
+  },
+  {
+    name: 'skills',
+    component: <SkillsPageWrapper />,
+    theme: {
+      backgroundColor: {
+        light: styleConfig.theme.colors['red']['700'],
+        dark: styleConfig.theme.colors['red']['300'],
+      },
+    },
+  },
+  {
+    name: 'experience',
+    component: <ExperiencePageWrapper />,
+    theme: {
+      backgroundColor: {
+        light: styleConfig.theme.colors['blue']['700'],
+        dark: styleConfig.theme.colors['blue']['300'],
+      },
+    },
+  },
+  {
+    name: 'education',
+    component: <EducationPageWrapper />,
+    theme: {
+      backgroundColor: {
+        light: styleConfig.theme.colors['green']['700'],
+        dark: styleConfig.theme.colors['green']['300'],
+      },
+    },
+  },
+  {
+    name: 'contact',
+    component: <ContactPageWrapper />,
+    theme: {
+      backgroundColor: {
+        light: styleConfig.theme.colors['orange']['700'],
+        dark: styleConfig.theme.colors['orange']['300'],
+      },
+    },
+  },
 ];

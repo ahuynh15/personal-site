@@ -2,7 +2,7 @@ import { PageContainer, PageIndicator } from '@/Common';
 import Head from 'next/head';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
-import { ThemeToggle } from '@/components/Common/ThemeToggle';
+import { DarkModeToggle } from '@/components/Common/DarkModeToggle';
 import { selectPage, setIsTransitioning } from '@/slices/PageSlice';
 import useDarkMode from '@/hooks/useDarkMode';
 import { pages } from '@/constants/pages';
@@ -10,7 +10,7 @@ import { pages } from '@/constants/pages';
 export default function Home() {
   const dispatch = useDispatch();
   const page = useSelector((state) => selectPage(state));
-  const [theme] = useDarkMode();
+  const [mode] = useDarkMode();
 
   return (
     <div>
@@ -21,11 +21,12 @@ export default function Home() {
       </Head>
 
       <main
-        className={`relative flex h-screen w-screen overflow-hidden ${theme}`}
+        className={`relative flex h-screen w-screen overflow-hidden ${mode}`}
         onWheel={(e) => console.log(e)}
       >
         {/* Pages */}
         <AnimatePresence
+          initial={false}
           onExitComplete={() => {
             dispatch(setIsTransitioning({ isTransitioning: false }));
           }}
@@ -35,6 +36,7 @@ export default function Home() {
             key={page.index}
             index={page.index}
             prevIndex={page.prevIndex}
+            theme={pages[page.index].theme}
           >
             {pages[page.index].component}
           </PageContainer>
@@ -42,7 +44,7 @@ export default function Home() {
 
         {/* Fixed Dark Mode Toggle */}
         <div className="fixed top-8 right-8 z-30">
-          <ThemeToggle />
+          <DarkModeToggle />
         </div>
 
         {/* Page Indicator */}

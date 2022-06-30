@@ -9,10 +9,10 @@ import useDarkMode from '@/hooks/useDarkMode';
 const DarkModeToggle = () => {
   const dispatch = useDispatch();
   const styleConfig = resolveConfig(tailwindConfig);
-  const [theme] = useDarkMode();
+  const [mode] = useDarkMode();
 
   const toggleDarkMode = () => {
-    dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
+    dispatch(setTheme(mode === 'light' ? 'dark' : 'light'));
   };
 
   const variants = {
@@ -23,7 +23,7 @@ const DarkModeToggle = () => {
   return (
     <AnimatePresence initial={false}>
       <button onClick={() => toggleDarkMode()}>
-        {theme === 'dark' ? (
+        {mode === 'dark' ? (
           <motion.div
             key="lightModeToggle"
             variants={variants}

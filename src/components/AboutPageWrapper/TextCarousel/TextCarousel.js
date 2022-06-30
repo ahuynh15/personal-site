@@ -6,8 +6,8 @@ import useDarkMode from '@/hooks/useDarkMode';
 
 const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
   const [index, setIndex] = useState(startingIndex % (text.length * 2));
-  const [theme] = useDarkMode();
-  const isDarkMode = theme === 'dark';
+  const [mode] = useDarkMode();
+  const isDarkMode = mode === 'dark';
 
   // Calculate how many lines need to be displayed
   const linesToRender =

@@ -1,10 +1,13 @@
-import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
+import useDarkMode from '@/hooks/useDarkMode';
 
 // Note, Z-Index ranges from 0-20 for animations
 
-const PageContainer = ({ index, prevIndex, children }) => {
+const PageContainer = ({ index, prevIndex, theme, children }) => {
+  const [mode] = useDarkMode();
+  const isDarkMode = mode === 'dark';
+
   return (
     <motion.div
       className={`absolute h-full w-full`}
@@ -40,7 +43,16 @@ const PageContainer = ({ index, prevIndex, children }) => {
       animate="visible"
       exit="exit"
     >
-      <div className="h-full w-full">{children}</div>
+      <div
+        className="h-full w-full pr-40 transition-colors duration-500"
+        style={{
+          backgroundColor: isDarkMode
+            ? theme.backgroundColor.light
+            : theme.backgroundColor.dark,
+        }}
+      >
+        {children}
+      </div>
     </motion.div>
   );
 };

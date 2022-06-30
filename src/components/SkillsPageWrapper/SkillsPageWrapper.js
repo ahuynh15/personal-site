@@ -1,12 +1,8 @@
 import { SkillList } from './SkillList';
-import { useInView } from 'react-intersection-observer';
-import { useDispatch } from 'react-redux';
-import { setPageAnchor } from '@/slices/SidebarSlice';
-import { PageContainer } from '@/Common';
 
 const SkillsPageWrapper = () => {
   return (
-    <div className="flex h-full flex-col bg-zinc-200 p-8 transition-colors duration-500 dark:bg-zinc-800">
+    <div className="flex h-full flex-col p-8">
       <div className="mb-8 text-5xl text-zinc-900 transition-colors duration-500 dark:text-zinc-100">
         I have experience with...
       </div>

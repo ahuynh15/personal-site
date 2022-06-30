@@ -4,5 +4,4 @@ export * from './Icons';
 export * from './PageIndicator';
 export * from './PageContainer';
 export * from './ScrollIndicator';
-export * from './ThemeToggle';
-export * from './Sidebar';
+export * from './DarkModeToggle';
