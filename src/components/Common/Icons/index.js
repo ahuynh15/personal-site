@@ -6,6 +6,7 @@ import SunIcon from './SunIcon';
 import DownIcon from './DownIcon';
 import ChevronUpIcon from './ChevronUpIcon';
 import ChevronDownIcon from './ChevronDownIcon';
+import ArrowRightIcon from './ArrowRightIcon';
 
 export {
   XIcon,
@@ -16,4 +17,5 @@ export {
   DownIcon,
   ChevronUpIcon,
   ChevronDownIcon,
+  ArrowRightIcon,
 };

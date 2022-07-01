@@ -28,8 +28,6 @@ const PageIndicator = ({
   const isTransitioning = useSelector((state) => selectIsTransitioning(state));
   const [isExpanded, setIsExpanded] = useState(false);
 
-  console.log(isTransitioning);
-
   // Use motion values to animate the component while being dragged
   const y = useMotionValue(0);
   const upOpacity = useTransform(y, [-dragDistance, -dragOffset], [1, 0]);

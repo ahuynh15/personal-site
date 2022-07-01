@@ -15,8 +15,8 @@ export const pages = [
     component: <AboutPageWrapper />,
     theme: {
       backgroundColor: {
-        light: styleConfig.theme.colors['zinc']['700'],
-        dark: styleConfig.theme.colors['zinc']['300'],
+        light: styleConfig.theme.colors['zinc']['100'],
+        dark: styleConfig.theme.colors['zinc']['900'],
       },
     },
   },
@@ -25,8 +25,8 @@ export const pages = [
     component: <SkillsPageWrapper />,
     theme: {
       backgroundColor: {
-        light: styleConfig.theme.colors['red']['700'],
-        dark: styleConfig.theme.colors['red']['300'],
+        light: styleConfig.theme.colors['zinc']['100'],
+        dark: styleConfig.theme.colors['zinc']['900'],
       },
     },
   },
