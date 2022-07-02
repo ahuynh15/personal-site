@@ -22,7 +22,6 @@ export default function Home() {
 
       <main
         className={`relative flex h-screen w-screen overflow-hidden ${mode}`}
-        onWheel={(e) => console.log(e)}
       >
         {/* Pages */}
         <AnimatePresence

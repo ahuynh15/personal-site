@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.mask-image-fade {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 1rem,
+    black 2rem,
+    black calc(100% - 2rem),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 5%,
+    black 10%,
+    black 90%,
+    transparent 95%
+  );
+}
