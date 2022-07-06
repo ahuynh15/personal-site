@@ -4,6 +4,7 @@ import EducationReducer from '@/slices/EducationSlice';
 import ExperiencesReducer from '@/slices/ExperiencesSlice';
 import SidebarReducer from '@/slices/SidebarSlice';
 import PageReducer from '@/slices/PageSlice';
+import SkillsReducer from '@/slices/SkillsSlice';
 
 export default configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export default configureStore({
     sidebar: SidebarReducer,
     theme: ThemeReducer,
     page: PageReducer,
+    skills: SkillsReducer,
   },
 });

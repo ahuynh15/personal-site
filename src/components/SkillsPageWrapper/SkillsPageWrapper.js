@@ -4,7 +4,7 @@ const SkillsPageWrapper = () => {
   return (
     <div className="flex h-full p-8">
       <div className="flex h-full flex-col justify-center">
-        <div className="mb-8 text-5xl text-zinc-900 transition-colors duration-500 dark:text-zinc-100">
+        <div className="mb-8 text-5xl font-semibold text-zinc-900 transition-colors duration-500 dark:text-zinc-100">
           I have experience with...
         </div>
       </div>

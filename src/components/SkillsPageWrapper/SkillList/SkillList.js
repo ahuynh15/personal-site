@@ -9,9 +9,8 @@ const SkillList = ({ skills }) => {
           return (
             <div key={index}>
               <Skill
-                index={index + 1}
                 name={skill.name}
-                subskills={skill.subskills}
+                hasSubskills={skill?.subskills.length > 0}
               />
             </div>
           );

@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Questrial', ...defaultTheme.fontFamily.sans],
+        sans: ['Quicksand', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: '#fc7753',
@@ -18,6 +18,12 @@ module.exports = {
           inactive: { dark: '#3e3e3e', light: '#d6d6d6' },
         },
         overlay: 'rgba(0,0,0,0.8)',
+      },
+      borderWidth: {
+        5: '5px',
+      },
+      boxShadow: {
+        'solid-md': '5px 5px 0px',
       },
     },
   },
