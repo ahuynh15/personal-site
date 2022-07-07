@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import { animateDarkMode } from '@/lib/animationVariants';
 
 const Education = ({
   title,

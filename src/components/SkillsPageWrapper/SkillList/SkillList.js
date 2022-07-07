@@ -8,10 +8,7 @@ const SkillList = ({ skills }) => {
         {skills.map((skill, index) => {
           return (
             <div key={index}>
-              <Skill
-                name={skill.name}
-                hasSubskills={skill?.subskills.length > 0}
-              />
+              <Skill name={skill.name} subskills={skill.subskills} />
             </div>
           );
         })}

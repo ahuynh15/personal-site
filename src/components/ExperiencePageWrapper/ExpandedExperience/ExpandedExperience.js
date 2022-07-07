@@ -6,7 +6,6 @@ import {
   selectIsDarkModePreferred,
 } from '@/slices/ThemeSlice';
 import { animateDarkMode } from '@/lib/animationVariants';
-import { XIcon } from '@/Common';
 import { getTimespan } from '@/lib/util';
 
 const ExpandedExperience = ({

@@ -5,24 +5,31 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectToggledSkilled, toggleSkill } from '@/slices/SkillsSlice';
+import { SubskillList } from '../SubskillList';
 
-const Skill = ({ name, hasSubskills = false }) => {
+const Skill = ({ name, subskills }) => {
   const dispatch = useDispatch();
   const toggledSkill = useSelector((state) => selectToggledSkilled(state));
 
   // Calculated State
   const isToggled = toggledSkill === name;
+  const hasSubskills = subskills.length > 0;
 
   const onClick = (skill) => {
-    dispatch(toggleSkill({ skill }));
+    if (hasSubskills) {
+      dispatch(toggleSkill({ skill }));
+    }
   };
+
+  console.log(subskills);
 
   return (
     <>
-      <div className="flex items-center">
+      <div className="relative flex items-start">
+        {/* Skill Button */}
         <Container
           flat={isToggled}
-          className="group"
+          className="group flex-shrink-0"
           onClick={() => onClick(name)}
         >
           <div className="flex items-center">
@@ -51,6 +58,18 @@ const Skill = ({ name, hasSubskills = false }) => {
             )}
           </div>
         </Container>
+
+        {/* Toggled Subskills */}
+        <div className="h-0 min-w-[50%]">
+          <AnimatePresence>
+            {isToggled && (
+              <SubskillList
+                key={`${name}-subskill-list`}
+                subskills={subskills}
+              />
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </>
   );

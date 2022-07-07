@@ -1,13 +1,8 @@
 import { LinkIcon } from '@/Common';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import resolveConfig from 'tailwindcss/resolveConfig';
-import tailwindConfig from 'tailwindConfig';
-import { animateDarkMode } from '@/lib/animationVariants';
 
 const ContactLink = ({ label, href, icon = <LinkIcon size={24} /> }) => {
-  const styleConfig = resolveConfig(tailwindConfig);
-
   return (
     <div className="inline-block">
       <motion.a
