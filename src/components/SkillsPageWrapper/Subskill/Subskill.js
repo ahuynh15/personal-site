@@ -8,28 +8,30 @@ const Subskill = ({ name }) => {
     show: {
       opacity: 1,
       scale: 1,
+      y: 0,
       transition: {
         type: 'spring',
       },
     },
-    hide: {
+    initial: {
       opacity: 0,
       scale: 0,
+      y: 50,
     },
   };
 
   return (
     <>
-      <motion.div className="flex items-center" variants={variants}>
+      <motion.div variants={variants}>
         <Container
           flat={true}
-          className="bg-orange-300"
+          className="bg-orange-300  transition-colors dark:bg-orange-700"
           onClick={() => onClick(name)}
         >
           <div className="flex items-center">
             <span
               className={classNames(
-                'text-2xl font-medium transition-colors duration-500'
+                'text-2xl font-medium text-zinc-900 transition-colors duration-500 dark:text-zinc-100'
               )}
             >
               {name}

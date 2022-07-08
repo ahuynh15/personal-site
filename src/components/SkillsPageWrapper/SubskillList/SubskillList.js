@@ -1,7 +1,8 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import classNames from 'classnames';
+import { motion } from 'framer-motion';
 import { Subskill } from '../Subskill';
 
-const SubskillList = ({ subskills }) => {
+const SubskillList = ({ subskills, ...props }) => {
   const containerVariants = {
     show: {
       transition: {
@@ -10,21 +11,18 @@ const SubskillList = ({ subskills }) => {
     },
   };
 
-  // TODO: Stop overlapping between longer and shorter button subskills
-
   return (
-    <div className="ml-16 flex">
-      <motion.div
-        className="mt-auto mb-auto flex flex-wrap gap-8"
-        variants={containerVariants}
-        initial="hide"
-        animate="show"
-      >
-        {subskills.map((subskill) => {
-          return <Subskill name={subskill} key={`${subskill}`} />;
-        })}
-      </motion.div>
-    </div>
+    <motion.div
+      className={classNames('flex flex-wrap gap-8')}
+      variants={containerVariants}
+      initial="initial"
+      animate="show"
+      {...props}
+    >
+      {subskills?.map((subskill) => {
+        return <Subskill name={subskill} key={`${subskill}`} />;
+      })}
+    </motion.div>
   );
 };
 

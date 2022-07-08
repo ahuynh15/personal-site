@@ -46,5 +46,5 @@ export const SKILLS = [
 ];
 
 export const getSkillByName = (name) => {
-  return SKILLS.filter((skill) => skill.name === name)[0];
+  return SKILLS.find((skill) => skill.name === name);
 };
