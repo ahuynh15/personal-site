@@ -1,7 +1,8 @@
-import { XIcon } from '@/components/Common';
+import { Container, XIcon } from '@/components/Common';
 import { clearFilters, toggleFilter } from '@/slices/ExperiencesSlice';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
+import classNames from 'classnames';
 
 /**
  * TODO:
@@ -28,24 +29,22 @@ const ExperienceFilter = ({ tags }) => {
       <div className="flex items-center gap-4">
         {tags.map((tag, index) => {
           return (
-            <button
-              className={`box-border items-center gap-2 rounded-full border-2 border-primary px-4 py-1 text-base uppercase ${
-                activeFilters.includes(tag)
-                  ? 'bg-primary text-zinc-100'
-                  : 'text-primary'
-              }`}
-              key={index}
-              onClick={() => onClick(tag)}
-            >
-              {tag}
+            <button key={index} onClick={() => onClick(tag)}>
+              <Container
+                className={classNames(
+                  'text-xl font-medium text-zinc-900 transition-colors duration-500 dark:text-zinc-100',
+                  activeFilters.includes(tag) && 'bg-primary text-zinc-100'
+                )}
+              >
+                {tag}
+              </Container>
             </button>
           );
         })}
         <div>
           <button onClick={() => onClear()}>
-            <div className="flex items-center gap-1 text-zinc-900 transition-colors duration-500 dark:text-zinc-100">
-              Clear
-              <XIcon size={16} />
+            <div className=" text-xl font-medium text-zinc-900 transition-colors duration-500 dark:text-zinc-100">
+              Clear Filters
             </div>
           </button>
         </div>

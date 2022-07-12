@@ -20,6 +20,8 @@ const Subskill = ({ name }) => {
     },
   };
 
+  // TODO: Add passive swaying and prevent animation when loading the page
+
   return (
     <>
       <motion.div variants={variants}>

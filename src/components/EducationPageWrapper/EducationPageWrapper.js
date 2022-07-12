@@ -1,12 +1,13 @@
+import { Title } from '../Common/Title';
 import { EducationList } from './EducationList';
 
 const EducationPageWrapper = () => {
   return (
-    <div className="h-full p-8">
-      <div className="text-5xl text-zinc-900 transition-colors duration-500 dark:text-zinc-100">
-        I have completed...
+    <div className="flex h-full items-center p-8">
+      <div className="w-1/3">
+        <Title>I have completed....</Title>
       </div>
-      <div className="mt-8">
+      <div className="w-2/3">
         <EducationList />
       </div>
     </div>

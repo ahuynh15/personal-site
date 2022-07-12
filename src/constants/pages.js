@@ -35,8 +35,8 @@ export const pages = [
     component: <ExperiencePageWrapper />,
     theme: {
       backgroundColor: {
-        light: styleConfig.theme.colors['blue']['700'],
-        dark: styleConfig.theme.colors['blue']['300'],
+        light: styleConfig.theme.colors['zinc']['100'],
+        dark: styleConfig.theme.colors['zinc']['900'],
       },
     },
   },
@@ -45,8 +45,8 @@ export const pages = [
     component: <EducationPageWrapper />,
     theme: {
       backgroundColor: {
-        light: styleConfig.theme.colors['green']['700'],
-        dark: styleConfig.theme.colors['green']['300'],
+        light: styleConfig.theme.colors['zinc']['100'],
+        dark: styleConfig.theme.colors['zinc']['900'],
       },
     },
   },
@@ -55,8 +55,8 @@ export const pages = [
     component: <ContactPageWrapper />,
     theme: {
       backgroundColor: {
-        light: styleConfig.theme.colors['orange']['700'],
-        dark: styleConfig.theme.colors['orange']['300'],
+        light: styleConfig.theme.colors['zinc']['100'],
+        dark: styleConfig.theme.colors['zinc']['900'],
       },
     },
   },
