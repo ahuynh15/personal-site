@@ -8,6 +8,6 @@ const Title = ({ children }) => {
   );
 };
 
-Title.propTypes = { children: PropTypes.element.isRequired };
+Title.propTypes = { children: PropTypes.node.isRequired };
 
 export default Title;

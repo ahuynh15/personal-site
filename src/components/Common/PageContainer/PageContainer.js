@@ -44,7 +44,7 @@ const PageContainer = ({ index, prevIndex, theme, children }) => {
       exit="exit"
     >
       <div
-        className="mr-40 h-full w-full pr-40 pl-16 pt-8 pb-8 transition-colors duration-500"
+        className="mr-40 h-full w-full pr-40 pl-16 transition-colors duration-500"
         style={{
           backgroundColor: isDarkMode
             ? theme.backgroundColor.dark
