@@ -2,13 +2,13 @@ import { ArrowRightIcon, Container } from '@/Common';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Skill = ({ name, hasSubskills, isToggled, onClick }) => {
+const Skill = ({ name, hasSubskills, isToggled, onClick, className }) => {
   return (
-    <div className="relative flex items-start">
+    <div className={classNames('relative flex items-start', className)}>
       {/* Skill Button */}
       <Container
         flat={isToggled}
-        className="group flex-shrink-0"
+        className="group w-full flex-shrink-0 xl:w-auto"
         onClick={onClick}
       >
         <div className="flex items-center">
@@ -26,7 +26,7 @@ const Skill = ({ name, hasSubskills, isToggled, onClick }) => {
           {hasSubskills && (
             <span
               className={classNames(
-                'text-zinc-300 transition-colors duration-500',
+                'rotate-90 text-zinc-300 transition-all duration-500 xl:rotate-0',
                 isToggled
                   ? 'text-zinc-900 dark:text-zinc-100'
                   : 'text-zinc-300 group-hover:text-zinc-900 dark:text-zinc-700 dark:group-hover:text-zinc-100'
@@ -46,6 +46,7 @@ Skill.propTypes = {
   hasSubskills: PropTypes.bool.isRequired,
   isToggled: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
+  className: PropTypes.string,
 };
 
 export default Skill;

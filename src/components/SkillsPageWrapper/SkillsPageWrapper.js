@@ -9,7 +9,7 @@ const SkillsPageWrapper = () => {
         <Title>I have experience with...</Title>
       </div>
       <div className="flex h-full overflow-y-auto pt-8 xl:w-2/3 xl:pt-0">
-        <div className="xl:my-auto">
+        <div className="w-full xl:my-auto">
           <SkillList skills={SKILLS} />
         </div>
       </div>

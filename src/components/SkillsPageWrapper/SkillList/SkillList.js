@@ -14,36 +14,39 @@ const SkillList = ({ skills }) => {
   };
 
   return (
-    <div className="flex gap-4">
-      <div className="ml-8 flex flex-shrink-0 items-center">
-        <div className="mt-auto mb-auto flex flex-col gap-8">
-          {skills.map((skill, index) => {
-            return (
-              <Skill
-                name={skill.name}
-                hasSubskills={skill.subskills.length > 0}
-                isToggled={skill.name === toggledSkill.name}
-                onClick={() => onClick(index, skill.name)}
-                key={index}
-              />
-            );
-          })}
-        </div>
-      </div>
+    <div className="grid w-full grid-cols-1 gap-8 xl:grid-cols-2">
+      {skills.map((skill, index) => {
+        const isToggled = skill.name === toggledSkill.name;
+        const hasSubskills = skill.subskills.length > 0;
 
-      {/* Toggled Subskills */}
-      <div className="flex items-start">
-        {toggledSkill && (
-          <SubskillList
-            key={`${toggledSkill.name}-${toggledSkill.index}-subskill-list`}
-            subskills={getSkillByName(toggledSkill.name)?.subskills}
-            style={{
-              // Calculate the offset so the list is parallel to the related button
-              marginTop: toggledSkill.index * 84,
-            }}
-          />
-        )}
-      </div>
+        return (
+          <>
+            <Skill
+              name={skill.name}
+              hasSubskills={hasSubskills}
+              isToggled={isToggled}
+              onClick={() => onClick(index, skill.name)}
+              key={index}
+              className="xl:ml-8 xl:[grid-column:1]"
+            />
+
+            {/* Toggled Subskills */}
+            {isToggled && hasSubskills && (
+              <div className="flex items-start">
+                <SubskillList
+                  key={`${skill.name}-${skill.index}-subskill-list`}
+                  subskills={getSkillByName(skill.name)?.subskills}
+                  style={{
+                    // Calculate the offset so the list is parallel to the related button
+                    marginTop: skill.index * 84,
+                  }}
+                  className="xl:h-0 xl:[grid-column:2]"
+                />
+              </div>
+            )}
+          </>
+        );
+      })}
     </div>
   );
 };

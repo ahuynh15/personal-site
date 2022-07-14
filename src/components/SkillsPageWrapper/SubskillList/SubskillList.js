@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { Subskill } from '../Subskill';
 
-const SubskillList = ({ subskills, ...props }) => {
+const SubskillList = ({ subskills, className, ...props }) => {
   const containerVariants = {
     show: {
       transition: {
@@ -13,7 +13,7 @@ const SubskillList = ({ subskills, ...props }) => {
 
   return (
     <motion.div
-      className={classNames('flex flex-wrap gap-8')}
+      className={classNames('flex flex-wrap gap-8', className)}
       variants={containerVariants}
       initial="initial"
       animate="show"
