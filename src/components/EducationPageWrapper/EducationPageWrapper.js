@@ -3,11 +3,11 @@ import { EducationList } from './EducationList';
 
 const EducationPageWrapper = () => {
   return (
-    <div className="flex h-full items-center p-8">
-      <div className="w-1/3">
+    <div className="flex h-full flex-col items-center p-8 xl:flex-row">
+      <div className="xl:w-1/3">
         <Title>I have completed....</Title>
       </div>
-      <div className="w-2/3">
+      <div className="pt-8 xl:w-2/3 xl:pt-0">
         <EducationList />
       </div>
     </div>

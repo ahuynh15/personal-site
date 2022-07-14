@@ -15,7 +15,7 @@ const SkillList = ({ skills }) => {
 
   return (
     <div className="flex gap-4">
-      <div className="ml-16 flex flex-shrink-0 items-center">
+      <div className="ml-8 flex flex-shrink-0 items-center">
         <div className="mt-auto mb-auto flex flex-col gap-8">
           {skills.map((skill, index) => {
             return (
