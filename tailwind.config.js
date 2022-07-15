@@ -23,7 +23,8 @@ module.exports = {
         5: '5px',
       },
       boxShadow: {
-        'solid-md': '6px 6px 0px',
+        'solid-6': '6px 6px 0px',
+        'solid-2': '2px 2px 0px',
       },
     },
   },
