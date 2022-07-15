@@ -47,10 +47,6 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
 
   // Calculate RGB values for the given index
   const calculateRgb = (index, darkMode) => {
-    let r = 0;
-    let g = 0;
-    let b = 0;
-
     if (darkMode) {
       return [
         244 / Math.pow(2, index),
@@ -76,7 +72,7 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
 
             return (
               <motion.div
-                className="pb-8 text-5xl transition-colors duration-500"
+                className="pb-8 text-5xl font-semibold transition-colors duration-500 [text-shadow:4px_4px_rgba(212,212,216,1)] dark:[text-shadow:4px_4px_rgba(0,0,0,1)]"
                 style={{ color: `rgb(${r},${b},${g})` }}
                 key={id}
                 layoutId={id}

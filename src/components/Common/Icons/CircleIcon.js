@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 
-const DownIcon = ({ size = 32, strokeWidth = 2, color = 'currentColor' }) => {
+const CircleIcon = ({ size = 32, strokeWidth = 2, color = 'currentColor' }) => {
   return (
+    // TODO: Replace the SVG
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
@@ -12,18 +13,18 @@ const DownIcon = ({ size = 32, strokeWidth = 2, color = 'currentColor' }) => {
       strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="feather feather-arrow-down"
+      className="feather feather-x"
     >
-      <line x1="12" y1="5" x2="12" y2="19"></line>
-      <polyline points="19 12 12 19 5 12"></polyline>
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
     </svg>
   );
 };
 
-DownIcon.propTypes = {
+CircleIcon.propTypes = {
   size: PropTypes.number,
   color: PropTypes.string,
   strokeWidth: PropTypes.number,
 };
 
-export default DownIcon;
+export default CircleIcon;

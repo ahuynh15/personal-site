@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 
-const DownIcon = ({ size = 32, strokeWidth = 2, color = 'currentColor' }) => {
+const TriangleIcon = ({
+  size = 32,
+  strokeWidth = 2,
+  color = 'currentColor',
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,18 +16,17 @@ const DownIcon = ({ size = 32, strokeWidth = 2, color = 'currentColor' }) => {
       strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="feather feather-arrow-down"
+      className="feather feather-triangle"
     >
-      <line x1="12" y1="5" x2="12" y2="19"></line>
-      <polyline points="19 12 12 19 5 12"></polyline>
+      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
     </svg>
   );
 };
 
-DownIcon.propTypes = {
+TriangleIcon.propTypes = {
   size: PropTypes.number,
   color: PropTypes.string,
   strokeWidth: PropTypes.number,
 };
 
-export default DownIcon;
+export default TriangleIcon;

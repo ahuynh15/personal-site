@@ -1,11 +1,10 @@
+import { Title } from '../Common/Title';
 import { TextCarousel } from './TextCarousel';
 
 const AboutPageWrapper = () => {
   return (
     <div className="flex h-full flex-col justify-center">
-      <div className="mb-8 text-5xl text-zinc-900 transition-colors duration-500 dark:text-zinc-100">
-        Hello, I&apos;m Alvin Huynh...
-      </div>
+      <Title className="mb-8">Hello, I&apos;m Alvin Huynh...</Title>
       <TextCarousel
         text={[
           'Software Engineer.',

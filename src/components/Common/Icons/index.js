@@ -1,3 +1,7 @@
+/* PLOP_INJECT_IMPORT */
+import CircleIcon from './CircleIcon';
+import TriangleIcon from './TriangleIcon';
+import SquareIcon from './SquareIcon';
 import XIcon from './XIcon';
 import LinkedInIcon from './LinkedInIcon';
 import LinkIcon from './LinkIcon';
@@ -9,6 +13,10 @@ import ChevronDownIcon from './ChevronDownIcon';
 import ArrowRightIcon from './ArrowRightIcon';
 
 export {
+  /* PLOP_INJECT_EXPORT */
+  CircleIcon,
+  TriangleIcon,
+  SquareIcon,
   XIcon,
   LinkedInIcon,
   LinkIcon,

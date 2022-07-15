@@ -119,12 +119,6 @@ export default function (plop) {
     ],
     actions: () => {
       let actions = [
-        // Add a new route in pages directory
-        // {
-        //   type: 'add',
-        //   path: 'src/pages/{{lowerCase name}}/index.js',
-        //   templateFile: 'plopTemplates/pages/index.js.hbs',
-        // },
         // Generate the page wrapper
         {
           type: 'add',
@@ -145,5 +139,41 @@ export default function (plop) {
 
   // Icon Generator
 
-  // Slice Generator
+  plop.setGenerator('icon', {
+    description: 'Create a new icon',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What is the name of your icon?',
+      },
+    ],
+    actions: () => {
+      let actions = [
+        // Generate the icon
+        {
+          type: 'add',
+          path: 'src/components/Common/Icons/{{pascalCase name}}Icon.js',
+          templateFile: 'plopTemplates/icons/Icon.js.hbs',
+        },
+        // Add the icon import to the icon index
+        {
+          type: 'append',
+          path: 'src/components/Common/Icons/index.js',
+          pattern: '/* PLOP_INJECT_IMPORT */',
+          template:
+            "import {{pascalCase name}}Icon from './{{pascalCase name}}Icon';",
+        },
+        // Add the icon import to the icon index
+        {
+          type: 'append',
+          path: 'src/components/Common/Icons/index.js',
+          pattern: '/* PLOP_INJECT_EXPORT */',
+          template: '\t{{pascalCase name}}Icon,',
+        },
+      ];
+
+      return actions;
+    },
+  });
 }
