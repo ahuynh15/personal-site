@@ -184,7 +184,7 @@ const PageIndicator = ({
                   exit="exit"
                 >
                   <motion.div
-                    className="text-xl capitalize leading-5 tracking-wide text-zinc-900 transition-colors duration-500 dark:text-zinc-100"
+                    className="select-none text-xl capitalize leading-5 tracking-wide text-zinc-900 transition-colors duration-500 dark:text-zinc-100"
                     onTap={onTap}
                   >
                     {pageName}

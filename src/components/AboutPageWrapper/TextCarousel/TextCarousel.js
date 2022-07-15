@@ -72,8 +72,13 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
 
             return (
               <motion.div
-                className="pb-8 text-5xl font-semibold transition-colors duration-500 [text-shadow:4px_4px_rgba(212,212,216,1)] dark:[text-shadow:4px_4px_rgba(0,0,0,1)]"
-                style={{ color: `rgb(${r},${b},${g})` }}
+                className="pb-8 text-5xl font-semibold transition-all duration-500"
+                style={{
+                  color: `rgb(${r},${b},${g})`,
+                  textShadow: isDarkMode
+                    ? '4px 4px rgba(0,0,0,1)'
+                    : '4px 4px rgba(212,212,216,1)',
+                }}
                 key={id}
                 layoutId={id}
                 initial={{
