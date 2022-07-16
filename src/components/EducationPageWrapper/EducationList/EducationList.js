@@ -6,10 +6,11 @@ const EducationList = () => {
 
   return (
     <>
-      {education.map((item, index) => {
-        return (
-          <div className="mb-8" key={index}>
+      <div className="flex flex-col gap-4">
+        {education.map((item, index) => {
+          return (
             <Education
+              key={index}
               title={item.title}
               location={item.location}
               startDate={item.startDate}
@@ -18,9 +19,9 @@ const EducationList = () => {
               additionalHeaders={item.additionalHeaders}
               credential={item.credential}
             />
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </>
   );
 };

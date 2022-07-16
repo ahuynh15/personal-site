@@ -29,7 +29,7 @@ const ExperienceList = () => {
 
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-4">
         <AnimatePresence initial={false}>
           {experiences.map((experience) => {
             return (

@@ -25,7 +25,7 @@ const Experience = ({
       exit="hidden"
     >
       <motion.div
-        className="p-4 text-zinc-900 dark:text-zinc-100"
+        className="text-zinc-900 dark:text-zinc-100"
         layoutId={`experience__${id}`}
       >
         <Container

@@ -11,7 +11,7 @@ const ExperiencePageWrapper = () => {
           <ExperienceFilter tags={['Tag A', 'Tag B', 'Tag C']} />
         </div>
       </div>
-      <div className="pt-8 xl:w-2/3 xl:pt-0">
+      <div className="mt-8 h-full overflow-y-auto border-y-2 border-black p-4 shadow-inner-solid-y-6 xl:mt-0 xl:w-2/3">
         <ExperienceList />
       </div>
     </div>

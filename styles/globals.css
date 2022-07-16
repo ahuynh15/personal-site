@@ -21,18 +21,10 @@
 
 @layer utilities {
   .text-shadow-4 {
-    text-shadow: 4px 4px #d4d4d8;
-  }
-
-  .text-shadow-4--dark {
-    text-shadow: 4px 4px #000000;
+    text-shadow: 4px 4px rgb(0 0 0 / 0.2);
   }
 
   .text-shadow-2 {
-    text-shadow: 2px 2px #d4d4d8;
-  }
-
-  .text-shadow-2--dark {
-    text-shadow: 2px 2px #000000;
+    text-shadow: 2px 2px rgb(0 0 0 / 0.2);
   }
 }

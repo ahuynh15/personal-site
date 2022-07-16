@@ -89,7 +89,7 @@ const PageIndicator = ({
             className={classNames(
               'cursor-pointer text-xl font-semibold capitalize leading-5 tracking-wide transition-all duration-500',
               isActive
-                ? 'text-shadow-2 dark:text-shadow-2--dark text-zinc-900 dark:text-zinc-100'
+                ? 'text-shadow-2 text-zinc-900 dark:text-zinc-100'
                 : 'text-zinc-400 dark:text-zinc-600'
             )}
             key={`page-indicator__name--${pageNumber}`}
@@ -184,7 +184,7 @@ const PageIndicator = ({
                   exit="exit"
                 >
                   <motion.div
-                    className="text-shadow-2 dark:text-shadow-2--dark select-none text-xl font-semibold capitalize leading-5 tracking-wide text-zinc-900 transition-all duration-500 dark:text-zinc-100"
+                    className="text-shadow-2 select-none text-xl font-semibold capitalize leading-5 tracking-wide text-zinc-900 transition-all duration-500 dark:text-zinc-100"
                     onTap={onTap}
                   >
                     {pageName}
@@ -211,7 +211,7 @@ const PageIndicator = ({
         <AnimatePresence exitBeforeEnter>
           <motion.div
             key={`page-indicator__number-${pageNumber}`}
-            className="text-shadow-2 dark:text-shadow-2--dark text-xl font-semibold text-zinc-900 transition-all duration-500 dark:text-zinc-100"
+            className="text-shadow-2 text-xl font-semibold text-zinc-900 transition-all duration-500 dark:text-zinc-100"
             data-testid="page-indicator__number"
             variants={{
               enter: {
@@ -231,9 +231,9 @@ const PageIndicator = ({
             {pageNumber}
           </motion.div>
         </AnimatePresence>
-        <div className="my-2 h-[3px] w-4 rounded bg-zinc-900 shadow-solid-2 shadow-zinc-300 transition-all duration-500 dark:bg-white dark:shadow-black"></div>
+        <div className="my-2 h-[3px] w-4 rounded bg-zinc-900 shadow-solid-2 transition-all duration-500 dark:bg-white"></div>
         <div
-          className="text-shadow-2 dark:text-shadow-2--dark text-xl font-semibold transition-all duration-500 dark:text-zinc-100"
+          className="text-shadow-2 text-xl font-semibold transition-all duration-500 dark:text-zinc-100"
           data-testid="page-indicator__total"
         >
           {totalPages}

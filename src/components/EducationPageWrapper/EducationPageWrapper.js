@@ -7,7 +7,7 @@ const EducationPageWrapper = () => {
       <div className="xl:w-1/3">
         <Title>I have completed....</Title>
       </div>
-      <div className="pt-8 xl:w-2/3 xl:pt-0">
+      <div className="mt-8 h-full overflow-y-auto border-y-2 border-black p-4 xl:mt-0 xl:w-2/3">
         <EducationList />
       </div>
     </div>
