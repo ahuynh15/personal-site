@@ -25,8 +25,6 @@ module.exports = {
       boxShadow: {
         'solid-6': '6px 6px 0px rgb(0 0 0 / 0.2)',
         'solid-2': '2px 2px 0px rgb(0 0 0 / 0.2)',
-        'inner-solid-y-6':
-          'inset 0px 6px 0px rgb(0 0 0 / 0.2), inset 0px -6px 0px rgb(0 0 0 / 0.2)',
       },
     },
   },
