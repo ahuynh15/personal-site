@@ -14,7 +14,7 @@ const SkillList = ({ skills }) => {
   };
 
   return (
-    <div className="grid w-full grid-cols-1 gap-8 xl:grid-cols-2">
+    <div className="grid w-full grid-cols-1 gap-8 p-4 xl:grid-cols-2-auto">
       {skills.map((skill, index) => {
         const isToggled = skill.name === toggledSkill.name;
         const hasSubskills = skill.subskills.length > 0;

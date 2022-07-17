@@ -3,7 +3,7 @@ import { TextCarousel } from './TextCarousel';
 
 const AboutPageWrapper = () => {
   return (
-    <div className="flex h-full flex-col justify-center">
+    <div className="flex h-full flex-col justify-center p-8">
       <Title className="mb-8">Hello, I&apos;m Alvin Huynh...</Title>
       <TextCarousel
         text={[

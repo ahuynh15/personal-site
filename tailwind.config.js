@@ -29,6 +29,9 @@ module.exports = {
       dropShadow: {
         'solid-2': '2px 2px 0px rgb(0 0 0 / 0.2)',
       },
+      gridTemplateColumns: {
+        '2-auto': 'auto minmax(0, 1fr)',
+      },
     },
   },
   plugins: [],
