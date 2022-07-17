@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import { animateDarkMode } from '@/lib/animationVariants';
 import { getTimespan } from '@/lib/util';
 import { Container } from '@/Common';
 
@@ -20,7 +19,7 @@ const ExpandedExperience = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="pointer-events-auto fixed top-0 left-0 z-10 flex h-full w-full bg-overlay"
+        className="bg-overlay pointer-events-auto fixed top-0 left-0 z-10 flex h-full w-full"
       ></motion.div>
 
       {/* Container */}

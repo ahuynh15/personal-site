@@ -33,7 +33,8 @@ const ExperienceFilter = ({ tags }) => {
               <Container
                 className={classNames(
                   'text-xl font-medium text-zinc-900 transition-colors duration-500 dark:text-zinc-100',
-                  activeFilters.includes(tag) && 'bg-primary text-zinc-100'
+                  activeFilters.includes(tag) &&
+                    'bg-orange-500 text-zinc-100 dark:bg-orange-500'
                 )}
               >
                 {tag}

@@ -68,7 +68,7 @@ const Education = ({
                   href={credential.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-primary underline"
+                  className="text-orange-500 underline"
                 >
                   Show Credential
                 </a>

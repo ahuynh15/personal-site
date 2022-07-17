@@ -27,7 +27,7 @@ const Subskill = ({ name }) => {
       <motion.div variants={variants}>
         <Container
           flat={true}
-          className="bg-orange-300  transition-colors dark:bg-orange-700"
+          className="bg-orange-500  transition-colors dark:bg-orange-500"
           onClick={() => onClick(name)}
         >
           <div className="flex items-center">
