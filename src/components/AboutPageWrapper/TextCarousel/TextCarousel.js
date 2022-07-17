@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { motion, LayoutGroup, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import useDarkMode from '@/hooks/useDarkMode';
+import classNames from 'classnames';
 
 const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
   const [index, setIndex] = useState(startingIndex % (text.length * 2));
@@ -72,12 +73,8 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
 
             return (
               <motion.div
-                className="pb-8 text-5xl font-semibold transition-all duration-500"
                 style={{
                   color: `rgb(${r},${b},${g})`,
-                  textShadow: isDarkMode
-                    ? '4px 4px rgba(0,0,0,1)'
-                    : '4px 4px rgba(212,212,216,1)',
                 }}
                 key={id}
                 layoutId={id}
@@ -88,7 +85,14 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
                   opacity: 1,
                 }}
               >
-                {line.text}
+                <div
+                  className={classNames(
+                    'pb-8 text-5xl font-semibold duration-500',
+                    index === 0 && 'text-shadow-3'
+                  )}
+                >
+                  {line.text}
+                </div>
               </motion.div>
             );
           })}

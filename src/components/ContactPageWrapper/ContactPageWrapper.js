@@ -10,7 +10,7 @@ const ContactPageWrapper = () => {
       <div className="w-full pt-8 xl:w-2/3 xl:pt-0">
         <ContactLink
           className="mt-8"
-          href="www.linkedin.com/in/alvin-huynh-b1434b150"
+          href="https://www.linkedin.com/in/alvin-huynh-b1434b150"
           label="LinkedIn"
           icon={<LinkedInIcon size={24} />}
         />

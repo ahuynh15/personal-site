@@ -29,6 +29,7 @@ const DarkModeToggle = () => {
             variants={variants}
             initial="initial"
             animate="animate"
+            className="drop-shadow-solid-2"
           >
             <SunIcon color={styleConfig.theme.colors['primary']} />
           </motion.div>
@@ -38,6 +39,7 @@ const DarkModeToggle = () => {
             variants={variants}
             initial="initial"
             animate="animate"
+            className="drop-shadow-solid-2"
           >
             <MoonIcon />
           </motion.div>
