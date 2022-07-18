@@ -14,11 +14,10 @@ const Experience = ({
 }) => {
   return (
     <motion.div
-      className="overflow-hidden"
       key={id}
       variants={{
-        visible: { opacity: 2, height: 'auto' },
-        hidden: { opacity: 0, height: 0 },
+        visible: { opacity: 1 },
+        hidden: { opacity: 0 },
       }}
       initial="hidden"
       animate="visible"

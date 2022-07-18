@@ -4,6 +4,7 @@ import { selectToggledSkilled, toggleSkill } from '@/slices/SkillsSlice';
 import { SubskillList } from '../SubskillList';
 import { getSkillByName } from '@/constants/skills';
 import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 
 const SkillList = ({ skills }) => {
   const dispatch = useDispatch();
@@ -20,13 +21,12 @@ const SkillList = ({ skills }) => {
         const hasSubskills = skill.subskills.length > 0;
 
         return (
-          <>
+          <React.Fragment key={index}>
             <Skill
               name={skill.name}
               hasSubskills={hasSubskills}
               isToggled={isToggled}
               onClick={() => onClick(index, skill.name)}
-              key={index}
               className="xl:ml-8 xl:[grid-column:1]"
             />
 
@@ -38,13 +38,13 @@ const SkillList = ({ skills }) => {
                   subskills={getSkillByName(skill.name)?.subskills}
                   style={{
                     // Calculate the offset so the list is parallel to the related button
-                    marginTop: skill.index * 84,
+                    marginTop: skill.index * 84 || 0,
                   }}
                   className="xl:h-0 xl:[grid-column:2]"
                 />
               </div>
             )}
-          </>
+          </React.Fragment>
         );
       })}
     </div>

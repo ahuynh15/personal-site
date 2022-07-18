@@ -1,4 +1,5 @@
 /* PLOP_INJECT_IMPORT */
+import ExternalLinkIcon from './ExternalLinkIcon';
 import CircleIcon from './CircleIcon';
 import TriangleIcon from './TriangleIcon';
 import SquareIcon from './SquareIcon';
@@ -14,6 +15,7 @@ import ArrowRightIcon from './ArrowRightIcon';
 
 export {
   /* PLOP_INJECT_EXPORT */
+  ExternalLinkIcon,
   CircleIcon,
   TriangleIcon,
   SquareIcon,

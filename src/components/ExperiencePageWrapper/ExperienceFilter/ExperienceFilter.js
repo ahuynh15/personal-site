@@ -28,14 +28,16 @@ const ExperienceFilter = ({ tags }) => {
     <>
       <div className="flex items-center gap-4">
         {tags.map((tag, index) => {
+          const isActive = activeFilters.includes(tag);
+
           return (
             <button key={index} onClick={() => onClick(tag)}>
               <Container
                 className={classNames(
                   'text-xl font-medium text-zinc-900 transition-colors duration-500 dark:text-zinc-100',
-                  activeFilters.includes(tag) &&
-                    'bg-orange-500 text-zinc-100 dark:bg-orange-500'
+                  isActive && 'bg-orange-500 text-zinc-100 dark:bg-orange-500'
                 )}
+                flat={isActive}
               >
                 {tag}
               </Container>

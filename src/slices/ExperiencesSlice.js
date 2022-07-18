@@ -1,10 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-/**
- * TODO:
- * - Retrive experiences from API
- */
-
 const ExperiencesSlice = createSlice({
   name: 'experiences',
   initialState: {

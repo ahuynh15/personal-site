@@ -42,7 +42,7 @@ const PageIndicator = ({
     }
   };
 
-  const onTap = () => {
+  const onClick = () => {
     setIsExpanded(!isExpanded);
   };
 
@@ -90,7 +90,7 @@ const PageIndicator = ({
               'cursor-pointer text-xl font-semibold capitalize leading-5 tracking-wide transition-all duration-500',
               isActive
                 ? 'text-shadow-2 text-zinc-900 dark:text-zinc-100'
-                : 'text-zinc-400 dark:text-zinc-600'
+                : 'hover:text-shadow-2 text-zinc-400 hover:text-zinc-900 dark:text-zinc-600 dark:hover:text-zinc-100'
             )}
             key={`page-indicator__name--${pageNumber}`}
             onClick={() => onPageClick(isActive, index)}
@@ -101,6 +101,7 @@ const PageIndicator = ({
             animate={{
               opacity: 1,
             }}
+            whileHover={{ scale: isActive ? 1.0 : 1.1 }}
           >
             {page.name}
           </motion.button>
@@ -149,7 +150,9 @@ const PageIndicator = ({
                   key={`page-indicator__name--${pageNumber}${
                     isTransitioning && '--static'
                   }`}
-                  className="cursor-grab"
+                  className={classNames(
+                    isTransitioning ? 'cursor-auto' : 'cursor-grab'
+                  )}
                   data-testid="page-indicator__name"
                   // Disable drag feature if the page is changing
                   drag={isTransitioning ? false : 'y'}
@@ -179,16 +182,22 @@ const PageIndicator = ({
                       opacity: 0,
                     },
                   }}
+                  whileHover={{ scale: isTransitioning ? 1 : 1.1 }}
                   initial="enter"
                   animate="visible"
                   exit="exit"
                 >
-                  <motion.div
-                    className="text-shadow-2 select-none text-xl font-semibold capitalize leading-5 tracking-wide text-zinc-900 transition-all duration-500 dark:text-zinc-100"
-                    onTap={onTap}
+                  <div
+                    className={classNames(
+                      'select-none text-xl font-semibold capitalize leading-5 tracking-wide transition-all duration-500',
+                      isTransitioning
+                        ? 'text-zinc-300 dark:text-zinc-700'
+                        : 'text-shadow-2 text-zinc-900 dark:text-zinc-100'
+                    )}
+                    onClick={onClick}
                   >
                     {pageName}
-                  </motion.div>
+                  </div>
                 </motion.div>
               </AnimatePresence>
             </div>

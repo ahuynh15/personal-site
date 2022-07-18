@@ -29,6 +29,7 @@ const DarkModeToggle = () => {
             variants={variants}
             initial="initial"
             animate="animate"
+            whileHover={{ scale: 1.1 }}
             className="drop-shadow-solid-2"
           >
             <SunIcon color={styleConfig.theme.colors['orange']['500']} />
@@ -39,6 +40,7 @@ const DarkModeToggle = () => {
             variants={variants}
             initial="initial"
             animate="animate"
+            whileHover={{ scale: 1.1 }}
             className="drop-shadow-solid-2"
           >
             <MoonIcon />

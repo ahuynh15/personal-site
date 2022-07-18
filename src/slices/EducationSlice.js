@@ -1,10 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-/**
- * TODO:
- * - Retrive education from API
- */
-
 const EducationSlice = createSlice({
   name: 'education',
   initialState: {
@@ -36,7 +31,7 @@ const EducationSlice = createSlice({
           'A 53-hour online course covering the fundamental concepts behind React and Redux-reusable components, lifecycle methods, API requests, hooks, state management, and more.',
         additionalHeaders: ['Expires Apr 2025'],
         credential: {
-          href: 'https://www.credly.com/earner/earned/badge/f5a71f29-822f-4234-866c-038139154294',
+          href: 'https://www.credly.com/badges/f5a71f29-822f-4234-866c-038139154294/public_url',
         },
       },
       {

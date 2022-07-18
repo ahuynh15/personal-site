@@ -1,14 +1,13 @@
-import { ArrowRightIcon, Container, LinkIcon } from '@/Common';
+import { Container, ExternalLinkIcon, LinkIcon } from '@/Common';
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
 
 const ContactLink = ({ label, href, icon = <LinkIcon size={24} /> }) => {
   return (
     <a href={href} className="flex w-full" target="_blank" rel="noreferrer">
-      <Container className="flex w-full items-center justify-between text-2xl font-medium leading-6 hover:text-orange-500 dark:hover:text-orange-500">
+      <Container className="flex w-full items-center justify-between text-2xl font-medium leading-6 text-zinc-300 hover:text-zinc-900 dark:text-zinc-700 dark:hover:text-zinc-100">
         <span>{icon}</span>
         {label}
-        <ArrowRightIcon />
+        <ExternalLinkIcon size={24} />
       </Container>
     </a>
   );

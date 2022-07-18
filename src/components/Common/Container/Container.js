@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 const Container = ({ flat = false, className, children, ...props }) => {
   return (
-    <div
+    <motion.div
       className={classNames(
         'box-border rounded-2xl border-zinc-900 bg-zinc-50 text-zinc-900 transition duration-500 dark:border-zinc-50 dark:bg-zinc-900 dark:text-zinc-100',
         flat
@@ -15,13 +16,12 @@ const Container = ({ flat = false, className, children, ...props }) => {
       {...props}
     >
       {children}
-    </div>
+    </motion.div>
   );
 };
 
 Container.propTypes = {
   flat: PropTypes.bool,
-  children: PropTypes.element,
 };
 
 export default Container;
