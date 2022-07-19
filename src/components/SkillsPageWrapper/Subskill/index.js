@@ -1,3 +1,3 @@
 import Subskill from './Subskill';
 
-export { Subskill };
+export default Subskill;

@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import { Subskill } from '../Subskill';
+import Subskill from '../Subskill';
 
 const SubskillList = ({ subskills, className }) => {
   const containerVariants = {
