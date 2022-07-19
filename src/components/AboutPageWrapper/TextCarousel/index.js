@@ -1,3 +1,3 @@
 import TextCarousel from './TextCarousel';
 
-export { TextCarousel };
+export default TextCarousel;

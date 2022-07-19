@@ -1,10 +1,10 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Skill } from '../Skill';
 import { selectToggledSkilled, toggleSkill } from '@/slices/SkillsSlice';
-import { SubskillList } from '../SubskillList';
+import SubskillList from '../SubskillList';
 import { getSkillByName } from '@/constants/skills';
 import { useDispatch, useSelector } from 'react-redux';
-import React from 'react';
 
 const SkillList = ({ skills }) => {
   const dispatch = useDispatch();

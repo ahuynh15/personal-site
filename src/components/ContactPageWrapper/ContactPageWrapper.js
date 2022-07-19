@@ -1,3 +1,4 @@
+import React from 'react';
 import { ContactLink } from './ContactLink';
 import { LinkedInIcon, Title } from '@/components/Common';
 

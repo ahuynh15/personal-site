@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import { getTimespan } from '@/lib/util';
 import { Container } from '@/Common';
+import { getTimespan } from '@/lib/dateHelper';
 
 const Experience = ({
   id,

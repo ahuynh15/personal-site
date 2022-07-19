@@ -1,3 +1,4 @@
+import React from 'react';
 import { DownIcon } from '../Icons';
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
 

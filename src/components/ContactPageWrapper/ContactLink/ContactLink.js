@@ -1,3 +1,4 @@
+import React from 'react';
 import { Container, ExternalLinkIcon, LinkIcon } from '@/Common';
 import PropTypes from 'prop-types';
 

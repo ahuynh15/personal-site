@@ -1,6 +1,7 @@
-import { ArrowRightIcon, Container } from '@/Common';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { ArrowRightIcon, Container } from '@/Common';
 
 const Skill = ({ name, hasSubskills, isToggled, onClick, className }) => {
   return (

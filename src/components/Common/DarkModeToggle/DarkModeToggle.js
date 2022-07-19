@@ -1,3 +1,4 @@
+import React from 'react';
 import { selectIsDarkMode, setTheme } from '@/slices/ThemeSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { MoonIcon, SunIcon } from '../Icons';

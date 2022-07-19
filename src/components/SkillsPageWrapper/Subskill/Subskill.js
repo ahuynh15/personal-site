@@ -1,3 +1,4 @@
+import React from 'react';
 import { Container } from '@/Common';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';

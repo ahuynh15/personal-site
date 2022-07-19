@@ -1,5 +1,6 @@
+import React from 'react';
 import { Title } from '../Common/Title';
-import { TextCarousel } from './TextCarousel';
+import TextCarousel from './TextCarousel';
 
 const AboutPageWrapper = () => {
   return (

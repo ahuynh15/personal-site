@@ -1,3 +1,4 @@
+import React from 'react';
 import { Container, XIcon } from '@/components/Common';
 import { clearFilters, toggleFilter } from '@/slices/ExperiencesSlice';
 import PropTypes from 'prop-types';

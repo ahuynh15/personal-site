@@ -1,8 +1,10 @@
+import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { Subskill } from '../Subskill';
 
-const SubskillList = ({ subskills, className, ...props }) => {
+const SubskillList = ({ subskills, className }) => {
   const containerVariants = {
     show: {
       transition: {
@@ -17,13 +19,21 @@ const SubskillList = ({ subskills, className, ...props }) => {
       variants={containerVariants}
       initial="initial"
       animate="show"
-      {...props}
     >
-      {subskills?.map((subskill) => {
-        return <Subskill name={subskill} key={`${subskill}`} />;
-      })}
+      {subskills?.map((subskill) => (
+        <Subskill name={subskill} key={`${subskill}`} />
+      ))}
     </motion.div>
   );
+};
+
+SubskillList.propTypes = {
+  subskills: PropTypes.arrayOf(PropTypes.string).isRequired,
+  className: PropTypes.string,
+};
+
+SubskillList.defaultProps = {
+  className: '',
 };
 
 export default SubskillList;

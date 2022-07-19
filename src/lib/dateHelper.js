@@ -1,7 +1,7 @@
 // Calculate the time between two dates in years and months
 export const getTimespan = (startDate, endDate) => {
-  let years = endDate.year - startDate.year;
-  let months = endDate.month - startDate.month;
+  const years = endDate.year - startDate.year;
+  const months = endDate.month - startDate.month;
   let timespan = '';
 
   if (years > 0) {
@@ -16,3 +16,7 @@ export const getTimespan = (startDate, endDate) => {
 
   return timespan;
 };
+
+const dateHelper = { getTimespan };
+
+export default dateHelper;

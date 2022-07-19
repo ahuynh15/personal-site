@@ -1,3 +1,4 @@
+import React from 'react';
 import { SKILLS } from '@/constants/skills';
 import { Title } from '../Common/Title';
 import { SkillList } from './SkillList';
