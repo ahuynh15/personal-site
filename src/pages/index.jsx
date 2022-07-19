@@ -1,7 +1,8 @@
-import { PageContainer, PageIndicator } from '@/Common';
+import React from 'react';
 import Head from 'next/head';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
+import { PageContainer, PageIndicator } from '@/Common';
 import { DarkModeToggle } from '@/components/Common/DarkModeToggle';
 import { selectPage, setIsTransitioning } from '@/slices/PageSlice';
 import useDarkMode from '@/hooks/useDarkMode';

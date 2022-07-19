@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const LinkedInIcon = ({
+const LinkedInIcon = function LinkedInIcon({
   size = 32,
   strokeWidth = 2,
   color = 'currentColor',
-}) => {
+}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -19,9 +19,9 @@ const LinkedInIcon = ({
       strokeLinejoin="round"
       className="feather feather-linkedin"
     >
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-      <rect x="2" y="9" width="4" height="12"></rect>
-      <circle cx="4" cy="4" r="2"></circle>
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect x="2" y="9" width="4" height="12" />
+      <circle cx="4" cy="4" r="2" />
     </svg>
   );
 };
@@ -29,6 +29,13 @@ const LinkedInIcon = ({
 LinkedInIcon.propTypes = {
   size: PropTypes.number,
   color: PropTypes.string,
+  strokeWidth: PropTypes.number,
+};
+
+LinkedInIcon.defaultProps = {
+  size: 32,
+  color: 'currentColor',
+  strokeWidth: 2,
 };
 
 export default LinkedInIcon;

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ChevronDownIcon = ({
+const ArrowRightIcon = function ArrowRightIcon({
   size = 32,
   strokeWidth = 2,
   color = 'currentColor',
-}) => {
+}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -19,15 +19,22 @@ const ChevronDownIcon = ({
       strokeLinejoin="round"
       className="feather feather-arrow-right"
     >
-      <line x1="5" y1="12" x2="19" y2="12"></line>
-      <polyline points="12 5 19 12 12 19"></polyline>
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
     </svg>
   );
 };
 
-ChevronDownIcon.propTypes = {
+ArrowRightIcon.propTypes = {
   size: PropTypes.number,
   color: PropTypes.string,
+  strokeWidth: PropTypes.number,
 };
 
-export default ChevronDownIcon;
+ArrowRightIcon.defaultProps = {
+  size: 32,
+  color: 'currentColor',
+  strokeWidth: 2,
+};
+
+export default ArrowRightIcon;

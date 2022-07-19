@@ -1,3 +1,4 @@
+import React from 'react';
 import '@/styles/globals.css';
 import store from 'src/store';
 import dynamic from 'next/dynamic';

@@ -50,16 +50,12 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
   // Calculate RGB values for the given index
   const calculateRgb = (index, darkMode) => {
     if (darkMode) {
-      return [
-        244 / Math.pow(2, index),
-        244 / Math.pow(2, index),
-        245 / Math.pow(2, index),
-      ];
+      return [244 / 2 ** index, 244 / 2 ** index, 245 / 2 ** index];
     } else {
       return [
-        255 - 231 / Math.pow(2, index),
-        255 - 231 / Math.pow(2, index),
-        255 - 228 / Math.pow(2, index),
+        255 - 231 / 2 ** index,
+        255 - 231 / 2 ** index,
+        255 - 228 / 2 ** index,
       ];
     }
   };

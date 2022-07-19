@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SunIcon = ({ size = 32, strokeWidth = 2, color = 'currentColor' }) => {
+const SunIcon = function SunIcon({
+  size = 32,
+  strokeWidth = 2,
+  color = 'currentColor',
+}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,15 +19,15 @@ const SunIcon = ({ size = 32, strokeWidth = 2, color = 'currentColor' }) => {
       strokeLinejoin="round"
       className="feather feather-sun"
     >
-      <circle cx="12" cy="12" r="5"></circle>
-      <line x1="12" y1="1" x2="12" y2="3"></line>
-      <line x1="12" y1="21" x2="12" y2="23"></line>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-      <line x1="1" y1="12" x2="3" y2="12"></line>
-      <line x1="21" y1="12" x2="23" y2="12"></line>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      <circle cx="12" cy="12" r="5" />
+      <line x1="12" y1="1" x2="12" y2="3" />
+      <line x1="12" y1="21" x2="12" y2="23" />
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+      <line x1="1" y1="12" x2="3" y2="12" />
+      <line x1="21" y1="12" x2="23" y2="12" />
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
     </svg>
   );
 };
@@ -31,6 +35,13 @@ const SunIcon = ({ size = 32, strokeWidth = 2, color = 'currentColor' }) => {
 SunIcon.propTypes = {
   size: PropTypes.number,
   color: PropTypes.string,
+  strokeWidth: PropTypes.number,
+};
+
+SunIcon.defaultProps = {
+  size: 32,
+  color: 'currentColor',
+  strokeWidth: 2,
 };
 
 export default SunIcon;
