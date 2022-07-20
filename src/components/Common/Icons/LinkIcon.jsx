@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const LinkIcon = function LinkIcon({
-  size = 32,
-  strokeWidth = 2,
-  color = 'currentColor',
-}) {
+function LinkIcon({ size = 32, strokeWidth = 2, color = 'currentColor' }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +19,7 @@ const LinkIcon = function LinkIcon({
       <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
     </svg>
   );
-};
+}
 
 LinkIcon.propTypes = {
   size: PropTypes.number,

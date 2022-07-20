@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const XIcon = function XIcon({
-  size = 32,
-  strokeWidth = 2,
-  color = 'currentColor',
-}) {
+function XIcon({ size = 32, strokeWidth = 2, color = 'currentColor' }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +19,7 @@ const XIcon = function XIcon({
       <line x1="6" y1="6" x2="18" y2="18" />
     </svg>
   );
-};
+}
 
 XIcon.propTypes = {
   size: PropTypes.number,

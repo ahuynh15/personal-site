@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CircleIcon = function CircleIcon({
-  size = 32,
-  strokeWidth = 2,
-  color = 'currentColor',
-}) {
+function CircleIcon({ size = 32, strokeWidth = 2, color = 'currentColor' }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +19,7 @@ const CircleIcon = function CircleIcon({
       <line x1="6" y1="6" x2="18" y2="18" />
     </svg>
   );
-};
+}
 
 CircleIcon.propTypes = {
   size: PropTypes.number,

@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MoonIcon = function MoonIcon({
-  size = 32,
-  strokeWidth = 2,
-  color = 'currentColor',
-}) {
+function MoonIcon({ size = 32, strokeWidth = 2, color = 'currentColor' }) {
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
@@ -20,7 +16,7 @@ const MoonIcon = function MoonIcon({
   >
     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
   </svg>;
-};
+}
 
 MoonIcon.propTypes = {
   size: PropTypes.number,

@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const LinkedInIcon = function LinkedInIcon({
-  size = 32,
-  strokeWidth = 2,
-  color = 'currentColor',
-}) {
+function LinkedInIcon({ size = 32, strokeWidth = 2, color = 'currentColor' }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +20,7 @@ const LinkedInIcon = function LinkedInIcon({
       <circle cx="4" cy="4" r="2" />
     </svg>
   );
-};
+}
 
 LinkedInIcon.propTypes = {
   size: PropTypes.number,

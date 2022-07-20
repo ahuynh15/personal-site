@@ -1,3 +1,20 @@
 {
-  "extends": ["next/core-web-vitals", "airbnb"]
+  "extends": ["next/core-web-vitals", "airbnb"],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@/Common", "./src/components/Common/index"],
+          ["@/lib", "./src/lib"],
+          ["@/components", "./src/components"],
+          ["@/slices", "./src/slices"],
+          ["@/styles", "./styles"],
+          ["@/hooks", "./src/hooks"],
+          ["@/constants", "./src/constants"],
+          ["tailwindConfig", "./tailwind.config.js"]
+        ],
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  }
 }

@@ -7,11 +7,33 @@ import { DarkModeToggle } from '@/components/Common/DarkModeToggle';
 import { selectPage, setIsTransitioning } from '@/slices/PageSlice';
 import useDarkMode from '@/hooks/useDarkMode';
 import { pages } from '@/constants/pages';
+import AboutPageWrapper from '@/components/AboutPageWrapper';
+import SkillsPageWrapper from '@/components/SkillsPageWrapper';
+import ExperiencePageWrapper from '@/components/ExperiencePageWrapper';
+import EducationPageWrapper from '@/components/EducationPageWrapper';
+import ContactPageWrapper from '@/components/ContactPageWrapper';
 
 export default function Home() {
   const dispatch = useDispatch();
   const page = useSelector((state) => selectPage(state));
   const [mode] = useDarkMode();
+
+  const getPage = (name) => {
+    switch (name) {
+      case 'about':
+        return <AboutPageWrapper />;
+      case 'skills':
+        return <SkillsPageWrapper />;
+      case 'experience':
+        return <ExperiencePageWrapper />;
+      case 'education':
+        return <EducationPageWrapper />;
+      case 'contact':
+        return <ContactPageWrapper />;
+      default:
+        return <AboutPageWrapper />;
+    }
+  };
 
   return (
     <div>
@@ -38,7 +60,7 @@ export default function Home() {
             prevIndex={page.prevIndex}
             theme={pages[page.index].theme}
           >
-            {pages[page.index].component}
+            {getPage(pages[page.index].name)}
           </PageContainer>
         </AnimatePresence>
 

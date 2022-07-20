@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SunIcon = function SunIcon({
-  size = 32,
-  strokeWidth = 2,
-  color = 'currentColor',
-}) {
+function SunIcon({ size = 32, strokeWidth = 2, color = 'currentColor' }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +26,7 @@ const SunIcon = function SunIcon({
       <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
     </svg>
   );
-};
+}
 
 SunIcon.propTypes = {
   size: PropTypes.number,

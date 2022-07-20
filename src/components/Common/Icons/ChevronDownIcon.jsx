@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ChevronDownIcon = function ChevronDownIcon({
+function ChevronDownIcon({
   size = 32,
   strokeWidth = 2,
   color = 'currentColor',
@@ -22,7 +22,7 @@ const ChevronDownIcon = function ChevronDownIcon({
       <polyline points="6 9 12 15 18 9" />
     </svg>
   );
-};
+}
 
 ChevronDownIcon.propTypes = {
   size: PropTypes.number,

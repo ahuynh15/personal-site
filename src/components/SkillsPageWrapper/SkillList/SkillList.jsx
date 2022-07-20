@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Skill } from '../Skill';
+import Skill from '../Skill';
 import { selectToggledSkilled, toggleSkill } from '@/slices/SkillsSlice';
 import SubskillList from '../SubskillList';
 import { getSkillByName } from '@/constants/skills';
@@ -56,7 +56,7 @@ SkillList.propTypes = {
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       subskill: PropTypes.arrayOf(PropTypes.string),
-    })
+    }),
   ),
 };
 

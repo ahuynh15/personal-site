@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import Subskill from '../Subskill';
 
-const SubskillList = ({ subskills, className }) => {
+function SubskillList({ subskills, className }) {
   const containerVariants = {
     show: {
       transition: {
@@ -25,7 +25,7 @@ const SubskillList = ({ subskills, className }) => {
       ))}
     </motion.div>
   );
-};
+}
 
 SubskillList.propTypes = {
   subskills: PropTypes.arrayOf(PropTypes.string).isRequired,

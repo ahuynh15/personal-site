@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ExternalLinkIcon = function ExternalLinkIcon({
+function ExternalLinkIcon({
   size = 32,
   strokeWidth = 2,
   color = 'currentColor',
@@ -24,7 +24,7 @@ const ExternalLinkIcon = function ExternalLinkIcon({
       <line x1="10" y1="14" x2="21" y2="3" />
     </svg>
   );
-};
+}
 
 ExternalLinkIcon.propTypes = {
   size: PropTypes.number,

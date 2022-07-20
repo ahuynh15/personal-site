@@ -6,7 +6,7 @@ import {
   useMotionValue,
   useTransform,
 } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   nextPage,
@@ -14,17 +14,17 @@ import {
   selectIsTransitioning,
   setPage,
 } from '@/slices/PageSlice';
-import { ChevronUpIcon, ChevronDownIcon } from '@/Common';
+import { ChevronUpIcon, ChevronDownIcon } from '../Icons';
 import { pages } from '@/constants/pages';
 import classNames from 'classnames';
 
-const PageIndicator = ({
+function PageIndicator({
   pageName,
   pageNumber,
   totalPages,
   dragOffset = 20,
   dragDistance = 30,
-}) => {
+}) {
   const dispatch = useDispatch();
   const isTransitioning = useSelector((state) => selectIsTransitioning(state));
   const [isExpanded, setIsExpanded] = useState(false);
@@ -91,7 +91,7 @@ const PageIndicator = ({
               'cursor-pointer text-xl font-semibold capitalize leading-5 tracking-wide transition-all duration-500',
               isActive
                 ? 'text-shadow-2 text-zinc-900 dark:text-zinc-100'
-                : 'hover:text-shadow-2 text-zinc-400 hover:text-zinc-900 dark:text-zinc-600 dark:hover:text-zinc-100'
+                : 'hover:text-shadow-2 text-zinc-400 hover:text-zinc-900 dark:text-zinc-600 dark:hover:text-zinc-100',
             )}
             key={`page-indicator__name--${pageNumber}`}
             onClick={() => onPageClick(isActive, index)}
@@ -152,7 +152,7 @@ const PageIndicator = ({
                     isTransitioning && '--static'
                   }`}
                   className={classNames(
-                    isTransitioning ? 'cursor-auto' : 'cursor-grab'
+                    isTransitioning ? 'cursor-auto' : 'cursor-grab',
                   )}
                   data-testid="page-indicator__name"
                   // Disable drag feature if the page is changing
@@ -193,7 +193,7 @@ const PageIndicator = ({
                       'select-none text-xl font-semibold capitalize leading-5 tracking-wide transition-all duration-500',
                       isTransitioning
                         ? 'text-zinc-300 dark:text-zinc-700'
-                        : 'text-shadow-2 text-zinc-900 dark:text-zinc-100'
+                        : 'text-shadow-2 text-zinc-900 dark:text-zinc-100',
                     )}
                     onClick={onClick}
                   >
@@ -251,7 +251,7 @@ const PageIndicator = ({
       </div>
     </div>
   );
-};
+}
 
 PageIndicator.propTypes = {
   pageName: PropTypes.string.isRequired,

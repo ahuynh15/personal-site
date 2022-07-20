@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DownIcon = function DownIcon({
-  size = 32,
-  strokeWidth = 2,
-  color = 'currentColor',
-}) {
+function DownIcon({ size = 32, strokeWidth = 2, color = 'currentColor' }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +19,7 @@ const DownIcon = function DownIcon({
       <polyline points="19 12 12 19 5 12" />
     </svg>
   );
-};
+}
 
 DownIcon.propTypes = {
   size: PropTypes.number,

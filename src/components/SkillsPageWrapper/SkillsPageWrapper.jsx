@@ -1,9 +1,9 @@
 import React from 'react';
+import { Title } from '@/Common';
 import { SKILLS } from '@/constants/skills';
-import { Title } from '../Common/Title';
-import { SkillList } from './SkillList';
+import SkillList from './SkillList';
 
-const SkillsPageWrapper = () => {
+function SkillsPageWrapper() {
   return (
     <div className="flex h-full flex-col p-8 xl:flex-row">
       <div className="self-center xl:w-1/3">
@@ -16,6 +16,6 @@ const SkillsPageWrapper = () => {
       </div>
     </div>
   );
-};
+}
 
 export default SkillsPageWrapper;

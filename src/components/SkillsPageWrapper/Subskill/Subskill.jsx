@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { Container } from '@/Common';
 
-const Subskill = ({ name }) => {
+function Subskill({ name }) {
   const variants = {
     show: {
       opacity: 1,
@@ -26,13 +26,13 @@ const Subskill = ({ name }) => {
   return (
     <motion.div variants={variants}>
       <Container
-        flat={true}
+        flat
         className="bg-orange-500  transition-colors dark:bg-orange-500"
       >
         <div className="flex items-center">
           <span
             className={classNames(
-              'text-2xl font-medium text-zinc-900 transition-colors duration-500 dark:text-zinc-100'
+              'text-2xl font-medium text-zinc-900 transition-colors duration-500 dark:text-zinc-100',
             )}
           >
             {name}
@@ -41,7 +41,7 @@ const Subskill = ({ name }) => {
       </Container>
     </motion.div>
   );
-};
+}
 
 Subskill.propTypes = { name: PropTypes.string.isRequired };
 

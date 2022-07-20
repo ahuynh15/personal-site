@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Container } from '@/Common';
 import { getTimespan } from '@/lib/dateHelper';
 
-const Experience = ({
+function Experience({
   id,
   title,
   startDate,
@@ -12,7 +12,7 @@ const Experience = ({
   description,
   tags,
   onExpand,
-}) => {
+}) {
   return (
     <motion.div
       key={id}
@@ -53,7 +53,7 @@ const Experience = ({
                   {
                     month: 'short',
                     year: 'numeric',
-                  }
+                  },
                 )}
                 &nbsp;-&nbsp;
                 {new Date(endDate.year, endDate.month).toLocaleString(
@@ -61,7 +61,7 @@ const Experience = ({
                   {
                     month: 'short',
                     year: 'numeric',
-                  }
+                  },
                 )}
                 &nbsp;&#8226;&nbsp;{getTimespan(startDate, endDate)}
               </motion.div>
@@ -95,7 +95,7 @@ const Experience = ({
       </motion.div>
     </motion.div>
   );
-};
+}
 
 Experience.propTypes = {
   title: PropTypes.string.isRequired,
