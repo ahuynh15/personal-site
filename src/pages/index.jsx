@@ -2,11 +2,10 @@ import React from 'react';
 import Head from 'next/head';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
-import { PageContainer, PageIndicator } from '@/Common';
-import { DarkModeToggle } from '@/components/Common/DarkModeToggle';
+import { PageContainer, PageIndicator, DarkModeToggle } from '@/Common';
 import { selectPage, setIsTransitioning } from '@/slices/PageSlice';
 import useDarkMode from '@/hooks/useDarkMode';
-import { pages } from '@/constants/pages';
+import { pagesConfig } from '@/constants/pagesConfig';
 import AboutPageWrapper from '@/components/AboutPageWrapper';
 import SkillsPageWrapper from '@/components/SkillsPageWrapper';
 import ExperiencePageWrapper from '@/components/ExperiencePageWrapper';
@@ -58,9 +57,9 @@ export default function Home() {
             key={page.index}
             index={page.index}
             prevIndex={page.prevIndex}
-            theme={pages[page.index].theme}
+            theme={pagesConfig[page.index].theme}
           >
-            {getPage(pages[page.index].name)}
+            {getPage(pagesConfig[page.index].name)}
           </PageContainer>
         </AnimatePresence>
 
@@ -72,9 +71,8 @@ export default function Home() {
         {/* Page Indicator */}
         <div className="absolute right-8 top-1/2 z-30 -translate-y-1/2">
           <PageIndicator
-            pageName={pages[page.index].name}
-            pageNumber={page.index + 1}
-            totalPages={pages.length}
+            currentPageName={pagesConfig[page.index].name}
+            currentPageNumber={page.index + 1}
           />
         </div>
       </main>

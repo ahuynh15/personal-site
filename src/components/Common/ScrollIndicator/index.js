@@ -1,3 +1,3 @@
 import ScrollIndicator from './ScrollIndicator';
 
-export { ScrollIndicator };
+export default ScrollIndicator;

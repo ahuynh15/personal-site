@@ -1,8 +1,8 @@
 import React from 'react';
-import { ContactLink } from './ContactLink';
 import { LinkedInIcon, Title } from '@/components/Common';
+import ContactLink from './ContactLink';
 
-const ContactPageWrapper = () => {
+function ContactPageWrapper() {
   return (
     <div className="flex h-full flex-col items-center p-8 xl:flex-row">
       <div className="xl:w-1/3">
@@ -18,6 +18,6 @@ const ContactPageWrapper = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ContactPageWrapper;

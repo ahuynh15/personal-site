@@ -1,3 +1,3 @@
 import EducationList from './EducationList';
 
-export { EducationList };
+export default EducationList;

@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function ExternalLinkIcon({
-  size = 32,
-  strokeWidth = 2,
-  color = 'currentColor',
-}) {
+function ExternalLinkIcon({ size, strokeWidth, color }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

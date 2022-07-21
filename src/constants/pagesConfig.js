@@ -3,7 +3,7 @@ import tailwindConfig from 'tailwindConfig';
 
 const styleConfig = resolveConfig(tailwindConfig);
 
-export const pages = [
+export const pagesConfig = [
   {
     name: 'about',
     theme: {

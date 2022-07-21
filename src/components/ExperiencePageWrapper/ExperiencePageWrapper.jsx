@@ -1,7 +1,7 @@
 import React from 'react';
-import { Title } from '../Common/Title';
-import { ExperienceFilter } from './ExperienceFilter';
-import { ExperienceList } from './ExperienceList';
+import { Title } from '@/Common';
+import ExperienceFilter from './ExperienceFilter';
+import ExperienceList from './ExperienceList';
 
 function ExperiencePageWrapper() {
   return (

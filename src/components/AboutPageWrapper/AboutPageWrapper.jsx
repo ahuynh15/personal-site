@@ -1,8 +1,8 @@
 import React from 'react';
-import { Title } from '../Common/Title';
+import { Title } from '@/Common';
 import TextCarousel from './TextCarousel';
 
-const AboutPageWrapper = () => {
+function AboutPageWrapper() {
   return (
     <div className="flex h-full flex-col justify-center p-8">
       <Title className="mb-8">Hello, I&apos;m Alvin Huynh...</Title>
@@ -20,6 +20,6 @@ const AboutPageWrapper = () => {
       />
     </div>
   );
-};
+}
 
 export default AboutPageWrapper;

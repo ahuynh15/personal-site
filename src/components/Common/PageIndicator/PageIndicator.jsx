@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   AnimatePresence,
@@ -6,24 +6,22 @@ import {
   useMotionValue,
   useTransform,
 } from 'framer-motion';
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import classNames from 'classnames';
 import {
   nextPage,
   prevPage,
   selectIsTransitioning,
   setPage,
 } from '@/slices/PageSlice';
+import { pagesConfig } from '@/constants/pagesConfig';
 import { ChevronUpIcon, ChevronDownIcon } from '../Icons';
-import { pages } from '@/constants/pages';
-import classNames from 'classnames';
 
 function PageIndicator({
-  pageName,
-  pageNumber,
-  totalPages,
-  dragOffset = 20,
-  dragDistance = 30,
+  currentPageName,
+  currentPageNumber,
+  dragOffset,
+  dragDistance,
 }) {
   const dispatch = useDispatch();
   const isTransitioning = useSelector((state) => selectIsTransitioning(state));
@@ -47,6 +45,10 @@ function PageIndicator({
     setIsExpanded(!isExpanded);
   };
 
+  const goToPage = (index) => {
+    dispatch(setPage({ index }));
+  };
+
   const onPageClick = (isActive, index) => {
     if (isActive) {
       setIsExpanded(!isExpanded);
@@ -55,35 +57,26 @@ function PageIndicator({
     }
   };
 
-  const goToPage = (index) => {
-    dispatch(setPage({ index }));
-  };
-
   const getOffsetY = (pageNumber, totalPages, height) => {
     const isEven = totalPages % 2 === 0;
     const midpoint = Math.round(totalPages / 2);
     const pagesFromMidpoint = midpoint - pageNumber;
 
-    if (isEven) {
-      return height * 1;
-    } else {
-      return height * pagesFromMidpoint;
-    }
+    return isEven ? height * 1 : height * pagesFromMidpoint;
   };
 
-  const renderPageLinks = (pages, currentPageNumber) => (
+  const renderPageLinks = (pageNumber) => (
     <motion.div
       className="flex flex-col items-end gap-4"
       initial={{
-        y: getOffsetY(currentPageNumber, pages.length, 36),
+        y: getOffsetY(pageNumber, pagesConfig.length, 36),
       }}
       animate={{
-        y: getOffsetY(currentPageNumber, pages.length, 36),
+        y: getOffsetY(pageNumber, pagesConfig.length, 36),
       }}
     >
-      {pages.map((page, index) => {
-        const pageNumber = index + 1;
-        const isActive = currentPageNumber === pageNumber;
+      {pagesConfig.map((page, index) => {
+        const isActive = pageNumber === index + 1;
 
         return (
           <motion.button
@@ -93,7 +86,7 @@ function PageIndicator({
                 ? 'text-shadow-2 text-zinc-900 dark:text-zinc-100'
                 : 'hover:text-shadow-2 text-zinc-400 hover:text-zinc-900 dark:text-zinc-600 dark:hover:text-zinc-100',
             )}
-            key={`page-indicator__name--${pageNumber}`}
+            key={`page-indicator__name--${page.name}`}
             onClick={() => onPageClick(isActive, index)}
             disabled={isTransitioning}
             initial={{
@@ -114,7 +107,7 @@ function PageIndicator({
   return (
     <div className="flex items-center gap-4">
       {isExpanded ? (
-        <>{renderPageLinks(pages, pageNumber)}</>
+        <>{renderPageLinks(currentPageNumber)}</>
       ) : (
         <div className="relative flex flex-col justify-center">
           {/* Up Arrow */}
@@ -134,7 +127,7 @@ function PageIndicator({
              * There is a bug in Framer Motion where drag constraints are lost
              * on rerender (https://github.com/framer/motion/issues/1454).
              * The workaround in the comments suggests updating the key.
-             **/}
+             */}
             <div
               style={{
                 height: `${dragDistance * 2}px`,
@@ -148,7 +141,7 @@ function PageIndicator({
                 key={`page-indicator__presence${isTransitioning && '--static'}`}
               >
                 <motion.div
-                  key={`page-indicator__name--${pageNumber}${
+                  key={`page-indicator__name--${currentPageNumber}${
                     isTransitioning && '--static'
                   }`}
                   className={classNames(
@@ -158,10 +151,13 @@ function PageIndicator({
                   // Disable drag feature if the page is changing
                   drag={isTransitioning ? false : 'y'}
                   dragConstraints={{
-                    top: pageNumber === 1 ? 0 : -dragDistance,
-                    bottom: pageNumber === totalPages ? 0 : dragDistance,
+                    top: currentPageNumber === 1 ? 0 : -dragDistance,
+                    bottom:
+                      currentPageNumber === pagesConfig.length
+                        ? 0
+                        : dragDistance,
                   }}
-                  dragSnapToOrigin={true}
+                  dragSnapToOrigin
                   dragElastic={{
                     top: 0,
                     bottom: 0,
@@ -169,7 +165,7 @@ function PageIndicator({
                   dragMomentum={false}
                   onDragEnd={onDragEnd}
                   style={{
-                    y: y,
+                    y,
                   }}
                   // Animations
                   variants={{
@@ -197,7 +193,7 @@ function PageIndicator({
                     )}
                     onClick={onClick}
                   >
-                    {pageName}
+                    {currentPageName}
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -220,7 +216,7 @@ function PageIndicator({
       <div className="flex flex-col items-center">
         <AnimatePresence exitBeforeEnter>
           <motion.div
-            key={`page-indicator__number-${pageNumber}`}
+            key={`page-indicator__number-${currentPageNumber}`}
             className="text-shadow-2 text-xl font-semibold text-zinc-900 transition-all duration-500 dark:text-zinc-100"
             data-testid="page-indicator__number"
             variants={{
@@ -238,15 +234,15 @@ function PageIndicator({
             animate="visible"
             exit="exit"
           >
-            {pageNumber}
+            {currentPageNumber}
           </motion.div>
         </AnimatePresence>
-        <div className="my-2 h-[3px] w-4 rounded bg-zinc-900 shadow-solid-2 transition-all duration-500 dark:bg-white"></div>
+        <div className="my-2 h-[3px] w-4 rounded bg-zinc-900 shadow-solid-2 transition-all duration-500 dark:bg-white" />
         <div
           className="text-shadow-2 text-xl font-semibold transition-all duration-500 dark:text-zinc-100"
           data-testid="page-indicator__total"
         >
-          {totalPages}
+          {pagesConfig.length}
         </div>
       </div>
     </div>
@@ -254,9 +250,15 @@ function PageIndicator({
 }
 
 PageIndicator.propTypes = {
-  pageName: PropTypes.string.isRequired,
-  pageNumber: PropTypes.number.isRequired,
-  totalPages: PropTypes.number.isRequired,
+  currentPageName: PropTypes.string.isRequired,
+  currentPageNumber: PropTypes.number.isRequired,
+  dragOffset: PropTypes.number,
+  dragDistance: PropTypes.number,
+};
+
+PageIndicator.defaultProps = {
+  dragOffset: 20,
+  dragDistance: 30,
 };
 
 export default PageIndicator;

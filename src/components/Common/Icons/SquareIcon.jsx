@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function SquareIcon({ size = 32, strokeWidth = 2, color = 'currentColor' }) {
+function SquareIcon({ size, strokeWidth, color }) {
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}

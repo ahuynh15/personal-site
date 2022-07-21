@@ -63,7 +63,8 @@ function Experience({
                     year: 'numeric',
                   },
                 )}
-                &nbsp;&#8226;&nbsp;{getTimespan(startDate, endDate)}
+                &nbsp;&#8226;&nbsp;
+                {getTimespan(startDate, endDate)}
               </motion.div>
 
               {/* Description */}
@@ -79,18 +80,16 @@ function Experience({
 
         {/* Tags */}
         <div className="mt-4 flex gap-8">
-          {tags.map((tag) => {
-            return (
-              <Container
-                key={tag}
-                flat={true}
-                className="items-center text-base font-medium"
-                layoutId={`experience__tag__${id}__${tag}`}
-              >
-                {tag}
-              </Container>
-            );
-          })}
+          {tags.map((tag) => (
+            <Container
+              key={tag}
+              flat
+              className="items-center text-base font-medium"
+              layoutId={`experience__tag__${id}__${tag}`}
+            >
+              {tag}
+            </Container>
+          ))}
         </div>
       </motion.div>
     </motion.div>
@@ -98,6 +97,7 @@ function Experience({
 }
 
 Experience.propTypes = {
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   title: PropTypes.string.isRequired,
   startDate: PropTypes.shape({
     year: PropTypes.number.isRequired,
@@ -110,6 +110,10 @@ Experience.propTypes = {
   description: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
   onExpand: PropTypes.func.isRequired,
+};
+
+Experience.defaultProps = {
+  tags: undefined,
 };
 
 export default Experience;

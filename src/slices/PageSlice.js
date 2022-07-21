@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { pages } from '@/constants/pages';
+import { pagesConfig } from '@/constants/pagesConfig';
 
 const PageSlice = createSlice({
   name: 'page',
@@ -15,7 +15,7 @@ const PageSlice = createSlice({
       state.isTransitioning = true;
     },
     nextPage: (state) => {
-      if (state.index + 1 <= pages.length - 1) {
+      if (state.index + 1 <= pagesConfig.length - 1) {
         state.prevIndex = state.index;
         state.index = state.index + 1;
         state.isTransitioning = true;

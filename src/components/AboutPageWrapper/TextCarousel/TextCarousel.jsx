@@ -1,13 +1,14 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion, LayoutGroup, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import useDarkMode from '@/hooks/useDarkMode';
 import classNames from 'classnames';
 
-const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
-  const [index, setIndex] = useState(startingIndex % (text.length * 2));
+function TextCarousel({ text, displayLimit, startingIndex }) {
+  const [currentIndex, setCurrentIndex] = useState(
+    startingIndex % (text.length * 2),
+  );
   const [mode] = useDarkMode();
   const isDarkMode = mode === 'dark';
 
@@ -21,27 +22,27 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
     let interval = null;
     if (inView) {
       interval = setInterval(() => {
-        setIndex((index + 1) % (text.length * 2));
+        setCurrentIndex((currentIndex + 1) % (text.length * 2));
       }, 5000);
     } else {
       clearInterval(interval);
     }
 
     return () => clearInterval(interval);
-  }, [index, setIndex, inView, text.length]);
+  }, [currentIndex, setCurrentIndex, inView, text.length]);
 
-  const getLines = () => {
-    let lines = [];
-    let currentIndex = index;
+  // Generate the array of lines to render
+  const getLines = (index) => {
+    const lines = [];
+    let i = index;
 
-    // Generate the array of lines to render
     while (lines.length < linesToRender) {
       lines.push({
-        text: text[currentIndex % text.length],
-        index: currentIndex,
+        text: text[i % text.length],
+        index: i,
       });
 
-      currentIndex = (currentIndex + 1) % (text.length * 2);
+      i = (i + 1) % (text.length * 2);
     }
 
     return lines;
@@ -51,20 +52,20 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
   const calculateRgb = (index, darkMode) => {
     if (darkMode) {
       return [244 / 2 ** index, 244 / 2 ** index, 245 / 2 ** index];
-    } else {
-      return [
-        255 - 231 / 2 ** index,
-        255 - 231 / 2 ** index,
-        255 - 228 / 2 ** index,
-      ];
     }
+
+    return [
+      255 - 231 / 2 ** index,
+      255 - 231 / 2 ** index,
+      255 - 228 / 2 ** index,
+    ];
   };
 
   return (
     <AnimatePresence initial={false}>
       <LayoutGroup id="text-carousel">
         <div className="text-carousel flex flex-col" ref={ref}>
-          {getLines().map((line, index) => {
+          {getLines(currentIndex).map((line, index) => {
             const [r, b, g] = calculateRgb(index, isDarkMode);
             const id = `${line.text} ${line.index}`;
 
@@ -85,7 +86,7 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
                 <div
                   className={classNames(
                     'pb-8 text-5xl font-semibold duration-500',
-                    index === 0 && 'text-shadow-3'
+                    index === 0 && 'text-shadow-3',
                   )}
                 >
                   {line.text}
@@ -97,7 +98,7 @@ const TextCarousel = ({ text, displayLimit, startingIndex = 0 }) => {
       </LayoutGroup>
     </AnimatePresence>
   );
-};
+}
 
 TextCarousel.propTypes = {
   /**
@@ -112,6 +113,10 @@ TextCarousel.propTypes = {
    * Starting offset
    */
   startingIndex: PropTypes.number,
+};
+
+TextCarousel.defaultProps = {
+  startingIndex: 0,
 };
 
 export default TextCarousel;

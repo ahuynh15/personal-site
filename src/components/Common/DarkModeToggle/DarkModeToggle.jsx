@@ -1,13 +1,13 @@
 import React from 'react';
-import { selectIsDarkMode, setTheme } from '@/slices/ThemeSlice';
-import { useSelector, useDispatch } from 'react-redux';
-import { MoonIcon, SunIcon } from '../Icons';
+import { useDispatch } from 'react-redux';
 import { AnimatePresence, motion } from 'framer-motion';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from 'tailwindConfig';
+import { setTheme } from '@/slices/ThemeSlice';
 import useDarkMode from '@/hooks/useDarkMode';
+import { MoonIcon, SunIcon } from '../Icons';
 
-const DarkModeToggle = () => {
+function DarkModeToggle() {
   const dispatch = useDispatch();
   const styleConfig = resolveConfig(tailwindConfig);
   const [mode] = useDarkMode();
@@ -21,9 +21,11 @@ const DarkModeToggle = () => {
     animate: { scale: 1, rotateZ: 0, transition: { type: 'spring' } },
   };
 
+  console.log(mode);
+
   return (
     <AnimatePresence initial={false}>
-      <button onClick={() => toggleDarkMode()}>
+      <button onClick={() => toggleDarkMode()} type="button">
         {mode === 'dark' ? (
           <motion.div
             key="lightModeToggle"
@@ -33,7 +35,7 @@ const DarkModeToggle = () => {
             whileHover={{ scale: 1.1 }}
             className="drop-shadow-solid-2"
           >
-            <SunIcon color={styleConfig.theme.colors['orange']['500']} />
+            <SunIcon color={styleConfig.theme.colors.orange['500']} />
           </motion.div>
         ) : (
           <motion.div
@@ -50,7 +52,7 @@ const DarkModeToggle = () => {
       </button>
     </AnimatePresence>
   );
-};
+}
 
 DarkModeToggle.propTypes = {};
 

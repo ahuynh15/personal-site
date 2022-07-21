@@ -1,9 +1,11 @@
+/* eslint-disable react/jsx-props-no-spreading */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 
-const Container = ({ flat = false, className, children, ...props }) => {
+function Container({ flat, className, children, ...props }) {
   return (
     <motion.div
       className={classNames(
@@ -18,10 +20,18 @@ const Container = ({ flat = false, className, children, ...props }) => {
       {children}
     </motion.div>
   );
-};
+}
 
 Container.propTypes = {
   flat: PropTypes.bool,
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
+
+Container.defaultProps = {
+  flat: false,
+  className: undefined,
+  children: undefined,
 };
 
 export default Container;

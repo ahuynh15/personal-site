@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Skill from '../Skill';
-import { selectToggledSkilled, toggleSkill } from '@/slices/SkillsSlice';
-import SubskillList from '../SubskillList';
-import { getSkillByName } from '@/constants/skills';
 import { useDispatch, useSelector } from 'react-redux';
+import { selectToggledSkilled, toggleSkill } from '@/slices/SkillsSlice';
+import { getSkillByName } from '@/constants/skills';
+import Skill from '../Skill';
 
-const SkillList = ({ skills }) => {
+import SubskillList from '../SubskillList';
+
+function SkillList({ skills }) {
   const dispatch = useDispatch();
   const toggledSkill = useSelector((state) => selectToggledSkilled(state));
 
@@ -21,7 +22,7 @@ const SkillList = ({ skills }) => {
         const hasSubskills = skill.subskills.length > 0;
 
         return (
-          <React.Fragment key={index}>
+          <React.Fragment key={skill.name}>
             <Skill
               name={skill.name}
               hasSubskills={hasSubskills}
@@ -49,7 +50,7 @@ const SkillList = ({ skills }) => {
       })}
     </div>
   );
-};
+}
 
 SkillList.propTypes = {
   skills: PropTypes.arrayOf(
@@ -57,7 +58,7 @@ SkillList.propTypes = {
       name: PropTypes.string.isRequired,
       subskill: PropTypes.arrayOf(PropTypes.string),
     }),
-  ),
+  ).isRequired,
 };
 
 export default SkillList;

@@ -1,3 +1,3 @@
 import ExperienceFilter from './ExperienceFilter';
 
-export { ExperienceFilter };
+export default ExperienceFilter;

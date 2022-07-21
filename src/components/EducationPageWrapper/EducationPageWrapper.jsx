@@ -1,8 +1,8 @@
 import React from 'react';
-import { Title } from '../Common/Title';
-import { EducationList } from './EducationList';
+import { Title } from '@/Common';
+import EducationList from './EducationList';
 
-const EducationPageWrapper = () => {
+function EducationPageWrapper() {
   return (
     <div className="flex h-full flex-col items-center px-8 xl:flex-row">
       <div className="xl:w-1/3">
@@ -15,6 +15,6 @@ const EducationPageWrapper = () => {
       </div>
     </div>
   );
-};
+}
 
 export default EducationPageWrapper;

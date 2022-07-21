@@ -1,13 +1,11 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Experience } from '../Experience';
+import { AnimatePresence } from 'framer-motion';
 import { selectFilteredExperiences } from '@/slices/ExperiencesSlice';
-import { motion, AnimatePresence } from 'framer-motion';
+import Experience from '../Experience';
+import ExpandedExperience from '../ExpandedExperience';
 
-import { ExpandedExperience } from '../ExpandedExperience';
-
-const ExperienceList = () => {
+function ExperienceList() {
   const experiences = useSelector((state) => selectFilteredExperiences(state));
   const [selectedExperience, setSelectedExperience] = useState(null);
 
@@ -32,22 +30,20 @@ const ExperienceList = () => {
     <>
       <div className="flex flex-col gap-4">
         <AnimatePresence initial={false}>
-          {experiences.map((experience) => {
-            return (
-              <Experience
-                key={experience.id}
-                id={experience.id}
-                title={experience.title}
-                startDate={experience.startDate}
-                endDate={experience.endDate}
-                description={experience.description}
-                tags={experience.tags}
-                onExpand={() => {
-                  setSelectedExperience(experience);
-                }}
-              />
-            );
-          })}
+          {experiences.map((experience) => (
+            <Experience
+              key={experience.id}
+              id={experience.id}
+              title={experience.title}
+              startDate={experience.startDate}
+              endDate={experience.endDate}
+              description={experience.description}
+              tags={experience.tags}
+              onExpand={() => {
+                setSelectedExperience(experience);
+              }}
+            />
+          ))}
         </AnimatePresence>
       </div>
 
@@ -67,7 +63,7 @@ const ExperienceList = () => {
       </AnimatePresence>
     </>
   );
-};
+}
 
 ExperienceList.propTypes = {};
 

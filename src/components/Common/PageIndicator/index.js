@@ -1,3 +1,3 @@
 import PageIndicator from './PageIndicator';
 
-export { PageIndicator };
+export default PageIndicator;

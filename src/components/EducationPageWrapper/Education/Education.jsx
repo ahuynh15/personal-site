@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { Container } from '@/Common';
 
-const Education = ({
+function Education({
   title,
   location,
   startDate,
@@ -11,7 +11,7 @@ const Education = ({
   description,
   additionalHeaders,
   credential,
-}) => {
+}) {
   return (
     <motion.li className="list-none">
       <Container>
@@ -23,17 +23,18 @@ const Education = ({
           <div>
             <div className="font-semibold">
               {/* Location */}
-              {location}&nbsp;&#8226;&nbsp;
+              {location}
+              &nbsp;&#8226;&nbsp;
               {/* Date */}
               {startDate.year === endDate.year &&
-              startDate.month === startDate.month ? (
+              startDate.month === endDate.month ? (
                 <>
                   {new Date(startDate.year, startDate.month).toLocaleString(
                     'default',
                     {
                       month: 'short',
                       year: 'numeric',
-                    }
+                    },
                   )}
                 </>
               ) : (
@@ -43,7 +44,7 @@ const Education = ({
                     {
                       month: 'short',
                       year: 'numeric',
-                    }
+                    },
                   )}
                   &nbsp;-&nbsp;
                   {new Date(endDate.year, endDate.month).toLocaleString(
@@ -51,13 +52,16 @@ const Education = ({
                     {
                       month: 'short',
                       year: 'numeric',
-                    }
+                    },
                   )}
                 </>
               )}
               {/* Other Headers */}
               {additionalHeaders?.length > 0 && (
-                <>&nbsp;&#8226;&nbsp;{additionalHeaders?.join(' • ')}</>
+                <>
+                  &nbsp;&#8226;&nbsp;
+                  {additionalHeaders?.join(' • ')}
+                </>
               )}
             </div>
             {/* Description */}
@@ -80,7 +84,7 @@ const Education = ({
       </Container>
     </motion.li>
   );
-};
+}
 
 Education.propTypes = {
   title: PropTypes.string.isRequired,
@@ -98,6 +102,11 @@ Education.propTypes = {
   credential: PropTypes.shape({
     href: PropTypes.string.isRequired,
   }),
+};
+
+Education.defaultProps = {
+  additionalHeaders: undefined,
+  credential: undefined,
 };
 
 export default Education;

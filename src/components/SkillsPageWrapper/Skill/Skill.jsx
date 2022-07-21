@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { ArrowRightIcon, Container } from '@/Common';
 
-const Skill = ({ name, hasSubskills, isToggled, onClick, className }) => {
+function Skill({ name, hasSubskills, isToggled, onClick, className }) {
   return (
     <div className={classNames('relative flex items-start', className)}>
       {/* Skill Button */}
@@ -19,7 +19,7 @@ const Skill = ({ name, hasSubskills, isToggled, onClick, className }) => {
               isToggled
                 ? 'text-zinc-900 dark:text-zinc-100'
                 : 'text-zinc-300 group-hover:text-zinc-900 dark:text-zinc-700 dark:group-hover:text-zinc-100',
-              hasSubskills && 'mr-2'
+              hasSubskills && 'mr-2',
             )}
           >
             {name}
@@ -30,7 +30,7 @@ const Skill = ({ name, hasSubskills, isToggled, onClick, className }) => {
                 'rotate-90 text-zinc-300 transition-all duration-500 xl:rotate-0',
                 isToggled
                   ? 'text-zinc-900 dark:text-zinc-100'
-                  : 'text-zinc-300 group-hover:text-zinc-900 dark:text-zinc-700 dark:group-hover:text-zinc-100'
+                  : 'text-zinc-300 group-hover:text-zinc-900 dark:text-zinc-700 dark:group-hover:text-zinc-100',
               )}
             >
               <ArrowRightIcon size={24} />
@@ -40,7 +40,7 @@ const Skill = ({ name, hasSubskills, isToggled, onClick, className }) => {
       </Container>
     </div>
   );
-};
+}
 
 Skill.propTypes = {
   name: PropTypes.string.isRequired,
@@ -48,6 +48,10 @@ Skill.propTypes = {
   isToggled: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
+};
+
+Skill.defaultProps = {
+  className: undefined,
 };
 
 export default Skill;

@@ -1,3 +1,3 @@
 import ExperienceList from './ExperienceList';
 
-export { ExperienceList };
+export default ExperienceList;

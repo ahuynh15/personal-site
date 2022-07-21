@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Container } from '@/Common';
 import { getTimespan } from '@/lib/dateHelper';
 
-const ExpandedExperience = ({
+function ExpandedExperience({
   id,
   title,
   startDate,
@@ -12,16 +12,16 @@ const ExpandedExperience = ({
   description,
   tags,
   onExitClick,
-}) => {
+}) {
   return (
     <div>
       {/* Overlay */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        animate={{ opacity: 0.9 }}
         exit={{ opacity: 0 }}
-        className="bg-overlay pointer-events-auto fixed top-0 left-0 z-10 flex h-full w-full"
-      ></motion.div>
+        className="pointer-events-auto fixed top-0 left-0 z-10 flex h-full w-full bg-black"
+      />
 
       {/* Container */}
       <div className="fixed top-0 left-0 z-10 flex h-full w-full items-center justify-center text-zinc-900 dark:text-zinc-100">
@@ -31,7 +31,7 @@ const ExpandedExperience = ({
         >
           <Container
             className="cursor-pointer"
-            flat={true}
+            flat
             onClick={onExitClick}
             layoutId={`experience__container__${id}`}
           >
@@ -55,7 +55,7 @@ const ExpandedExperience = ({
                     {
                       month: 'short',
                       year: 'numeric',
-                    }
+                    },
                   )}
                   &nbsp;-&nbsp;
                   {new Date(endDate.year, endDate.month).toLocaleString(
@@ -63,9 +63,10 @@ const ExpandedExperience = ({
                     {
                       month: 'short',
                       year: 'numeric',
-                    }
+                    },
                   )}
-                  &nbsp;&#8226;&nbsp;{getTimespan(startDate, endDate)}
+                  &nbsp;&#8226;&nbsp;
+                  {getTimespan(startDate, endDate)}
                 </motion.div>
 
                 {/* Description */}
@@ -80,25 +81,41 @@ const ExpandedExperience = ({
           </Container>
           {/* Tags */}
           <div className="mt-4 flex gap-8">
-            {tags.map((tag) => {
-              return (
-                <Container
-                  key={tag}
-                  flat={true}
-                  className="items-center text-base font-medium"
-                  layoutId={`experience__tag__${id}__${tag}`}
-                >
-                  {tag}
-                </Container>
-              );
-            })}
+            {tags.map((tag) => (
+              <Container
+                key={tag}
+                flat
+                className="items-center text-base font-medium"
+                layoutId={`experience__tag__${id}__${tag}`}
+              >
+                {tag}
+              </Container>
+            ))}
           </div>
         </motion.div>
       </div>
     </div>
   );
+}
+
+ExpandedExperience.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  startDate: PropTypes.shape({
+    year: PropTypes.number.isRequired,
+    month: PropTypes.number.isRequired,
+  }).isRequired,
+  endDate: PropTypes.shape({
+    year: PropTypes.number.isRequired,
+    month: PropTypes.number.isRequired,
+  }).isRequired,
+  description: PropTypes.string.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.string),
+  onExitClick: PropTypes.func.isRequired,
 };
 
-ExpandedExperience.propTypes = {};
+ExpandedExperience.defaultProps = {
+  tags: undefined,
+};
 
 export default ExpandedExperience;

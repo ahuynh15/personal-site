@@ -1,3 +1,3 @@
 import ExpandedExperience from './ExpandedExperience';
 
-export { ExpandedExperience };
+export default ExpandedExperience;

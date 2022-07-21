@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function CircleIcon({ size = 32, strokeWidth = 2, color = 'currentColor' }) {
+function CircleIcon({ size, strokeWidth, color }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

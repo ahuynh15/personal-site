@@ -33,7 +33,7 @@ SubskillList.propTypes = {
 };
 
 SubskillList.defaultProps = {
-  className: '',
+  className: undefined,
 };
 
 export default SubskillList;

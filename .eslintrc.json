@@ -1,9 +1,10 @@
 {
-  "extends": ["next/core-web-vitals", "airbnb"],
+  "extends": ["next/core-web-vitals", "airbnb", "eslint-config-prettier"],
   "settings": {
     "import/resolver": {
       "alias": {
         "map": [
+          ["src", "./src"],
           ["@/Common", "./src/components/Common/index"],
           ["@/lib", "./src/lib"],
           ["@/components", "./src/components"],
