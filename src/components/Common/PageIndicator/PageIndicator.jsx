@@ -184,17 +184,18 @@ function PageIndicator({
                   animate="visible"
                   exit="exit"
                 >
-                  <div
+                  <button
                     className={classNames(
                       'select-none text-xl font-semibold capitalize leading-5 tracking-wide transition-all duration-500',
                       isTransitioning
                         ? 'text-zinc-300 dark:text-zinc-700'
                         : 'text-shadow-2 text-zinc-900 dark:text-zinc-100',
                     )}
+                    type="button"
                     onClick={onClick}
                   >
                     {currentPageName}
-                  </div>
+                  </button>
                 </motion.div>
               </AnimatePresence>
             </div>

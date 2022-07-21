@@ -21,8 +21,6 @@ function DarkModeToggle() {
     animate: { scale: 1, rotateZ: 0, transition: { type: 'spring' } },
   };
 
-  console.log(mode);
-
   return (
     <AnimatePresence initial={false}>
       <button onClick={() => toggleDarkMode()} type="button">
