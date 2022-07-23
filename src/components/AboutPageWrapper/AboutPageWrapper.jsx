@@ -5,7 +5,7 @@ import TextCarousel from './TextCarousel';
 function AboutPageWrapper() {
   return (
     <div className="flex h-full flex-col justify-center p-8">
-      <Title className="mb-8">Hello, I&apos;m Alvin Huynh...</Title>
+      <Title text="Hello, I'm Alvin Huynh..." className="mb-8" />
       <TextCarousel
         text={[
           'Software Engineer.',

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ArrowRightIcon = function ArrowRightIcon({ size, strokeWidth, color }) {
+function ArrowRightIcon({ size, strokeWidth, color }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@ const ArrowRightIcon = function ArrowRightIcon({ size, strokeWidth, color }) {
       <polyline points="12 5 19 12 12 19" />
     </svg>
   );
-};
+}
 
 ArrowRightIcon.propTypes = {
   size: PropTypes.number,

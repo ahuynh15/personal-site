@@ -6,7 +6,7 @@ function ContactPageWrapper() {
   return (
     <div className="flex h-full flex-col items-center p-8 xl:flex-row">
       <div className="xl:w-1/3">
-        <Title>I can be reached at...</Title>
+        <Title text="I can be reached at..." />
       </div>
       <div className="w-full pt-8 xl:w-2/3 xl:pt-0">
         <ContactLink

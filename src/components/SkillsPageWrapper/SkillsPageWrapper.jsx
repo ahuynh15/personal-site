@@ -7,7 +7,7 @@ function SkillsPageWrapper() {
   return (
     <div className="flex h-full flex-col p-8 xl:flex-row">
       <div className="self-center xl:w-1/3">
-        <Title>I have experience with...</Title>
+        <Title text="I have experience with..." />
       </div>
       <div className="flex h-full overflow-y-auto pt-8 xl:w-2/3 xl:pt-0">
         <div className="w-full xl:my-auto">

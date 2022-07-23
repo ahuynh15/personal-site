@@ -7,7 +7,7 @@ function ExperiencePageWrapper() {
   return (
     <div className="flex h-full flex-col items-center px-8 xl:flex-row">
       <div className="xl:w-1/3">
-        <Title>I have worked at...</Title>
+        <Title text="I have worked at..." />
         <div className="mt-8">
           <ExperienceFilter tags={['Tag A', 'Tag B', 'Tag C']} />
         </div>

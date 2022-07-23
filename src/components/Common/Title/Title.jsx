@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-function Title({ className, children }) {
+function Title({ text, className }) {
   return (
     <span
       className={classNames(
@@ -10,13 +10,13 @@ function Title({ className, children }) {
         className,
       )}
     >
-      {children}
+      {text}
     </span>
   );
 }
 
 Title.propTypes = {
-  children: PropTypes.node.isRequired,
+  text: PropTypes.string.isRequired,
   className: PropTypes.string,
 };
 
