@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import useDarkMode from '@/hooks/useDarkMode';
+import AnimatedBackground from '../AnimatedBackground';
 
 // Note, Z-Index ranges from 0-20 for animations
 
@@ -11,7 +12,7 @@ function PageContainer({ index, prevIndex, theme, children }) {
 
   return (
     <motion.div
-      className="absolute h-full w-full"
+      className="background absolute h-full w-full"
       variants={{
         enter: () => {
           // Page transitions in the foreground
@@ -50,6 +51,9 @@ function PageContainer({ index, prevIndex, theme, children }) {
         }}
       >
         {children}
+        <div className="absolute top-0 left-0 h-screen w-screen">
+          <AnimatedBackground color="#fed7aa" />
+        </div>
       </div>
     </motion.div>
   );
