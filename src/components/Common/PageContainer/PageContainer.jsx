@@ -42,7 +42,7 @@ function PageContainer({ index, prevIndex, theme, children }) {
       animate="visible"
       exit="exit"
     >
-      <div className="mr-40 h-full w-full pr-44 pl-8 transition-colors duration-500">
+      <div className="mr-40 h-full w-full pr-4 pl-4 transition-colors duration-500 sm:pr-44 sm:pl-8">
         <div
           className="absolute top-0 left-0 -z-10 h-screen w-screen"
           style={{

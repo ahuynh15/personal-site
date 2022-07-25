@@ -64,11 +64,12 @@ export default function Home() {
         </AnimatePresence>
 
         {/* Fixed Dark Mode Toggle */}
-        <div className="fixed top-8 right-8 z-30">
+        <div className="fixed top-4 right-4 z-30 sm:top-8 sm:right-8">
           <DarkModeToggle />
         </div>
 
         {/* Page Indicator */}
+        {/* TODO: Implement Mobile Screen Navigation */}
         <div className="absolute right-8 top-1/2 z-30 -translate-y-1/2">
           <PageIndicator
             currentPageName={pagesConfig[page.index].name}

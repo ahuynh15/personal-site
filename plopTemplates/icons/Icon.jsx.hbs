@@ -1,10 +1,7 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
-const {{pascalCase name}}Icon = ({
-  size = 32,
-  strokeWidth = 2,
-  color = 'currentColor',
-}) => {
+function {{pascalCase name}}Icon({ size, strokeWidth, color }) {
   return (
     // TODO: Replace the SVG
     <svg
@@ -29,6 +26,12 @@ const {{pascalCase name}}Icon = ({
   size: PropTypes.number,
   color: PropTypes.string,
   strokeWidth: PropTypes.number,
+};
+
+{{pascalCase name}}Icon.defaultProps = {
+  size: 32,
+  color: 'currentColor',
+  strokeWidth: 2,
 };
 
 export default {{pascalCase name}}Icon;
