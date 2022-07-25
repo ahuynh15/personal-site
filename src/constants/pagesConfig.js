@@ -11,6 +11,7 @@ export const pagesConfig = [
         light: styleConfig.theme.colors['zinc']['100'],
         dark: styleConfig.theme.colors['zinc']['900'],
       },
+      strokeColor: styleConfig.theme.colors['orange']['500'],
     },
   },
   {
@@ -20,6 +21,7 @@ export const pagesConfig = [
         light: styleConfig.theme.colors['zinc']['100'],
         dark: styleConfig.theme.colors['zinc']['900'],
       },
+      strokeColor: styleConfig.theme.colors['orange']['500'],
     },
   },
   {
@@ -29,6 +31,7 @@ export const pagesConfig = [
         light: styleConfig.theme.colors['zinc']['100'],
         dark: styleConfig.theme.colors['zinc']['900'],
       },
+      strokeColor: styleConfig.theme.colors['orange']['500'],
     },
   },
   {
@@ -38,6 +41,7 @@ export const pagesConfig = [
         light: styleConfig.theme.colors['zinc']['100'],
         dark: styleConfig.theme.colors['zinc']['900'],
       },
+      strokeColor: styleConfig.theme.colors['orange']['500'],
     },
   },
   {
@@ -47,6 +51,7 @@ export const pagesConfig = [
         light: styleConfig.theme.colors['zinc']['100'],
         dark: styleConfig.theme.colors['zinc']['900'],
       },
+      strokeColor: styleConfig.theme.colors['orange']['500'],
     },
   },
 ];

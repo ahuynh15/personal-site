@@ -42,18 +42,18 @@ function PageContainer({ index, prevIndex, theme, children }) {
       animate="visible"
       exit="exit"
     >
-      <div
-        className="mr-40 h-full w-full pr-44 pl-8 transition-colors duration-500"
-        style={{
-          backgroundColor: isDarkMode
-            ? theme.backgroundColor.dark
-            : theme.backgroundColor.light,
-        }}
-      >
-        {children}
-        <div className="absolute top-0 left-0 h-screen w-screen">
-          <AnimatedBackground color="#fed7aa" />
+      <div className="mr-40 h-full w-full pr-44 pl-8 transition-colors duration-500">
+        <div
+          className="absolute top-0 left-0 -z-10 h-screen w-screen"
+          style={{
+            backgroundColor: isDarkMode
+              ? theme.backgroundColor.dark
+              : theme.backgroundColor.light,
+          }}
+        >
+          <AnimatedBackground color={theme.strokeColor} strokeOpacity={0.2} />
         </div>
+        {children}
       </div>
     </motion.div>
   );
@@ -67,6 +67,7 @@ PageContainer.propTypes = {
       light: PropTypes.string.isRequired,
       dark: PropTypes.string.isRequired,
     }).isRequired,
+    strokeColor: PropTypes.string.isRequired,
   }).isRequired,
   children: PropTypes.node,
 };

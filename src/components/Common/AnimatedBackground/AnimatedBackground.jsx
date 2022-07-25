@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function AnimatedBackground({ strokeWidth, color }) {
+function AnimatedBackground({ strokeWidth, strokeOpacity, color }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="100%"
       height="100%"
+      preserveAspectRatio="xMinYMin slice"
       viewBox="0 0 1920 1080"
       fill="none"
       stroke={color}
       strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
+      strokeOpacity={strokeOpacity}
       fillRule="evenodd"
       clipRule="evenodd"
     >
@@ -271,11 +273,13 @@ function AnimatedBackground({ strokeWidth, color }) {
 AnimatedBackground.propTypes = {
   color: PropTypes.string,
   strokeWidth: PropTypes.number,
+  strokeOpacity: PropTypes.number,
 };
 
 AnimatedBackground.defaultProps = {
   color: 'currentColor',
   strokeWidth: 5,
+  strokeOpacity: 0.2,
 };
 
 export default AnimatedBackground;
