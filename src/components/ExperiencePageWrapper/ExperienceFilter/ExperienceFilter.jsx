@@ -1,21 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Container } from '@/components/Common';
 import { clearFilters, toggleFilter } from '@/slices/ExperiencesSlice';
+import experiencesUtil from '@/lib/experiencesUtil';
 
 /**
  * TODO:
- * - Dynamically generate list of filters that can be used
  * - Limit the amount of filters and provide a way to expand for more filters
+ * - Add dynamic count for filters???
+ * - Fix tags on smaller screens
  */
 
-function ExperienceFilter({ tags }) {
+function ExperienceFilter() {
   const dispatch = useDispatch();
   const activeFilters = useSelector(
     (state) => state.experiences.filters.active,
   );
+  const tags = [...experiencesUtil.getFilters()];
+  // const [displayLimit, setDisplayLimit] = useState(5);
+  const [displayLimit] = useState(5);
 
   const onClick = (tag) => {
     dispatch(toggleFilter({ tag }));
@@ -25,9 +29,11 @@ function ExperienceFilter({ tags }) {
     dispatch(clearFilters());
   };
 
+  // TODO: IMPLEMENT SHOW MORE / SHOW LESS
+
   return (
-    <div className="flex items-center gap-4">
-      {tags.map((tag) => {
+    <div className="flex flex-wrap items-center gap-4">
+      {tags.slice(0, displayLimit).map((tag) => {
         const isActive = activeFilters.includes(tag);
 
         return (
@@ -44,19 +50,15 @@ function ExperienceFilter({ tags }) {
           </button>
         );
       })}
-      <div>
-        <button onClick={() => onClear()} type="button">
-          <div className=" text-xl font-medium text-zinc-900 transition-colors duration-500 dark:text-zinc-100">
-            Clear Filters
-          </div>
-        </button>
-      </div>
+      <button onClick={() => onClear()} type="button">
+        <div className=" text-xl font-medium text-zinc-900 transition-colors duration-500 dark:text-zinc-100">
+          Clear Filters
+        </div>
+      </button>
     </div>
   );
 }
 
-ExperienceFilter.propTypes = {
-  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
+ExperienceFilter.propTypes = {};
 
 export default ExperienceFilter;

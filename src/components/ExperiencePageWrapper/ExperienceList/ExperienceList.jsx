@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
-import { selectFilteredExperiences } from '@/slices/ExperiencesSlice';
-import Experience from '../Experience';
+import { useSelector } from 'react-redux';
+import experiencesUtil from '@/lib/experiencesUtil';
+import { selectActiveFilters } from '@/slices/ExperiencesSlice';
 import ExpandedExperience from '../ExpandedExperience';
+import Experience from '../Experience';
 
 function ExperienceList() {
-  const experiences = useSelector((state) => selectFilteredExperiences(state));
+  const activeFilters = useSelector((state) => selectActiveFilters(state));
   const [selectedExperience, setSelectedExperience] = useState(null);
+  const experiences = experiencesUtil.getFilteredExperiences(activeFilters);
 
   // Minimize the selected experience
   const minimizeModal = () => {

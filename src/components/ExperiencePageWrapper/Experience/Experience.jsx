@@ -13,6 +13,45 @@ function Experience({
   tags,
   onExpand,
 }) {
+  const renderDate = (start, end) => {
+    if (start && !end) {
+      const currentDate = new Date();
+      return (
+        <>
+          {new Date(start.year, start.month).toLocaleString('default', {
+            month: 'short',
+            year: 'numeric',
+          })}
+          &nbsp;-&nbsp;Present&nbsp;&#8226;&nbsp;
+          {getTimespan(start, {
+            month: currentDate.getMonth(),
+            year: currentDate.getFullYear(),
+          })}
+        </>
+      );
+    }
+
+    if (start && end) {
+      return (
+        <>
+          {new Date(start.year, start.month).toLocaleString('default', {
+            month: 'short',
+            year: 'numeric',
+          })}
+          &nbsp;-&nbsp;
+          {new Date(end.year, end.month).toLocaleString('default', {
+            month: 'short',
+            year: 'numeric',
+          })}
+          &nbsp;&#8226;&nbsp;
+          {getTimespan(start, end)}
+        </>
+      );
+    }
+
+    return <>No Date Available</>;
+  };
+
   return (
     <motion.div
       key={id}
@@ -48,23 +87,7 @@ function Experience({
                 className="font-semibold"
                 layoutId={`experience__date__${id}`}
               >
-                {new Date(startDate.year, startDate.month).toLocaleString(
-                  'default',
-                  {
-                    month: 'short',
-                    year: 'numeric',
-                  },
-                )}
-                &nbsp;-&nbsp;
-                {new Date(endDate.year, endDate.month).toLocaleString(
-                  'default',
-                  {
-                    month: 'short',
-                    year: 'numeric',
-                  },
-                )}
-                &nbsp;&#8226;&nbsp;
-                {getTimespan(startDate, endDate)}
+                {renderDate(startDate, endDate)}
               </motion.div>
 
               {/* Description */}
@@ -106,13 +129,14 @@ Experience.propTypes = {
   endDate: PropTypes.shape({
     year: PropTypes.number.isRequired,
     month: PropTypes.number.isRequired,
-  }).isRequired,
+  }),
   description: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
   onExpand: PropTypes.func.isRequired,
 };
 
 Experience.defaultProps = {
+  endDate: undefined,
   tags: undefined,
 };
 

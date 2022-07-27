@@ -16,7 +16,7 @@ export const EXPERIENCES = [
       'Built a data pipeline in Jenkins to move data to AWS',
       'Automated multiple DevOps tasks in Jenkins',
     ],
-    tags: ['Java', 'Amazon Web Services', 'Jenkins'],
+    tags: ['Java', 'AWS', 'Jenkins'],
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ export const EXPERIENCES = [
       'Created a prototype voice application using Google Direct Actions',
       'Wrote a internal tool in Java to decipher information from appliance model numbers',
     ],
-    tags: ['Java', 'Amazon Web Services', 'GitHub'],
+    tags: ['Java', 'AWS', 'GitHub'],
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ export const EXPERIENCES = [
       'Created an AR virtual assistant in Amazon Sumerian with custom scripts written in JavaScript',
       'Hosted a showcase of the prototypes to the entire IT organization and leadership',
     ],
-    tags: ['Unity', 'C#', 'JavaScript', 'Amazon Web Services'],
+    tags: ['Unity', 'C#', 'JavaScript', 'AWS'],
   },
   {
     id: 4,
@@ -65,15 +65,7 @@ export const EXPERIENCES = [
       'Developed a serverless single page application using React.js, AWS Lambda, and Amazon API Gateway that streamlined the Auth0 onboarding process',
       'Worked with enterprise architects to host secure LDAP connectors within our AWS cloud environment',
     ],
-    tags: [
-      'JavaScript',
-      'React.js',
-      'HTML',
-      'CSS',
-      'Amazon Web Services',
-      'Auth0',
-      'GitHub',
-    ],
+    tags: ['JavaScript', 'React.js', 'HTML', 'CSS', 'AWS', 'Auth0', 'GitHub'],
   },
   {
     id: 5,
@@ -122,7 +114,7 @@ export const EXPERIENCES = [
       'Created a internal short link generator using Lambda and API Gateway that allowed the business to share documents stored in S3 to customers in a user-friendly format',
       'Applied AWS Textract to parse and crop delivery information from forms uploaded by delivery agents',
     ],
-    tags: ['Java', 'Spring Boot', 'Amazon Web Services', 'Python', 'GitHub'],
+    tags: ['Java', 'Spring Boot', 'AWS', 'Python', 'GitHub'],
   },
   {
     id: 8,
