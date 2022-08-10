@@ -1,5 +1,6 @@
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from 'tailwindConfig';
+import { BookIcon, BriefcaseIcon, SendIcon, ToolIcon, UserIcon } from '@/Icons';
 
 const styleConfig = resolveConfig(tailwindConfig);
 
@@ -13,6 +14,7 @@ export const pagesConfig = [
       },
       strokeColor: styleConfig.theme.colors['orange']['500'],
     },
+    icon: UserIcon,
   },
   {
     name: 'skills',
@@ -23,6 +25,7 @@ export const pagesConfig = [
       },
       strokeColor: styleConfig.theme.colors['orange']['500'],
     },
+    icon: ToolIcon,
   },
   {
     name: 'experience',
@@ -33,6 +36,7 @@ export const pagesConfig = [
       },
       strokeColor: styleConfig.theme.colors['orange']['500'],
     },
+    icon: BriefcaseIcon,
   },
   {
     name: 'education',
@@ -43,6 +47,7 @@ export const pagesConfig = [
       },
       strokeColor: styleConfig.theme.colors['orange']['500'],
     },
+    icon: BookIcon,
   },
   {
     name: 'contact',
@@ -53,5 +58,6 @@ export const pagesConfig = [
       },
       strokeColor: styleConfig.theme.colors['orange']['500'],
     },
+    icon: SendIcon,
   },
 ];

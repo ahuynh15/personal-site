@@ -2,7 +2,12 @@ import React from 'react';
 import Head from 'next/head';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
-import { PageContainer, PageIndicator, DarkModeToggle } from '@/Common';
+import {
+  PageContainer,
+  PageIndicator,
+  DarkModeToggle,
+  MobileNavigation,
+} from '@/Common';
 import { selectPage, setIsTransitioning } from '@/slices/PageSlice';
 import useDarkMode from '@/hooks/useDarkMode';
 import { pagesConfig } from '@/constants/pagesConfig';
@@ -69,9 +74,16 @@ export default function Home() {
         </div>
 
         {/* Page Indicator */}
-        {/* TODO: Implement Mobile Screen Navigation */}
-        <div className="absolute right-8 top-1/2 z-30 -translate-y-1/2">
+        <div className="absolute right-8 top-1/2 z-30 hidden -translate-y-1/2 sm:block">
           <PageIndicator
+            currentPageName={pagesConfig[page.index].name}
+            currentPageNumber={page.index + 1}
+          />
+        </div>
+
+        {/* Mobile Page Indicator */}
+        <div className="absolute bottom-0 z-30 flex w-full justify-center sm:hidden">
+          <MobileNavigation
             currentPageName={pagesConfig[page.index].name}
             currentPageNumber={page.index + 1}
           />

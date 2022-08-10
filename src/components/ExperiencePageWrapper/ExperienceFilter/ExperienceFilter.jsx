@@ -9,7 +9,6 @@ import experiencesUtil from '@/lib/experiencesUtil';
  * TODO:
  * - Limit the amount of filters and provide a way to expand for more filters
  * - Add dynamic count for filters???
- * - Fix tags on smaller screens
  */
 
 function ExperienceFilter() {

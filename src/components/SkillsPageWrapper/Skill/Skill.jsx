@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { ArrowRightIcon, Container } from '@/Common';
+import { Container } from '@/Common';
+import { ArrowRightIcon } from '@/Icons';
 
 function Skill({ name, hasSubskills, isToggled, onClick, className }) {
   return (

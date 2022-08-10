@@ -114,7 +114,7 @@ export default function (plop) {
     },
   });
 
-  // Icon Generator
+  /* === Icon Generator === */
 
   plop.setGenerator('icon', {
     description: 'Create a new icon',
@@ -130,13 +130,13 @@ export default function (plop) {
         // Generate the icon
         {
           type: 'add',
-          path: 'src/components/Common/Icons/{{pascalCase name}}Icon.js',
-          templateFile: 'plopTemplates/icons/Icon.js.hbs',
+          path: 'src/components/Icons/{{pascalCase name}}Icon.jsx',
+          templateFile: 'plopTemplates/icons/Icon.jsx.hbs',
         },
         // Add the icon import to the icon index
         {
           type: 'append',
-          path: 'src/components/Common/Icons/index.js',
+          path: 'src/components/Icons/index.js',
           pattern: '/* PLOP_INJECT_IMPORT */',
           template:
             "import {{pascalCase name}}Icon from './{{pascalCase name}}Icon';",
@@ -144,7 +144,7 @@ export default function (plop) {
         // Add the icon import to the icon index
         {
           type: 'append',
-          path: 'src/components/Common/Icons/index.js',
+          path: 'src/components/Icons/index.js',
           pattern: '/* PLOP_INJECT_EXPORT */',
           template: '\t{{pascalCase name}}Icon,',
         },

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, ExternalLinkIcon, LinkIcon } from '@/Common';
+import { Container } from '@/Common';
+import { ExternalLinkIcon, LinkIcon } from '@/Icons';
 import PropTypes from 'prop-types';
 
 function ContactLink({ label, href, icon }) {

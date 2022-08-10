@@ -1,4 +1,9 @@
 /* PLOP_INJECT_IMPORT */
+import UserIcon from './UserIcon';
+import ToolIcon from './ToolIcon';
+import BookIcon from './BookIcon';
+import BriefcaseIcon from './BriefcaseIcon';
+import SendIcon from './SendIcon';
 import ExternalLinkIcon from './ExternalLinkIcon';
 import CircleIcon from './CircleIcon';
 import TriangleIcon from './TriangleIcon';
@@ -15,6 +20,11 @@ import ArrowRightIcon from './ArrowRightIcon';
 
 export {
   /* PLOP_INJECT_EXPORT */
+  UserIcon,
+  ToolIcon,
+  BookIcon,
+  BriefcaseIcon,
+  SendIcon,
   ExternalLinkIcon,
   CircleIcon,
   TriangleIcon,

@@ -15,7 +15,7 @@ import {
   setPage,
 } from '@/slices/PageSlice';
 import { pagesConfig } from '@/constants/pagesConfig';
-import { ChevronUpIcon, ChevronDownIcon } from '../Icons';
+import { ChevronUpIcon, ChevronDownIcon } from '@/Icons';
 
 function PageIndicator({
   currentPageName,

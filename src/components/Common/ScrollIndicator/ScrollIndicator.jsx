@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
-import { DownIcon } from '../Icons';
+import { DownIcon } from '@/Icons';
 
 function ScrollIndicator() {
   const { scrollYProgress } = useViewportScroll();

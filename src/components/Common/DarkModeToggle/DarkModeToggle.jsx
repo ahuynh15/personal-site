@@ -5,7 +5,7 @@ import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from 'tailwindConfig';
 import { setTheme } from '@/slices/ThemeSlice';
 import useDarkMode from '@/hooks/useDarkMode';
-import { MoonIcon, SunIcon } from '../Icons';
+import { MoonIcon, SunIcon } from '@/Icons';
 
 function DarkModeToggle() {
   const dispatch = useDispatch();

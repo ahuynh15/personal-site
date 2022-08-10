@@ -1,5 +1,6 @@
 import React from 'react';
-import { LinkedInIcon, Title } from '@/components/Common';
+import { Title } from '@/Common';
+import { LinkedInIcon } from '@/Icons';
 import ContactLink from './ContactLink';
 
 function ContactPageWrapper() {

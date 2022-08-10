@@ -102,7 +102,7 @@ function Experience({
         </Container>
 
         {/* Tags */}
-        <div className="mt-4 flex gap-8">
+        <div className="mt-2 flex flex-wrap gap-x-8 gap-y-2">
           {tags.map((tag) => (
             <Container
               key={tag}

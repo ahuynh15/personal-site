@@ -21,6 +21,10 @@ module.exports = {
       gridTemplateColumns: {
         '2-auto': 'auto minmax(0, 1fr)',
       },
+      borderRadius: {
+        '4xl': '2rem',
+        '5xl': '4rem',
+      },
     },
   },
   plugins: [],

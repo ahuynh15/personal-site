@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@/Common": ["./src/components/Common/index"],
+      "@/Icons": ["./src/components/Icons/index"],
       "@/lib/*": ["./src/lib/*"],
       "@/components/*": ["./src/components/*"],
       "@/slices": ["./src/slices/index"],
