@@ -20,7 +20,7 @@ import ContactPageWrapper from '@/components/ContactPageWrapper';
 export default function Home() {
   const dispatch = useDispatch();
   const page = useSelector((state) => selectPage(state));
-  const [mode] = useDarkMode();
+  const mode = useDarkMode();
 
   const getPage = (name) => {
     switch (name) {

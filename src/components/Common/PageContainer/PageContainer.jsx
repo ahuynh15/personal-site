@@ -7,7 +7,7 @@ import AnimatedBackground from '../AnimatedBackground';
 // Note, Z-Index ranges from 0-20 for animations
 
 function PageContainer({ index, prevIndex, theme, children }) {
-  const [mode] = useDarkMode();
+  const mode = useDarkMode();
   const isDarkMode = mode === 'dark';
 
   return (

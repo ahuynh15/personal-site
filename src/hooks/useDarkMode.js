@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 const useDarkMode = () => {
   // The dark mode settings from localStorage or browser settings
   const preferredMode = useSelector((state) =>
-    selectIsDarkModePreferred(state)
+    selectIsDarkModePreferred(state),
   );
 
   // The dark mode settings from the current session
@@ -15,7 +15,7 @@ const useDarkMode = () => {
 
   const mode = preferredMode === sessionMode ? preferredMode : sessionMode;
 
-  return [mode];
+  return mode;
 };
 
 export default useDarkMode;

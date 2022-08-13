@@ -10,7 +10,7 @@ import { MoonIcon, SunIcon } from '@/Icons';
 function DarkModeToggle() {
   const dispatch = useDispatch();
   const styleConfig = resolveConfig(tailwindConfig);
-  const [mode] = useDarkMode();
+  const mode = useDarkMode();
 
   const toggleDarkMode = () => {
     dispatch(setTheme(mode === 'light' ? 'dark' : 'light'));

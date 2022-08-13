@@ -9,7 +9,7 @@ function TextCarousel({ text, displayLimit, startingIndex }) {
   const [currentIndex, setCurrentIndex] = useState(
     startingIndex % (text.length * 2),
   );
-  const [mode] = useDarkMode();
+  const mode = useDarkMode();
   const isDarkMode = mode === 'dark';
 
   // Calculate how many lines need to be displayed
