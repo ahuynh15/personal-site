@@ -85,7 +85,7 @@ function TextCarousel({ text, displayLimit, startingIndex }) {
               >
                 <div
                   className={classNames(
-                    'pb-8 text-5xl font-semibold duration-500',
+                    'pb-4 text-4xl font-semibold duration-500 sm:pb-8 sm:text-5xl',
                     index === 0 && 'text-shadow-3',
                   )}
                 >

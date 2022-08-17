@@ -5,12 +5,12 @@ import SkillList from './SkillList';
 
 function SkillsPageWrapper() {
   return (
-    <div className="flex h-full flex-col p-8 xl:flex-row">
-      <div className="self-center xl:w-1/3">
+    <div className="flex h-full flex-col lg:flex-row">
+      <div className="mx-8 my-4 mb-4 self-center lg:w-1/3">
         <Title text="I have experience with..." />
       </div>
-      <div className="flex h-full overflow-y-auto pt-8 xl:w-2/3 xl:pt-0">
-        <div className="w-full xl:my-auto">
+      <div className="flex h-full overflow-y-auto sm:pt-8 lg:w-2/3 lg:pt-0">
+        <div className="w-full lg:my-auto">
           <SkillList skills={SKILLS} />
         </div>
       </div>

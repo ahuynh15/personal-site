@@ -10,13 +10,13 @@ function Skill({ name, hasSubskills, isToggled, onClick, className }) {
       {/* Skill Button */}
       <Container
         flat={isToggled}
-        className="group w-full flex-shrink-0 xl:w-auto"
+        className="group w-full flex-shrink-0 lg:w-auto"
         onClick={onClick}
       >
         <div className="flex items-center">
           <span
             className={classNames(
-              'text-2xl font-medium transition-colors duration-500',
+              'text-lg font-medium transition-all duration-500',
               isToggled
                 ? 'text-zinc-900 dark:text-zinc-100'
                 : 'text-zinc-300 group-hover:text-zinc-900 dark:text-zinc-700 dark:group-hover:text-zinc-100',
@@ -28,13 +28,13 @@ function Skill({ name, hasSubskills, isToggled, onClick, className }) {
           {hasSubskills && (
             <span
               className={classNames(
-                'rotate-90 text-zinc-300 transition-all duration-500 xl:rotate-0',
+                'rotate-90 text-zinc-300 transition-all duration-500 lg:rotate-0',
                 isToggled
-                  ? 'text-zinc-900 dark:text-zinc-100'
+                  ? '-rotate-90 text-zinc-900 dark:text-zinc-100 lg:rotate-180'
                   : 'text-zinc-300 group-hover:text-zinc-900 dark:text-zinc-700 dark:group-hover:text-zinc-100',
               )}
             >
-              <ArrowRightIcon size={24} />
+              <ArrowRightIcon size={20} />
             </span>
           )}
         </div>

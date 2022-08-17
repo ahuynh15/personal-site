@@ -12,11 +12,15 @@ function SkillList({ skills }) {
   const toggledSkill = useSelector((state) => selectToggledSkilled(state));
 
   const onClick = (index, name) => {
-    dispatch(toggleSkill({ index, name }));
+    if (toggledSkill.name === name && toggledSkill.index === index) {
+      dispatch(toggleSkill({ index: null, index: null }));
+    } else {
+      dispatch(toggleSkill({ index, name }));
+    }
   };
 
   return (
-    <div className="grid w-full grid-cols-1 gap-8 p-4 xl:grid-cols-2-auto">
+    <div className="grid w-full grid-cols-1 gap-4 p-4 lg:grid-cols-2-auto">
       {skills.map((skill, index) => {
         const isToggled = skill.name === toggledSkill.name;
         const hasSubskills = skill.subskills.length > 0;
@@ -28,7 +32,7 @@ function SkillList({ skills }) {
               hasSubskills={hasSubskills}
               isToggled={isToggled}
               onClick={() => onClick(index, skill.name)}
-              className="xl:ml-8 xl:[grid-column:1]"
+              className="lg:ml-8 lg:[grid-column:1]"
             />
 
             {/* Toggled Subskills */}
@@ -41,7 +45,7 @@ function SkillList({ skills }) {
                     // Calculate the offset so the list is parallel to the related button
                     marginTop: skill.index * 84 || 0,
                   }}
-                  className="xl:h-0 xl:[grid-column:2]"
+                  className="lg:h-0 lg:[grid-column:2]"
                 />
               </div>
             )}

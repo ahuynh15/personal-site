@@ -6,7 +6,7 @@ function Title({ text, className }) {
   return (
     <span
       className={classNames(
-        'text-shadow-3 p-0 text-5xl font-semibold text-zinc-900 transition-all duration-500 dark:text-zinc-100',
+        'text-shadow-3 p-0 text-4xl font-semibold text-zinc-900 transition-all duration-500 dark:text-zinc-100 sm:text-5xl',
         className,
       )}
     >

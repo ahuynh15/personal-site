@@ -15,7 +15,7 @@ function SubskillList({ subskills, className }) {
 
   return (
     <motion.div
-      className={classNames('flex flex-wrap gap-8', className)}
+      className={classNames('flex flex-wrap gap-4', className)}
       variants={containerVariants}
       initial="initial"
       animate="show"
