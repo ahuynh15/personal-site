@@ -12,7 +12,7 @@ function PageContainer({ index, prevIndex, theme, children }) {
 
   return (
     <motion.div
-      className="background absolute h-full w-full"
+      className="absolute h-full w-full"
       variants={{
         enter: () => {
           // Page transitions in the foreground
@@ -42,9 +42,9 @@ function PageContainer({ index, prevIndex, theme, children }) {
       animate="visible"
       exit="exit"
     >
-      <div className="mr-40 h-full w-full transition-colors duration-500 sm:pr-44 sm:pl-8">
+      <div className="mr-40 h-full w-full sm:pr-44 sm:pl-8">
         <div
-          className="absolute top-0 left-0 -z-10 h-screen w-screen"
+          className="absolute top-0 left-0 -z-10 h-screen w-screen transition-colors duration-500"
           style={{
             backgroundColor: isDarkMode
               ? theme.backgroundColor.dark
