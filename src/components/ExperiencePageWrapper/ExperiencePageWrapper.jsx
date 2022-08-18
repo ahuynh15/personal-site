@@ -5,14 +5,14 @@ import ExperienceList from './ExperienceList';
 
 function ExperiencePageWrapper() {
   return (
-    <div className="flex h-full flex-col items-center px-8 lg:flex-row">
-      <div className="lg:w-1/3">
+    <div className="flex h-full flex-col lg:flex-row">
+      <div className="mx-8 my-4 mb-4 self-center lg:w-1/3">
         <Title text="I have experience as a..." />
-        <div className="mt-8">
+        <div className="mt-4 sm:mt-8">
           <ExperienceFilter />
         </div>
       </div>
-      <div className="relative mt-8 flex h-full overflow-y-auto lg:mt-0 lg:w-2/3">
+      <div className="relative flex h-full overflow-y-auto sm:mt-8 lg:w-2/3 lg:pt-0">
         <div className="p-4 lg:my-auto">
           <ExperienceList />
         </div>

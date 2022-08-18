@@ -74,17 +74,17 @@ function Experience({
         >
           {/* Position */}
           <motion.div
-            className="relative text-2xl font-semibold"
+            className="relative text-xl font-semibold"
             layoutId={`experience__title__${id}`}
           >
             {title}
           </motion.div>
 
-          <div className="flex h-full gap-4 pb-4">
+          <div className="flex h-full">
             <div className="flex flex-col items-start">
               {/* Date */}
               <motion.div
-                className="font-semibold"
+                className="text-sm text-orange-500"
                 layoutId={`experience__date__${id}`}
               >
                 {renderDate(startDate, endDate)}
@@ -92,7 +92,7 @@ function Experience({
 
               {/* Description */}
               <motion.div
-                className="mt-2 font-medium"
+                className="mt-2"
                 layoutId={`experience__description__${id}`}
               >
                 {description}
@@ -102,12 +102,12 @@ function Experience({
         </Container>
 
         {/* Tags */}
-        <div className="mt-2 flex flex-wrap gap-x-8 gap-y-2">
+        <div className="mt-2 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <Container
               key={tag}
               flat
-              className="items-center text-base font-medium"
+              className="items-center text-sm"
               layoutId={`experience__tag__${id}__${tag}`}
             >
               {tag}

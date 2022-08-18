@@ -39,7 +39,7 @@ function ExperienceFilter() {
           <button key={tag} onClick={() => onClick(tag)} type="button">
             <Container
               className={classNames(
-                'text-xl font-medium text-zinc-900 transition-colors duration-500 dark:text-zinc-100',
+                'text-zinc-900 transition-colors duration-500 dark:text-zinc-100',
                 isActive && 'bg-orange-500 text-zinc-100 dark:bg-orange-500',
               )}
               flat={isActive}
@@ -50,7 +50,7 @@ function ExperienceFilter() {
         );
       })}
       <button onClick={() => onClear()} type="button">
-        <div className=" text-xl font-medium text-zinc-900 transition-colors duration-500 dark:text-zinc-100">
+        <div className="text-zinc-900 transition-colors duration-500 dark:text-zinc-100">
           Clear Filters
         </div>
       </button>
