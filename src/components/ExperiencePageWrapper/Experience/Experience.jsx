@@ -92,7 +92,7 @@ function Experience({
 
               {/* Description */}
               <motion.div
-                className="mt-2"
+                className="mt-2 font-medium"
                 layoutId={`experience__description__${id}`}
               >
                 {description}

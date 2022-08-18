@@ -27,7 +27,7 @@ function MobileNavigation({ currentPageName }) {
     },
     active: {
       opacity: 1,
-      y: -5,
+      y: -3,
     },
     exit: {
       opacity: 0,
@@ -69,7 +69,7 @@ function MobileNavigation({ currentPageName }) {
               className={classNames(
                 'flex items-center justify-center',
                 isActive
-                  ? 'text-zinc-900 dark:text-zinc-100'
+                  ? 'text-orange-500'
                   : 'text-zinc-400 hover:text-zinc-900 dark:text-zinc-600 dark:hover:text-zinc-100',
               )}
             >
@@ -87,7 +87,15 @@ function MobileNavigation({ currentPageName }) {
                   animate={isActive ? 'active' : 'inactive'}
                   exit="exit"
                 >
-                  <motion.div variants={iconVariants}>
+                  <motion.div
+                    className={classNames(
+                      'drop-shadow-solid-2',
+                      isActive
+                        ? 'text-zinc-900 dark:text-zinc-100'
+                        : 'text-zinc-400 hover:text-zinc-900 dark:text-zinc-600 dark:hover:text-zinc-100',
+                    )}
+                    variants={iconVariants}
+                  >
                     <page.icon
                       size={24}
                       color="currentColor"

@@ -27,7 +27,7 @@ function Subskill({ name }) {
     <motion.div variants={variants}>
       <Container
         flat
-        className="bg-orange-500  transition-colors dark:bg-orange-500"
+        className="bg-orange-500 transition-colors dark:bg-orange-500"
       >
         <div className="flex items-center">
           <span

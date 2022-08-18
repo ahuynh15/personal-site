@@ -16,7 +16,7 @@ function Skill({ name, hasSubskills, isToggled, onClick, className }) {
         <div className="flex items-center">
           <span
             className={classNames(
-              'text-lg font-medium transition-all duration-500',
+              'text-lg font-semibold transition-all duration-500',
               isToggled
                 ? 'text-zinc-900 dark:text-zinc-100'
                 : 'text-zinc-300 group-hover:text-zinc-900 dark:text-zinc-700 dark:group-hover:text-zinc-100',
