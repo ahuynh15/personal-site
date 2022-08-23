@@ -21,7 +21,7 @@ function SubskillList({ subskills, className }) {
       animate="show"
     >
       {subskills?.map((subskill) => (
-        <Subskill name={subskill} key={`${subskill}`} />
+        <Subskill name={subskill} key={subskill} />
       ))}
     </motion.div>
   );

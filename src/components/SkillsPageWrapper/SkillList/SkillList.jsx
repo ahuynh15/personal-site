@@ -13,7 +13,7 @@ function SkillList({ skills }) {
 
   const onClick = (index, name) => {
     if (toggledSkill.name === name && toggledSkill.index === index) {
-      dispatch(toggleSkill({ index: null, index: null }));
+      dispatch(toggleSkill({ index: null, name: null }));
     } else {
       dispatch(toggleSkill({ index, name }));
     }
