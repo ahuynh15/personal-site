@@ -13,7 +13,7 @@ function ExperiencePageWrapper() {
         </div>
       </div>
       <div className="relative flex h-full overflow-y-auto sm:mt-4 lg:mt-0 lg:w-2/3">
-        <div className="p-4 lg:my-auto">
+        <div className="w-full lg:my-auto">
           <ExperienceList />
         </div>
       </div>

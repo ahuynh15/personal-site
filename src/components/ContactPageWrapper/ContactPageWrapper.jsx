@@ -1,21 +1,17 @@
 import React from 'react';
 import { Title } from '@/Common';
-import { LinkedInIcon } from '@/Icons';
-import ContactLink from './ContactLink';
+import ContactList from './ContactList';
 
 function ContactPageWrapper() {
   return (
-    <div className="flex h-full flex-col items-center p-8 lg:flex-row">
-      <div className="lg:w-1/3">
+    <div className="flex h-full flex-col lg:flex-row">
+      <div className="mx-8 my-4 mb-4 self-center lg:w-1/3">
         <Title text="I can be reached at..." />
       </div>
-      <div className="w-full pt-8 lg:w-2/3 lg:pt-0">
-        <ContactLink
-          className="mt-8"
-          href="https://www.linkedin.com/in/alvin-huynh-b1434b150"
-          label="LinkedIn"
-          icon={<LinkedInIcon size={24} />}
-        />
+      <div className="flex h-full overflow-y-auto sm:mt-4 lg:mt-0 lg:w-2/3">
+        <div className="w-full lg:my-auto">
+          <ContactList />
+        </div>
       </div>
     </div>
   );

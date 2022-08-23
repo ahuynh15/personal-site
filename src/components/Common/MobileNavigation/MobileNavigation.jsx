@@ -66,6 +66,7 @@ function MobileNavigation({ currentPageName }) {
 
           return (
             <div
+              key={page.name}
               className={classNames(
                 'flex items-center justify-center',
                 isActive

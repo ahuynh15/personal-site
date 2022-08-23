@@ -17,11 +17,11 @@ function Education({
       <Container>
         <div className="flex gap-4">
           {/* Position */}
-          <div className="relative text-2xl font-semibold">{title}</div>
+          <div className="relative text-lg font-semibold">{title}</div>
         </div>
         <div className="flex gap-4 pb-4">
           <div>
-            <div className="font-semibold">
+            <div className="text-sm text-orange-500">
               {/* Location */}
               {location}
               &nbsp;&#8226;&nbsp;
@@ -65,7 +65,9 @@ function Education({
               )}
             </div>
             {/* Description */}
-            <div className="text-l mt-2 whitespace-pre-line">{description}</div>
+            <div className="mt-2 whitespace-pre-line font-medium">
+              {description}
+            </div>
             {/* Links */}
             {credential && (
               <div className="mt-2">

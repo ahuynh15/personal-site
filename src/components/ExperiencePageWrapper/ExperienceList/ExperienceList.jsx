@@ -30,7 +30,7 @@ function ExperienceList() {
 
   return (
     <>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 px-4 pb-24 sm:pb-4 sm:pt-4">
         <AnimatePresence initial={false}>
           {experiences.map((experience) => (
             <Experience
