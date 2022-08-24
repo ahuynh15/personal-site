@@ -1,13 +1,11 @@
+import { EDUCATION } from '@/constants/education';
 import React from 'react';
-import { useSelector } from 'react-redux';
 import Education from '../Education';
 
 function EducationList() {
-  const education = useSelector((state) => state.education.data);
-
   return (
     <div className="flex flex-col gap-4 px-4 pb-24 sm:pb-4 sm:pt-4">
-      {education.map((item) => (
+      {EDUCATION.map((item) => (
         <Education
           key={item.title}
           title={item.title}

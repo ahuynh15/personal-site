@@ -3,18 +3,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence, motion } from 'framer-motion';
-import tailwindConfig from 'tailwindConfig';
-import resolveConfig from 'tailwindcss/resolveConfig';
 import { pagesConfig } from '@/constants/pagesConfig';
 import { selectIsTransitioning, setPage } from '@/slices/PageSlice';
-import useDarkMode from '@/hooks/useDarkMode';
 
 function MobileNavigation({ currentPageName }) {
   const dispatch = useDispatch();
-  const styleConfig = resolveConfig(tailwindConfig);
   const isTransitioning = useSelector((state) => selectIsTransitioning(state));
-  const mode = useDarkMode();
-  const isDarkMode = mode === 'dark';
 
   const goToPage = (index) => {
     dispatch(setPage({ index }));
@@ -90,22 +84,14 @@ function MobileNavigation({ currentPageName }) {
                 >
                   <motion.div
                     className={classNames(
-                      'drop-shadow-solid-2',
+                      'fill-zinc-50 drop-shadow-solid-2 transition-colors duration-500 dark:fill-zinc-900',
                       isActive
-                        ? 'text-zinc-900 dark:text-zinc-100'
-                        : 'text-zinc-400 hover:text-zinc-900 dark:text-zinc-600 dark:hover:text-zinc-100',
+                        ? 'stroke-zinc-900 text-zinc-900 dark:stroke-zinc-100 dark:text-zinc-100'
+                        : ' stroke-zinc-400 text-zinc-400 hover:text-zinc-900 dark:stroke-zinc-600 dark:text-zinc-600 dark:hover:text-zinc-100',
                     )}
                     variants={iconVariants}
                   >
-                    <page.icon
-                      size={24}
-                      color="currentColor"
-                      fill={
-                        isDarkMode
-                          ? styleConfig.theme.colors.zinc['900']
-                          : styleConfig.theme.colors.zinc['50']
-                      }
-                    />
+                    <page.icon size={24} color="currentColor" />
                   </motion.div>
                   {isActive && (
                     <motion.div

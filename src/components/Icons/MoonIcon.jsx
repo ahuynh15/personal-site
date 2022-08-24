@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function MoonIcon({ size, strokeWidth, color }) {
+function MoonIcon({ size, strokeWidth }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox="0 0 24 24"
-      fill="none"
-      stroke={color}
+      fill="inherit"
+      stroke="inherit"
       strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -22,13 +22,11 @@ function MoonIcon({ size, strokeWidth, color }) {
 
 MoonIcon.propTypes = {
   size: PropTypes.number,
-  color: PropTypes.string,
   strokeWidth: PropTypes.number,
 };
 
 MoonIcon.defaultProps = {
   size: 32,
-  color: 'currentColor',
   strokeWidth: 2,
 };
 

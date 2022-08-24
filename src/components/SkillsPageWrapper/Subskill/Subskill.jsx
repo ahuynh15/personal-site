@@ -32,7 +32,7 @@ function Subskill({ name }) {
         <div className="flex items-center">
           <span
             className={classNames(
-              'text-lg font-medium text-zinc-900 transition-all duration-500 dark:text-zinc-100',
+              'text-lg font-semibold text-zinc-900 transition-all duration-500 dark:text-zinc-100',
             )}
           >
             {name}

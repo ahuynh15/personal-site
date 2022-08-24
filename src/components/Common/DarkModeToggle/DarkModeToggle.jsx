@@ -1,15 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { AnimatePresence, motion } from 'framer-motion';
-import resolveConfig from 'tailwindcss/resolveConfig';
-import tailwindConfig from 'tailwindConfig';
 import { setTheme } from '@/slices/ThemeSlice';
 import useDarkMode from '@/hooks/useDarkMode';
 import { MoonIcon, SunIcon } from '@/Icons';
 
 function DarkModeToggle() {
   const dispatch = useDispatch();
-  const styleConfig = resolveConfig(tailwindConfig);
   const mode = useDarkMode();
 
   const toggleDarkMode = () => {
@@ -31,9 +28,9 @@ function DarkModeToggle() {
             initial="initial"
             animate="animate"
             whileHover={{ scale: 1.1 }}
-            className="drop-shadow-solid-2"
+            className="fill-transparent stroke-orange-500 drop-shadow-solid-2"
           >
-            <SunIcon color={styleConfig.theme.colors.orange['500']} />
+            <SunIcon />
           </motion.div>
         ) : (
           <motion.div
@@ -42,7 +39,7 @@ function DarkModeToggle() {
             initial="initial"
             animate="animate"
             whileHover={{ scale: 1.1 }}
-            className="drop-shadow-solid-2"
+            className="fill-transparent stroke-black drop-shadow-solid-2"
           >
             <MoonIcon />
           </motion.div>

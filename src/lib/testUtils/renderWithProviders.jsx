@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 
 // Reducers
 import ThemeReducer from '@/slices/ThemeSlice';
-import EducationReducer from '@/slices/EducationSlice';
 import ExperiencesReducer from '@/slices/ExperiencesSlice';
 import SidebarReducer from '@/slices/SidebarSlice';
 import PageReducer from '@/slices/PageSlice';
@@ -19,7 +18,6 @@ function renderWithProviders(
   const store = configureStore({
     reducer: {
       experiences: ExperiencesReducer,
-      education: EducationReducer,
       sidebar: SidebarReducer,
       theme: ThemeReducer,
       page: PageReducer,

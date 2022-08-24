@@ -113,7 +113,7 @@ function PageIndicator({
           {/* Up Arrow */}
           <div className="flex flex-col items-center">
             <motion.div
-              className="mb-2 text-zinc-900 transition-all duration-500 dark:text-zinc-100"
+              className="mb-2 stroke-zinc-900 transition-all duration-500 dark:stroke-zinc-100"
               style={{
                 opacity: upOpacity,
               }}
@@ -202,7 +202,7 @@ function PageIndicator({
 
             {/* Down Arrow */}
             <motion.div
-              className="mt-2 text-zinc-900 transition-all duration-500 dark:text-zinc-100"
+              className="mt-2 stroke-zinc-900 transition-all duration-500 dark:stroke-zinc-100"
               style={{
                 opacity: downOpacity,
               }}

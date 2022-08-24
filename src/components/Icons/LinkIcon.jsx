@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function LinkIcon({ size, strokeWidth, color }) {
+function LinkIcon({ size, strokeWidth }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,7 +9,7 @@ function LinkIcon({ size, strokeWidth, color }) {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={color}
+      stroke="inherit"
       strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -23,13 +23,11 @@ function LinkIcon({ size, strokeWidth, color }) {
 
 LinkIcon.propTypes = {
   size: PropTypes.number,
-  color: PropTypes.string,
   strokeWidth: PropTypes.number,
 };
 
 LinkIcon.defaultProps = {
   size: 32,
-  color: 'currentColor',
   strokeWidth: 2,
 };
 

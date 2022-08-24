@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function ChevronUpIcon({ size, strokeWidth, color }) {
+function ChevronUpIcon({ size, strokeWidth }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,7 +9,7 @@ function ChevronUpIcon({ size, strokeWidth, color }) {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={color}
+      stroke="inherit"
       strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -22,13 +22,11 @@ function ChevronUpIcon({ size, strokeWidth, color }) {
 
 ChevronUpIcon.propTypes = {
   size: PropTypes.number,
-  color: PropTypes.string,
   strokeWidth: PropTypes.number,
 };
 
 ChevronUpIcon.defaultProps = {
   size: 32,
-  color: 'currentColor',
   strokeWidth: 2,
 };
 

@@ -69,7 +69,7 @@ export default function Home() {
         </AnimatePresence>
 
         {/* Fixed Dark Mode Toggle */}
-        <div className="fixed top-4 right-4 z-30">
+        <div className="fixed top-3 right-3 z-30">
           <DarkModeToggle />
         </div>
 

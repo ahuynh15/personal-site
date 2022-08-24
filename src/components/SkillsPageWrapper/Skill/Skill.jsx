@@ -19,7 +19,7 @@ function Skill({ name, hasSubskills, isToggled, onClick, className }) {
               'text-lg font-semibold transition-all duration-500',
               isToggled
                 ? 'text-zinc-900 dark:text-zinc-100'
-                : 'text-zinc-300 group-hover:text-zinc-900 dark:text-zinc-700 dark:group-hover:text-zinc-100',
+                : 'text-zinc-900 dark:text-zinc-100 hover-hover:text-zinc-300 hover-hover:group-hover:text-zinc-900 hover-hover:dark:text-zinc-700 hover-hover:dark:group-hover:text-zinc-100',
               hasSubskills && 'mr-2',
             )}
           >
@@ -28,10 +28,10 @@ function Skill({ name, hasSubskills, isToggled, onClick, className }) {
           {hasSubskills && (
             <span
               className={classNames(
-                'rotate-90 text-zinc-300 transition-all duration-500 lg:rotate-0',
+                'rotate-90 transition-all duration-500 lg:rotate-0',
                 isToggled
-                  ? '-rotate-90 text-zinc-900 dark:text-zinc-100 lg:rotate-180'
-                  : 'text-zinc-300 group-hover:text-zinc-900 dark:text-zinc-700 dark:group-hover:text-zinc-100',
+                  ? '-rotate-90 stroke-zinc-900 dark:stroke-zinc-100 lg:rotate-180'
+                  : 'stroke-zinc-900  dark:stroke-zinc-100 hover-hover:stroke-zinc-300 hover-hover:group-hover:stroke-zinc-900 hover-hover:dark:stroke-zinc-700 hover-hover:dark:group-hover:stroke-zinc-100',
               )}
             >
               <ArrowRightIcon size={20} />

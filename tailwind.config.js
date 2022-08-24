@@ -5,6 +5,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      screens: {
+        'hover-hover': { raw: '(hover: hover) and (pointer: fine)' },
+      },
       fontFamily: {
         sans: ['Quicksand', ...defaultTheme.fontFamily.sans],
       },
