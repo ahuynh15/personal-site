@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence, motion } from 'framer-motion';
-import { pagesConfig } from '@/constants/pagesConfig';
+import pagesConfig from '@/constants/pagesConfig';
 import { selectIsTransitioning, setPage } from '@/slices/PageSlice';
 
 function MobileNavigation({ currentPageName }) {

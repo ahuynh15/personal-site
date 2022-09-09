@@ -14,7 +14,7 @@ import {
   selectIsTransitioning,
   setPage,
 } from '@/slices/PageSlice';
-import { pagesConfig } from '@/constants/pagesConfig';
+import pagesConfig from '@/constants/pagesConfig';
 import { ChevronUpIcon, ChevronDownIcon } from '@/Icons';
 
 function PageIndicator({
@@ -136,7 +136,7 @@ function PageIndicator({
             >
               {/* Active Page */}
               <AnimatePresence
-                exitBeforeEnter
+                mode="wait"
                 initial={false}
                 key={`page-indicator__presence${isTransitioning && '--static'}`}
               >
@@ -215,7 +215,7 @@ function PageIndicator({
 
       {/* Page Counter */}
       <div className="flex flex-col items-center">
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence mode="wait">
           <motion.div
             key={`page-indicator__number-${currentPageNumber}`}
             className="text-shadow-2 text-xl font-semibold text-zinc-900 transition-all duration-500 dark:text-zinc-100"

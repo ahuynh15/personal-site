@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
-import { Container } from '@/components/Common';
+import { ButtonContainer } from '@/components/Common';
 import { clearFilters, toggleFilter } from '@/slices/ExperiencesSlice';
 import experiencesUtil from '@/lib/experiencesUtil';
 
@@ -37,15 +37,15 @@ function ExperienceFilter() {
 
         return (
           <button key={tag} onClick={() => onClick(tag)} type="button">
-            <Container
+            <ButtonContainer
               className={classNames(
                 'font-medium text-zinc-900 transition-colors duration-500 dark:text-zinc-100',
                 isActive && 'bg-orange-500 text-zinc-100 dark:bg-orange-500',
               )}
-              flat={isActive}
+              toggled={isActive}
             >
               {tag}
-            </Container>
+            </ButtonContainer>
           </button>
         );
       })}

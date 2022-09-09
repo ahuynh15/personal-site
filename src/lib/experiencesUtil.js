@@ -1,4 +1,4 @@
-import { EXPERIENCES } from '@/constants/experiences';
+import EXPERIENCES from '@/constants/experiences';
 
 // Retrieve all unique tags from list of experiences
 const getFilters = () => {

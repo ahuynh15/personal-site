@@ -1,4 +1,4 @@
-import { EDUCATION } from '@/constants/education';
+import EDUCATION from '@/constants/education';
 import React from 'react';
 import Education from '../Education';
 

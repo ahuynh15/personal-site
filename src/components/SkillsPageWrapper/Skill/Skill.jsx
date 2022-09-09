@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Container } from '@/Common';
+import { ButtonContainer } from '@/Common';
 import { ArrowRightIcon } from '@/Icons';
 
 function Skill({ name, hasSubskills, isToggled, onClick, className }) {
   return (
     <div className={classNames('relative flex items-start', className)}>
       {/* Skill Button */}
-      <Container
-        flat={isToggled}
+      <ButtonContainer
+        toggled={isToggled}
         className="group w-full flex-shrink-0 lg:w-auto"
         onClick={onClick}
       >
@@ -38,7 +38,7 @@ function Skill({ name, hasSubskills, isToggled, onClick, className }) {
             </span>
           )}
         </div>
-      </Container>
+      </ButtonContainer>
     </div>
   );
 }

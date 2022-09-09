@@ -3,22 +3,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import useMeasure from 'react-use-measure';
 
 function Container({ flat, className, children, ...props }) {
+  const [ref, { height }] = useMeasure({ offsetSize: true });
+
   return (
-    <motion.div
-      className={classNames(
-        'box-border rounded-2xl border-zinc-900 bg-zinc-50 text-zinc-900 transition duration-500 dark:border-zinc-50 dark:bg-zinc-900 dark:text-zinc-100',
-        flat
-          ? 'ml-[3px] mt-[3px] border-2 pt-[6px] pl-[14px] pb-[7px] pr-[15px]'
-          : 'border-b-5 border-r-5 border-t-2 border-l-2 pt-[5px] pl-[13px] pb-2 pr-4 shadow-solid-6',
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </motion.div>
+    <AnimatePresence initial={false}>
+      <motion.div
+        className={classNames(
+          'overflow-hidden rounded-2xl border-zinc-900 bg-zinc-50',
+          flat
+            ? 'border-2'
+            : 'border-b-[6px] border-r-[6px] border-t-2 border-l-2 shadow-solid-6',
+          className,
+        )}
+        animate={{ height: height ? height + 7 : 'auto' }} // Add 7px to address border and margins
+      >
+        {/* Children */}
+        <motion.div
+          ref={ref}
+          className="rounded-2xl pt-[6px] pl-[13px] pb-[6px] pr-[16px] text-zinc-900 dark:border-zinc-50 dark:bg-zinc-900 dark:text-zinc-100"
+          {...props}
+        >
+          {children}
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
   );
 }
 

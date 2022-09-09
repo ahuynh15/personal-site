@@ -1,4 +1,4 @@
-export const EDUCATION = [
+const EDUCATION = [
   {
     title: 'Bachelor of Science - Computer Science and Engineering',
     location: 'University of Louisville - J.B. Speed School of Engineering',
@@ -41,3 +41,5 @@ export const EDUCATION = [
     },
   },
 ];
+
+export default EDUCATION;

@@ -4,15 +4,15 @@ import { BookIcon, BriefcaseIcon, SendIcon, ToolIcon, UserIcon } from '@/Icons';
 
 const styleConfig = resolveConfig(tailwindConfig);
 
-export const pagesConfig = [
+const pagesConfig = [
   {
     name: 'about',
     theme: {
       backgroundColor: {
-        light: styleConfig.theme.colors['zinc']['100'],
-        dark: styleConfig.theme.colors['zinc']['900'],
+        light: styleConfig.theme.colors.zinc['100'],
+        dark: styleConfig.theme.colors.zinc['900'],
       },
-      strokeColor: styleConfig.theme.colors['orange']['500'],
+      strokeColor: styleConfig.theme.colors.orange['500'],
     },
     icon: UserIcon,
   },
@@ -20,10 +20,10 @@ export const pagesConfig = [
     name: 'skills',
     theme: {
       backgroundColor: {
-        light: styleConfig.theme.colors['zinc']['100'],
-        dark: styleConfig.theme.colors['zinc']['900'],
+        light: styleConfig.theme.colors.zinc['100'],
+        dark: styleConfig.theme.colors.zinc['900'],
       },
-      strokeColor: styleConfig.theme.colors['orange']['500'],
+      strokeColor: styleConfig.theme.colors.orange['500'],
     },
     icon: ToolIcon,
   },
@@ -31,10 +31,10 @@ export const pagesConfig = [
     name: 'experience',
     theme: {
       backgroundColor: {
-        light: styleConfig.theme.colors['zinc']['100'],
-        dark: styleConfig.theme.colors['zinc']['900'],
+        light: styleConfig.theme.colors.zinc['100'],
+        dark: styleConfig.theme.colors.zinc['900'],
       },
-      strokeColor: styleConfig.theme.colors['orange']['500'],
+      strokeColor: styleConfig.theme.colors.orange['500'],
     },
     icon: BriefcaseIcon,
   },
@@ -42,10 +42,10 @@ export const pagesConfig = [
     name: 'education',
     theme: {
       backgroundColor: {
-        light: styleConfig.theme.colors['zinc']['100'],
-        dark: styleConfig.theme.colors['zinc']['900'],
+        light: styleConfig.theme.colors.zinc['100'],
+        dark: styleConfig.theme.colors.zinc['900'],
       },
-      strokeColor: styleConfig.theme.colors['orange']['500'],
+      strokeColor: styleConfig.theme.colors.orange['500'],
     },
     icon: BookIcon,
   },
@@ -53,11 +53,13 @@ export const pagesConfig = [
     name: 'contact',
     theme: {
       backgroundColor: {
-        light: styleConfig.theme.colors['zinc']['100'],
-        dark: styleConfig.theme.colors['zinc']['900'],
+        light: styleConfig.theme.colors.zinc['100'],
+        dark: styleConfig.theme.colors.zinc['900'],
       },
-      strokeColor: styleConfig.theme.colors['orange']['500'],
+      strokeColor: styleConfig.theme.colors.orange['500'],
     },
     icon: SendIcon,
   },
 ];
+
+export default pagesConfig;

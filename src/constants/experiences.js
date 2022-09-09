@@ -1,6 +1,6 @@
 // Note: Month = 0 = January
 
-export const EXPERIENCES = [
+const EXPERIENCES = [
   {
     id: 1,
     title: 'Integrations Co-op',
@@ -156,3 +156,5 @@ export const EXPERIENCES = [
     ],
   },
 ];
+
+export default EXPERIENCES;

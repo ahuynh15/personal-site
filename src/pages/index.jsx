@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
@@ -7,10 +7,11 @@ import {
   PageIndicator,
   DarkModeToggle,
   MobileNavigation,
+  PageScroller,
 } from '@/Common';
 import { selectPage, setIsTransitioning } from '@/slices/PageSlice';
 import useDarkMode from '@/hooks/useDarkMode';
-import { pagesConfig } from '@/constants/pagesConfig';
+import pagesConfig from '@/constants/pagesConfig';
 import AboutPageWrapper from '@/components/AboutPageWrapper';
 import SkillsPageWrapper from '@/components/SkillsPageWrapper';
 import ExperiencePageWrapper from '@/components/ExperiencePageWrapper';
@@ -79,6 +80,11 @@ export default function Home() {
             currentPageName={pagesConfig[page.index].name}
             currentPageNumber={page.index + 1}
           />
+        </div>
+
+        {/* Page Scroller */}
+        <div className="absolute bottom-2 left-1/2 z-30 -translate-x-1/2">
+          <PageScroller currentPageNumber={page.index + 1} />
         </div>
 
         {/* Mobile Page Indicator */}

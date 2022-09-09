@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { pagesConfig } from '@/constants/pagesConfig';
+import pagesConfig from '@/constants/pagesConfig';
 
 const PageSlice = createSlice({
   name: 'page',
