@@ -141,7 +141,7 @@ function PageScroller({ currentPageNumber }) {
   };
 
   return (
-    <div className="stroke-black">
+    <div className="stroke-black drop-shadow-solid-2">
       <motion.svg
         width="48"
         height="88"

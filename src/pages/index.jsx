@@ -83,7 +83,7 @@ export default function Home() {
         </div>
 
         {/* Page Scroller */}
-        <div className="absolute bottom-2 left-1/2 z-30 -translate-x-1/2">
+        <div className="absolute bottom-2 left-1/2 z-30 hidden -translate-x-1/2 sm:block">
           <PageScroller currentPageNumber={page.index + 1} />
         </div>
 
