@@ -27,7 +27,7 @@ function DarkModeToggle() {
             variants={variants}
             initial="initial"
             animate="animate"
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.1, rotateZ: 180 }}
             className="fill-transparent stroke-orange-500 drop-shadow-solid-2"
           >
             <SunIcon />

@@ -1,4 +1,5 @@
 /* PLOP_INJECT_EXPORT */
+export { default as ScrollableWrapper } from './ScrollableWrapper';
 export { default as PageScroller } from './PageScroller';
 export { default as MobileNavigation } from './MobileNavigation';
 export { default as AnimatedBackground } from './AnimatedBackground';
