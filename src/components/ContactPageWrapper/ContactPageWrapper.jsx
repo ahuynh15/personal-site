@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title } from '@/Common';
+import { ScrollableWrapper, Title } from '@/Common';
 import ContactList from './ContactList';
 
 function ContactPageWrapper() {
@@ -8,13 +8,12 @@ function ContactPageWrapper() {
       <div className="my-4 ml-8 mr-12 mb-4 self-center sm:mr-8 lg:w-1/3">
         <Title text="I can be reached at..." />
       </div>
-      <div
-        className="flex h-full overflow-y-auto sm:mt-4 lg:mt-0 lg:w-2/3"
-        onWheel={(e) => e.stopPropagation()}
-      >
-        <div className="w-full lg:my-auto">
-          <ContactList />
-        </div>
+      <div className="h-full sm:mt-4 lg:mt-0 lg:w-2/3">
+        <ScrollableWrapper>
+          <div className="w-full lg:my-auto">
+            <ContactList />
+          </div>
+        </ScrollableWrapper>
       </div>
     </div>
   );

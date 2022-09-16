@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title } from '@/Common';
+import { ScrollableWrapper, Title } from '@/Common';
 import ExperienceFilter from './ExperienceFilter';
 import ExperienceList from './ExperienceList';
 import { useCallback } from 'react';
@@ -23,19 +23,12 @@ function ExperiencePageWrapper() {
           <ExperienceFilter />
         </div>
       </div>
-      <div
-        ref={ref}
-        className="relative flex h-full overflow-y-auto sm:mt-4 lg:mt-0 lg:w-2/3"
-        onWheel={(e) => {
-          if (isScrollable) {
-            e.stopPropagation();
-          }
-        }}
-        onScroll={(e) => {}}
-      >
-        <div className="w-full lg:my-auto">
-          <ExperienceList />
-        </div>
+      <div className="h-full sm:mt-4 lg:mt-0 lg:w-2/3">
+        <ScrollableWrapper>
+          <div className="w-full lg:my-auto">
+            <ExperienceList />
+          </div>
+        </ScrollableWrapper>
       </div>
     </div>
   );
