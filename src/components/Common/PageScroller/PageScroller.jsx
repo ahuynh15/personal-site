@@ -141,7 +141,7 @@ function PageScroller({ currentPageNumber }) {
   };
 
   return (
-    <div className="stroke-black drop-shadow-solid-2">
+    <div className="stroke-zinc-900 drop-shadow-solid-2 dark:stroke-zinc-50">
       <motion.svg
         width="48"
         height="88"
@@ -155,13 +155,14 @@ function PageScroller({ currentPageNumber }) {
         clipRule="evenodd"
       >
         <motion.path
+          className="fill-zinc-50 transition-colors duration-500 dark:fill-zinc-900"
           d="M33,38.639c0,-4.416 -3.585,-8 -8,-8c-4.415,-0 -8,3.584 -8,8l0,10.666c0,4.416 3.585,8 8,8c4.415,0 8,-3.584 8,-8l0,-10.666Z"
-          fill="#fff"
           variants={mouseVariants}
           initial="initial"
           animate={animationControl}
         />
         <motion.path
+          className="transition-colors duration-500"
           d="M26,36.639c0,-0.552 -0.448,-1 -1,-1c-0.552,-0 -1,0.448 -1,1l-0,2.666c-0,0.552 0.448,1 1,1c0.552,0 1,-0.448 1,-1l0,-2.666Z"
           fill="none"
           variants={mouseVariants}
@@ -173,6 +174,7 @@ function PageScroller({ currentPageNumber }) {
         {!isFirstPage && (
           <>
             <motion.path
+              className="transition-colors duration-500"
               fill="none"
               d={`M21,${Math.min(
                 20 + (Y_OFFSET * scrollProgress) / SCROLL_THRESHOLD,
@@ -183,6 +185,7 @@ function PageScroller({ currentPageNumber }) {
               animate={isTransitioning ? 'hidden' : 'visible'}
             />
             <motion.path
+              className="transition-colors duration-500"
               fill="none"
               d={`M25,21l-0,${Math.min(
                 -4 + (Y_OFFSET * scrollProgress) / SCROLL_THRESHOLD,
@@ -199,6 +202,7 @@ function PageScroller({ currentPageNumber }) {
         {!isLastPage && (
           <>
             <motion.path
+              className="transition-colors duration-500"
               fill="none"
               d={`M29,${Math.max(
                 68 + (Y_OFFSET * scrollProgress) / SCROLL_THRESHOLD,
@@ -209,6 +213,7 @@ function PageScroller({ currentPageNumber }) {
               animate={isTransitioning ? 'hidden' : 'visible'}
             />
             <motion.path
+              className="transition-colors duration-500"
               fill="none"
               d={`M25,67l0,${Math.max(
                 4 + (Y_OFFSET * scrollProgress) / SCROLL_THRESHOLD,
