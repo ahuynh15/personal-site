@@ -11,7 +11,7 @@ function ButtonContainer({ toggled, className, children, ...props }) {
       <AnimatePresence initial={false}>
         <motion.div
           className={classNames(
-            'rounded-2xl border-zinc-900 bg-zinc-50',
+            'rounded-2xl border-zinc-900 bg-zinc-50 dark:border-zinc-50  dark:bg-zinc-900',
             toggled
               ? 'border-2'
               : 'border-b-[6px] border-r-[6px] border-t-2 border-l-2 shadow-solid-6',
@@ -21,7 +21,7 @@ function ButtonContainer({ toggled, className, children, ...props }) {
           {/* Children */}
           <motion.div
             id="hello"
-            className="rounded-2xl pt-[6px] pl-[13px] pb-[6px] pr-[16px]  text-zinc-900 dark:border-zinc-50  dark:bg-zinc-900 dark:text-zinc-100"
+            className="rounded-2xl pt-[6px] pl-[13px] pb-[6px] pr-[16px] text-zinc-900 dark:text-zinc-100"
             {...props}
           >
             {children}
