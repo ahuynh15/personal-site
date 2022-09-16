@@ -27,21 +27,21 @@ export const selectPageSections = (state) =>
 
 export const selectCurrentSection = (state) => {
   let visibleSections = Object.values(state.sidebar.pageSections).filter(
-    (value) => value.visible
+    (value) => value.visible,
   );
 
   // If multiple sections are visible, choose the highest order
   if (visibleSections.length > 0) {
     let currentSection = visibleSections[0];
-    for (let i = 0; i < visibleSections.length; i++) {
+    for (let i = 0; i < visibleSections.length; i = i + 1) {
       if (visibleSections[i].order > currentSection.order) {
         currentSection = visibleSections[i];
       }
     }
     return currentSection.id;
-  } else {
-    return '';
   }
+
+  return '';
 };
 
 export const { setPageAnchor } = SidebarSlice.actions;

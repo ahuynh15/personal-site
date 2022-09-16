@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { nextPage, prevPage, selectIsTransitioning } from '@/slices/PageSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { motion, useAnimation } from 'framer-motion';
@@ -57,20 +58,20 @@ function PageScroller({ currentPageNumber }) {
 
         // Handle scrolling up
         if (e.deltaY < 0) {
-          setScrollProgress((prevState) => {
-            return isFirstPage
+          setScrollProgress((prevState) =>
+            isFirstPage
               ? Math.max(prevState - SCROLL_INCREMENT, 0)
-              : prevState - SCROLL_INCREMENT;
-          });
+              : prevState - SCROLL_INCREMENT,
+          );
         }
 
         // Handle scrolling down
         if (e.deltaY > 0) {
-          setScrollProgress((prevState) => {
-            return isLastPage
+          setScrollProgress((prevState) =>
+            isLastPage
               ? Math.min(prevState + SCROLL_INCREMENT, 0)
-              : prevState + SCROLL_INCREMENT;
-          });
+              : prevState + SCROLL_INCREMENT,
+          );
         }
       }
 
@@ -84,7 +85,7 @@ function PageScroller({ currentPageNumber }) {
     return () => {
       window.removeEventListener('wheel', onScroll);
     };
-  }, [isTransitioning]);
+  }, [isTransitioning, isFirstPage, isLastPage]);
 
   // Listen to and execute actions based on scroll progress
   useEffect(() => {
@@ -111,14 +112,14 @@ function PageScroller({ currentPageNumber }) {
       // Dispatch previous page action
       dispatch(nextPage());
     }
-  }, [scrollProgress]);
+  }, [scrollProgress, dispatch, animationControl]);
 
   // Reset the mouse animation when page transition is completed
   useEffect(() => {
     if (!isTransitioning) {
       animationControl.start('initial');
     }
-  }, [isTransitioning]);
+  }, [isTransitioning, animationControl]);
 
   // Mouse icon animation variants
   const mouseVariants = {
@@ -230,7 +231,7 @@ function PageScroller({ currentPageNumber }) {
   );
 }
 
-PageScroller.propTypes = {};
+PageScroller.propTypes = { currentPageNumber: PropTypes.number.isRequired };
 
 PageScroller.defaultProps = {};
 

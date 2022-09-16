@@ -11,12 +11,12 @@ const getInitialTheme = () => {
 
     if (colorMode === 'dark') {
       return 'dark';
-    } else {
-      return 'light';
     }
-  } else {
+
     return 'light';
   }
+
+  return 'light';
 };
 
 const ThemeSlice = createSlice({

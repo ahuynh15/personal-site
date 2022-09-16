@@ -23,9 +23,7 @@ const ExperiencesSlice = createSlice({
   },
 });
 
-export const selectActiveFilters = (state) => {
-  return state.experiences.filters.active;
-};
+export const selectActiveFilters = (state) => state.experiences.filters.active;
 
 export const { toggleFilter, clearFilters } = ExperiencesSlice.actions;
 

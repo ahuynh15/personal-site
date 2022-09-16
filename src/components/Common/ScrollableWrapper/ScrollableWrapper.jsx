@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  useCallback,
+} from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
-import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 
 /**
  * Page navigation listens to mouse wheel events.
@@ -25,7 +30,7 @@ function ScrollableWrapper({ children }) {
     }
 
     ref.current = node;
-  });
+  }, []);
 
   const onResize = useMemo(
     () =>
@@ -42,7 +47,7 @@ function ScrollableWrapper({ children }) {
     return () => {
       window.removeEventListener('resize', onResize);
     };
-  }, []);
+  }, [onResize]);
 
   const onWheel = (e) => {
     // Determine the current position
