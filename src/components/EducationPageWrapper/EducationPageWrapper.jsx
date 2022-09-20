@@ -3,10 +3,6 @@ import { ScrollableWrapper, Title } from '@/Common';
 import EducationList from './EducationList';
 
 function EducationPageWrapper() {
-  // TODO:
-  // - Need to disable mouse wheel event detection on mobile screens
-  // - There is some null error when cleaning up the event listeners
-
   return (
     <div className="flex h-full flex-col lg:flex-row">
       <div className="my-4 ml-8 mr-12 mb-4 self-center sm:mr-8 lg:w-1/3">
