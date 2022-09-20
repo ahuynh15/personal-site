@@ -17,11 +17,13 @@ import SkillsPageWrapper from '@/components/SkillsPageWrapper';
 import ExperiencePageWrapper from '@/components/ExperiencePageWrapper';
 import EducationPageWrapper from '@/components/EducationPageWrapper';
 import ContactPageWrapper from '@/components/ContactPageWrapper';
+import { useMediaQuery } from 'react-responsive';
 
 export default function Home() {
   const dispatch = useDispatch();
   const page = useSelector((state) => selectPage(state));
   const mode = useDarkMode();
+  const isSmall = useMediaQuery({ query: '(max-width: 640px)' });
 
   const getPage = (name) => {
     switch (name) {
@@ -74,26 +76,29 @@ export default function Home() {
           <DarkModeToggle />
         </div>
 
-        {/* Page Indicator */}
-        <div className="absolute right-8 top-1/2 z-30 hidden -translate-y-1/2 sm:block">
-          <PageIndicator
-            currentPageName={pagesConfig[page.index].name}
-            currentPageNumber={page.index + 1}
-          />
-        </div>
+        {isSmall ? (
+          /* Mobile Page Indicator */
+          <div className="absolute bottom-0 z-30 flex w-full justify-center">
+            <MobileNavigation
+              currentPageName={pagesConfig[page.index].name}
+              currentPageNumber={page.index + 1}
+            />
+          </div>
+        ) : (
+          /* Page Indicator and Scroller */
+          <>
+            <div className="absolute right-8 top-1/2 z-30 hidden -translate-y-1/2 sm:block">
+              <PageIndicator
+                currentPageName={pagesConfig[page.index].name}
+                currentPageNumber={page.index + 1}
+              />
+            </div>
 
-        {/* Page Scroller */}
-        <div className="absolute bottom-2 left-1/2 z-30 hidden -translate-x-1/2 sm:block">
-          <PageScroller currentPageNumber={page.index + 1} />
-        </div>
-
-        {/* Mobile Page Indicator */}
-        <div className="absolute bottom-0 z-30 flex w-full justify-center sm:hidden">
-          <MobileNavigation
-            currentPageName={pagesConfig[page.index].name}
-            currentPageNumber={page.index + 1}
-          />
-        </div>
+            <div className="absolute bottom-2 left-1/2 z-30 hidden -translate-x-1/2 sm:block">
+              <PageScroller currentPageNumber={page.index + 1} />
+            </div>
+          </>
+        )}
       </main>
     </div>
   );
