@@ -15,12 +15,10 @@ const SkillSlice = createSlice({
   },
 });
 
-export const selectToggledSkilled = (state) => {
-  return {
-    name: state.skills.toggledSkill.name,
-    index: state.skills.toggledSkill.index,
-  };
-};
+export const selectToggledSkilled = (state) => ({
+  name: state.skills.toggledSkill.name,
+  index: state.skills.toggledSkill.index,
+});
 
 export const { toggleSkill } = SkillSlice.actions;
 

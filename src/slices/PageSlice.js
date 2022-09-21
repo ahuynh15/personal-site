@@ -17,14 +17,14 @@ const PageSlice = createSlice({
     nextPage: (state) => {
       if (state.index + 1 <= pagesConfig.length - 1) {
         state.prevIndex = state.index;
-        state.index = state.index + 1;
+        state.index += 1;
         state.isTransitioning = true;
       }
     },
     prevPage: (state) => {
       if (state.index - 1 >= 0) {
         state.prevIndex = state.index;
-        state.index = state.index - 1;
+        state.index -= 1;
         state.isTransitioning = true;
       }
     },
