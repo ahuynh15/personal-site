@@ -2,23 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.mask-image-fade {
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 1rem,
-    black 2rem,
-    black calc(100% - 2rem),
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 5%,
-    black 10%,
-    black 90%,
-    transparent 95%
-  );
-}
-
 @layer utilities {
   .text-shadow-3 {
     text-shadow: 3px 3px rgba(0, 0, 0, 0.2);
@@ -26,5 +9,39 @@
 
   .text-shadow-2 {
     text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .scrollbar {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+  }
+
+  .scrollbar-light {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-zinc-900) rgba(0, 0, 0, 0.2);
+  }
+
+  .scrollbar-light::-webkit-scrollbar-thumb {
+    background-color: var(--color-zinc-900);
+  }
+
+  .scrollbar-dark {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-zinc-50) rgba(0, 0, 0, 0.2);
+  }
+
+  .scrollbar-dark::-webkit-scrollbar-thumb {
+    background-color: var(--color-zinc-50);
   }
 }

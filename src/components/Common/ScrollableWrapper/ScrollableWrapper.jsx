@@ -74,7 +74,11 @@ function ScrollableWrapper({ children }) {
   };
 
   return (
-    <div ref={setRef} className="flex h-full overflow-y-auto" onWheel={onWheel}>
+    <div
+      ref={setRef}
+      className="scrollbar scrollbar-light dark:scrollbar-dark flex h-full overflow-y-auto"
+      onWheel={onWheel}
+    >
       {children}
     </div>
   );

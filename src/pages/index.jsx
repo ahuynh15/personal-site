@@ -51,7 +51,7 @@ export default function Home() {
       </Head>
 
       <main
-        className={`relative flex h-screen w-screen overflow-hidden ${mode}`}
+        className={`scrollbar relative flex h-screen w-screen overflow-hidden ${mode}`}
       >
         {/* Pages */}
         <AnimatePresence
