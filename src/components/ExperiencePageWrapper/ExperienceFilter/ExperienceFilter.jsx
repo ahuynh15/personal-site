@@ -28,8 +28,6 @@ function ExperienceFilter() {
     dispatch(clearFilters());
   };
 
-  // TODO: IMPLEMENT SHOW MORE / SHOW LESS
-
   return (
     <div className="flex flex-wrap items-center gap-4">
       {tags.slice(0, displayLimit).map((tag) => {
