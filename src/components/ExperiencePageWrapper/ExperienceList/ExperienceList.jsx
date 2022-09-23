@@ -21,6 +21,7 @@ function ExperienceList() {
             endDate={experience.endDate}
             description={experience.description}
             tags={experience.tags}
+            accomplishments={experience.accomplishments}
           />
         ))}
       </AnimatePresence>

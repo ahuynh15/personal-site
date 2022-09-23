@@ -1,14 +1,45 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Container } from '@/Common';
 import { getTimespan } from '@/lib/dateHelper';
 import classNames from 'classnames';
+import { ChevronDownIcon } from '@/Icons';
 
-function Experience({ id, title, startDate, endDate, description, tags }) {
-  const [isSelected, setIsSelected] = useState(false);
+function Experience({
+  id,
+  title,
+  startDate,
+  endDate,
+  description,
+  tags,
+  accomplishments,
+}) {
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const onSelect = () => setIsSelected((prevState) => !prevState);
+  const listVariants = {
+    show: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const listItemVariants = {
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+      },
+    },
+    initial: {
+      opacity: 0,
+      y: 30,
+    },
+  };
+
+  const onSelect = () => setIsExpanded((prevState) => !prevState);
 
   const renderDate = (start, end) => {
     if (start && !end) {
@@ -55,7 +86,7 @@ function Experience({ id, title, startDate, endDate, description, tags }) {
     <div key={id}>
       {/* Experience */}
       <motion.div className={classNames('text-zinc-900 dark:text-zinc-100')}>
-        <Container className="cursor-pointer" onClick={onSelect}>
+        <Container className="group cursor-pointer" onClick={onSelect}>
           {/* Position */}
           <div className="relative text-xl font-semibold">{title}</div>
 
@@ -71,9 +102,39 @@ function Experience({ id, title, startDate, endDate, description, tags }) {
               <div className="mt-2 font-medium">{description}</div>
 
               {/* Description */}
-              {isSelected && (
-                <div className="mt-2 font-medium">{description}</div>
+              {isExpanded && (
+                <motion.ul
+                  variants={listVariants}
+                  initial="initial"
+                  animate="show"
+                  exit="initial"
+                  className="mt-2 list-inside list-disc"
+                >
+                  {accomplishments.map((accomplishment) => {
+                    return (
+                      <motion.li
+                        key={accomplishment}
+                        variants={listItemVariants}
+                      >
+                        {accomplishment}
+                      </motion.li>
+                    );
+                  })}
+                </motion.ul>
               )}
+
+              <div className="flex w-full justify-center">
+                <span
+                  className={classNames(
+                    'rotate-90 transition-all duration-500 lg:rotate-0',
+                    isExpanded
+                      ? '-rotate-90 stroke-zinc-900 dark:stroke-zinc-100 lg:rotate-180'
+                      : 'stroke-zinc-900 dark:stroke-zinc-100 hover-hover:stroke-zinc-300 hover-hover:group-hover:stroke-zinc-900 hover-hover:dark:stroke-zinc-700 hover-hover:dark:group-hover:stroke-zinc-100',
+                  )}
+                >
+                  <ChevronDownIcon size={20} />
+                </span>
+              </div>
             </div>
           </motion.div>
         </Container>
@@ -104,6 +165,7 @@ Experience.propTypes = {
   }),
   description: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
+  accomplishments: PropTypes.arrayOf(PropTypes.string),
 };
 
 Experience.defaultProps = {

@@ -9,11 +9,11 @@ const EXPERIENCES = [
     startDate: { year: 2017, month: 0 },
     endDate: { year: 2017, month: 3 },
     description:
-      'Migrated legacy code to Amazon Web Services (AWS), automated existing processes, and developed a new Kibana dashboard. This was the first of three co-op rotation at GE Appliances',
+      'Migrated legacy code to Amazon Web Services (AWS), automated existing processes, and developed a new Kibana dashboard.',
     accomplishments: [
       'Managed the migration of a legacy Java application hosted on the on-premises data center to AWS',
-      'Developed a dashboard in Kibana for tracking ServiceNow tickets',
-      'Built a data pipeline in Jenkins to move data to AWS',
+      'Developed a dashboard in Kibana for monitoring ServiceNow tickets',
+      'Built an automated data pipeline in Jenkins to facilitate the movement of data to AWS',
       'Automated multiple DevOps tasks in Jenkins',
     ],
     tags: ['Java', 'AWS', 'Jenkins'],
@@ -26,7 +26,7 @@ const EXPERIENCES = [
     startDate: { year: 2017, month: 7 },
     endDate: { year: 2017, month: 11 },
     description:
-      'Implemented a new API that would expose appliance commands to third-party developers and developed new voice commands for GE Appliances smart dryers and washers. This was my second co-op rotation at GE Appliances.',
+      'Developed a new API that exposed appliance commands to third-party developers and implemented new voice commands for GE Smart Appliances.',
     accomplishments: [
       'Assisted in the development of new voice commands for Alexa and Google Home platforms',
       'Developed an API to connect third-party developers to send commands to smart appliances',
