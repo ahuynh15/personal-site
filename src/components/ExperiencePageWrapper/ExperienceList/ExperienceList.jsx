@@ -1,12 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { AnimatePresence } from 'framer-motion';
-import { useSelector } from 'react-redux';
 import experiencesUtil from '@/lib/experiencesUtil';
-import { selectActiveFilters } from '@/slices/ExperiencesSlice';
 import Experience from '../Experience';
 
-function ExperienceList() {
-  const activeFilters = useSelector((state) => selectActiveFilters(state));
+function ExperienceList({ activeFilters }) {
   const experiences = experiencesUtil.getFilteredExperiences(activeFilters);
 
   return (
@@ -21,7 +19,6 @@ function ExperienceList() {
             endDate={experience.endDate}
             description={experience.description}
             tags={experience.tags}
-            accomplishments={experience.accomplishments}
           />
         ))}
       </AnimatePresence>
@@ -29,6 +26,8 @@ function ExperienceList() {
   );
 }
 
-ExperienceList.propTypes = {};
+ExperienceList.propTypes = {
+  activeFilters: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default ExperienceList;

@@ -1,28 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectToggledSkilled, toggleSkill } from '@/slices/SkillsSlice';
 import { getSkillByName } from '@/constants/skills';
 import Skill from '../Skill';
 
 import SubskillList from '../SubskillList';
 
 function SkillList({ skills }) {
-  const dispatch = useDispatch();
-  const toggledSkill = useSelector((state) => selectToggledSkilled(state));
-
-  const onClick = (index, name) => {
-    if (toggledSkill.name === name && toggledSkill.index === index) {
-      dispatch(toggleSkill({ index: null, name: null }));
-    } else {
-      dispatch(toggleSkill({ index, name }));
-    }
-  };
+  const [toggledSkill, setToggledSkill] = useState();
 
   return (
     <div className="grid w-full grid-cols-1 gap-4 px-4 pb-24 sm:pb-4 sm:pt-4 lg:grid-cols-2-auto">
-      {skills.map((skill, index) => {
-        const isToggled = skill.name === toggledSkill.name;
+      {skills.map((skill) => {
+        const isToggled = skill.name === toggledSkill;
         const hasSubskills = skill.subskills.length > 0;
 
         return (
@@ -31,7 +20,7 @@ function SkillList({ skills }) {
               name={skill.name}
               hasSubskills={hasSubskills}
               isToggled={isToggled}
-              onClick={() => onClick(index, skill.name)}
+              onClick={() => setToggledSkill(skill.name)}
               className="lg:ml-8 lg:[grid-column:1]"
             />
 

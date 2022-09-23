@@ -6,9 +6,7 @@ import { Provider } from 'react-redux';
 
 // Reducers
 import ThemeReducer from '@/slices/ThemeSlice';
-import ExperiencesReducer from '@/slices/ExperiencesSlice';
 import PageReducer from '@/slices/PageSlice';
-import SkillsReducer from '@/slices/SkillsSlice';
 
 function renderWithProviders(
   ui,
@@ -16,10 +14,8 @@ function renderWithProviders(
 ) {
   const store = configureStore({
     reducer: {
-      experiences: ExperiencesReducer,
       theme: ThemeReducer,
       page: PageReducer,
-      skills: SkillsReducer,
     },
     preloadedState,
   });

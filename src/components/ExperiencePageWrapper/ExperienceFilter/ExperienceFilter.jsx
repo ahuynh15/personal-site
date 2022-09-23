@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { ButtonContainer } from '@/components/Common';
-import { clearFilters, toggleFilter } from '@/slices/ExperiencesSlice';
 import experiencesUtil from '@/lib/experiencesUtil';
 
 /**
@@ -11,22 +10,10 @@ import experiencesUtil from '@/lib/experiencesUtil';
  * - Add dynamic count for filters???
  */
 
-function ExperienceFilter() {
-  const dispatch = useDispatch();
-  const activeFilters = useSelector(
-    (state) => state.experiences.filters.active,
-  );
+function ExperienceFilter({ onClear, onClick, activeFilters }) {
   const tags = [...experiencesUtil.getFilters()];
   // const [displayLimit, setDisplayLimit] = useState(5);
   const [displayLimit] = useState(5);
-
-  const onClick = (tag) => {
-    dispatch(toggleFilter({ tag }));
-  };
-
-  const onClear = () => {
-    dispatch(clearFilters());
-  };
 
   return (
     <div className="flex flex-wrap items-center gap-4">
@@ -56,6 +43,10 @@ function ExperienceFilter() {
   );
 }
 
-ExperienceFilter.propTypes = {};
+ExperienceFilter.propTypes = {
+  onClear: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
+  activeFilters: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default ExperienceFilter;

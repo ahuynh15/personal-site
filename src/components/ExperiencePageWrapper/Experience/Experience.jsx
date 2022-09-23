@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Container } from '@/Common';
 import { getTimespan } from '@/lib/dateHelper';
 import classNames from 'classnames';
@@ -110,16 +110,11 @@ function Experience({
                   exit="initial"
                   className="mt-2 list-inside list-disc"
                 >
-                  {accomplishments.map((accomplishment) => {
-                    return (
-                      <motion.li
-                        key={accomplishment}
-                        variants={listItemVariants}
-                      >
-                        {accomplishment}
-                      </motion.li>
-                    );
-                  })}
+                  {accomplishments.map((accomplishment) => (
+                    <motion.li key={accomplishment} variants={listItemVariants}>
+                      {accomplishment}
+                    </motion.li>
+                  ))}
                 </motion.ul>
               )}
 
@@ -171,6 +166,7 @@ Experience.propTypes = {
 Experience.defaultProps = {
   endDate: undefined,
   tags: undefined,
+  accomplishments: [],
 };
 
 export default Experience;
