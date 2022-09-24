@@ -30,7 +30,7 @@ function ExperiencePageWrapper() {
           />
         </div>
       </div>
-      <div className="h-full sm:mt-4 lg:mt-0 lg:w-2/3">
+      <div className="overflow-auto sm:mt-4 lg:mt-0 lg:h-full lg:w-2/3">
         <ScrollableWrapper>
           <div className="w-full lg:my-auto">
             <ExperienceList activeFilters={filters} />
