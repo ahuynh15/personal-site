@@ -85,62 +85,60 @@ function Experience({
   return (
     <div key={id}>
       {/* Experience */}
-      <div className={classNames('text-zinc-900 dark:text-zinc-100')}>
-        <Container className="group cursor-pointer" onClick={onSelect}>
-          {/* Position */}
-          <div className="relative text-xl font-semibold">{title}</div>
+      <Container className="group cursor-pointer" onClick={onSelect}>
+        {/* Position */}
+        <div className="relative text-xl font-semibold">{title}</div>
 
-          {/* Content */}
-          <motion.div className="flex h-full" animate={{ height: 'auto' }}>
-            <div className="flex flex-col items-start">
-              {/* Date */}
-              <div className="text-sm text-orange-500">
-                {renderDate(startDate, endDate)}
-              </div>
-
-              {/* Description */}
-              <div className="mt-2 font-medium">{description}</div>
-
-              {/* Description */}
-              {isExpanded && (
-                <motion.ul
-                  variants={listVariants}
-                  initial="initial"
-                  animate="show"
-                  exit="initial"
-                  className="mt-2 list-inside list-disc"
-                >
-                  {accomplishments.map((accomplishment) => (
-                    <motion.li key={accomplishment} variants={listItemVariants}>
-                      {accomplishment}
-                    </motion.li>
-                  ))}
-                </motion.ul>
-              )}
+        {/* Content */}
+        <motion.div className="flex h-full" animate={{ height: 'auto' }}>
+          <div className="flex flex-col items-start">
+            {/* Date */}
+            <div className="text-sm text-orange-500">
+              {renderDate(startDate, endDate)}
             </div>
-          </motion.div>
-          <div className="flex w-full justify-center">
-            <span
-              className={classNames(
-                'transition-all duration-500',
-                isExpanded
-                  ? 'rotate-180 stroke-zinc-900 dark:stroke-zinc-100'
-                  : 'stroke-zinc-900 dark:stroke-zinc-100 hover-hover:stroke-zinc-300 hover-hover:group-hover:stroke-zinc-900 hover-hover:dark:stroke-zinc-700 hover-hover:dark:group-hover:stroke-zinc-100',
-              )}
-            >
-              <ChevronDownIcon size={20} />
-            </span>
-          </div>
-        </Container>
 
-        {/* Tags */}
-        <div className="mt-2 flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <Container key={tag} flat className="items-center text-sm">
-              {tag}
-            </Container>
-          ))}
+            {/* Description */}
+            <div className="mt-2 font-medium">{description}</div>
+
+            {/* Description */}
+            {isExpanded && (
+              <motion.ul
+                variants={listVariants}
+                initial="initial"
+                animate="show"
+                exit="initial"
+                className="mt-2 list-inside list-disc"
+              >
+                {accomplishments.map((accomplishment) => (
+                  <motion.li key={accomplishment} variants={listItemVariants}>
+                    {accomplishment}
+                  </motion.li>
+                ))}
+              </motion.ul>
+            )}
+          </div>
+        </motion.div>
+        <div className="flex w-full justify-center">
+          <span
+            className={classNames(
+              'transition-all duration-500',
+              isExpanded
+                ? 'rotate-180 stroke-zinc-900 dark:stroke-zinc-100'
+                : 'stroke-zinc-900 dark:stroke-zinc-100 hover-hover:stroke-zinc-300 hover-hover:group-hover:stroke-zinc-900 hover-hover:dark:stroke-zinc-700 hover-hover:dark:group-hover:stroke-zinc-100',
+            )}
+          >
+            <ChevronDownIcon size={20} />
+          </span>
         </div>
+      </Container>
+
+      {/* Tags */}
+      <div className="mt-2 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <Container key={tag} flat className="items-center text-sm">
+            {tag}
+          </Container>
+        ))}
       </div>
     </div>
   );
