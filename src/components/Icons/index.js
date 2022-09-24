@@ -1,4 +1,5 @@
 /* PLOP_INJECT_IMPORT */
+import GithubIcon from './GithubIcon';
 import UserIcon from './UserIcon';
 import ToolIcon from './ToolIcon';
 import BookIcon from './BookIcon';
@@ -15,6 +16,7 @@ import ArrowRightIcon from './ArrowRightIcon';
 
 export {
   /* PLOP_INJECT_EXPORT */
+  GithubIcon,
   UserIcon,
   ToolIcon,
   BookIcon,
