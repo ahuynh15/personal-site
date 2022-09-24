@@ -117,21 +117,20 @@ function Experience({
                   ))}
                 </motion.ul>
               )}
-
-              <div className="flex w-full justify-center">
-                <span
-                  className={classNames(
-                    'transition-all duration-500',
-                    isExpanded
-                      ? 'rotate-180 stroke-zinc-900 dark:stroke-zinc-100'
-                      : 'stroke-zinc-900 dark:stroke-zinc-100 hover-hover:stroke-zinc-300 hover-hover:group-hover:stroke-zinc-900 hover-hover:dark:stroke-zinc-700 hover-hover:dark:group-hover:stroke-zinc-100',
-                  )}
-                >
-                  <ChevronDownIcon size={20} />
-                </span>
-              </div>
             </div>
           </motion.div>
+          <div className="flex w-full justify-center">
+            <span
+              className={classNames(
+                'transition-all duration-500',
+                isExpanded
+                  ? 'rotate-180 stroke-zinc-900 dark:stroke-zinc-100'
+                  : 'stroke-zinc-900 dark:stroke-zinc-100 hover-hover:stroke-zinc-300 hover-hover:group-hover:stroke-zinc-900 hover-hover:dark:stroke-zinc-700 hover-hover:dark:group-hover:stroke-zinc-100',
+              )}
+            >
+              <ChevronDownIcon size={20} />
+            </span>
+          </div>
         </Container>
 
         {/* Tags */}
