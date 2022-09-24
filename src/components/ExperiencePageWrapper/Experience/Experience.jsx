@@ -85,7 +85,7 @@ function Experience({
   return (
     <div key={id}>
       {/* Experience */}
-      <motion.div className={classNames('text-zinc-900 dark:text-zinc-100')}>
+      <div className={classNames('text-zinc-900 dark:text-zinc-100')}>
         <Container className="group cursor-pointer" onClick={onSelect}>
           {/* Position */}
           <div className="relative text-xl font-semibold">{title}</div>
@@ -121,9 +121,9 @@ function Experience({
               <div className="flex w-full justify-center">
                 <span
                   className={classNames(
-                    'rotate-90 transition-all duration-500 lg:rotate-0',
+                    'transition-all duration-500',
                     isExpanded
-                      ? '-rotate-90 stroke-zinc-900 dark:stroke-zinc-100 lg:rotate-180'
+                      ? 'rotate-180 stroke-zinc-900 dark:stroke-zinc-100'
                       : 'stroke-zinc-900 dark:stroke-zinc-100 hover-hover:stroke-zinc-300 hover-hover:group-hover:stroke-zinc-900 hover-hover:dark:stroke-zinc-700 hover-hover:dark:group-hover:stroke-zinc-100',
                   )}
                 >
@@ -142,7 +142,7 @@ function Experience({
             </Container>
           ))}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
