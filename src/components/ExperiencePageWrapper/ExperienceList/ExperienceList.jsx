@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { AnimatePresence, motion } from 'framer-motion';
-import experiencesUtil from '@/lib/experiencesUtil';
+import { getFilteredExperiences } from '@/lib/experiencesUtil';
+import { reverseSortDate } from '@/lib/dateUtil';
 import Experience from '../Experience';
 
 function ExperienceList({ activeFilters }) {
-  const experiences = experiencesUtil.getFilteredExperiences(activeFilters);
+  const experiences = useMemo(
+    () => getFilteredExperiences(activeFilters).sort(reverseSortDate),
+    [activeFilters],
+  );
 
   const experienceVariants = {
     initial: {

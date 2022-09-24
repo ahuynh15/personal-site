@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { Container } from '@/Common';
-import { getTimespan } from '@/lib/dateHelper';
+import { getTimespan } from '@/lib/dateUtil';
 import classNames from 'classnames';
 import { ChevronDownIcon } from '@/Icons';
 

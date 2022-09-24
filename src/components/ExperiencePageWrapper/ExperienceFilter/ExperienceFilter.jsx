@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { ButtonContainer } from '@/components/Common';
-import experiencesUtil from '@/lib/experiencesUtil';
+import { getFilters } from '@/lib/experiencesUtil';
 
 /**
  * TODO:
@@ -11,7 +11,7 @@ import experiencesUtil from '@/lib/experiencesUtil';
  */
 
 function ExperienceFilter({ onClear, onClick, activeFilters }) {
-  const tags = [...experiencesUtil.getFilters()];
+  const tags = [...getFilters()];
   // const [displayLimit, setDisplayLimit] = useState(5);
   const [displayLimit] = useState(5);
 

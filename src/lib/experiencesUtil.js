@@ -1,7 +1,7 @@
 import EXPERIENCES from '@/constants/experiences';
 
 // Retrieve all unique tags from list of experiences
-const getFilters = () => {
+export const getFilters = () => {
   const filters = new Set();
 
   for (let i = 0; i < EXPERIENCES.length; i += 1) {
@@ -14,7 +14,7 @@ const getFilters = () => {
 };
 
 // Recieves an array of filters and return a list of filtered experiences
-const getFilteredExperiences = (activeFilters) => {
+export const getFilteredExperiences = (activeFilters) => {
   if (activeFilters?.length > 0) {
     return [...EXPERIENCES].filter((experience) =>
       activeFilters.every((tag) => experience.tags.includes(tag)),
