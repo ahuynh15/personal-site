@@ -10,7 +10,8 @@ export const getFilters = () => {
     }
   }
 
-  return filters;
+  // Sort filters in alphabetic order
+  return [...filters].sort();
 };
 
 // Recieves an array of filters and return a list of filtered experiences

@@ -1,45 +1,52 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { AnimatePresence } from 'framer-motion';
 import { ButtonContainer } from '@/components/Common';
 import { getFilters } from '@/lib/experiencesUtil';
-
-/**
- * TODO:
- * - Limit the amount of filters and provide a way to expand for more filters
- * - Add dynamic count for filters???
- */
+import FilterModal from './FilterModal';
 
 function ExperienceFilter({ onClear, onClick, activeFilters }) {
   const tags = [...getFilters()];
-  // const [displayLimit, setDisplayLimit] = useState(5);
-  const [displayLimit] = useState(5);
+
+  const [showFilters, setShowFilters] = useState(false);
+
+  const onShow = () => setShowFilters(true);
+
+  const onClose = () => setShowFilters(false);
 
   return (
-    <div className="flex flex-wrap items-center gap-4">
-      {tags.slice(0, displayLimit).map((tag) => {
-        const isActive = activeFilters.includes(tag);
+    <>
+      <AnimatePresence>
+        {showFilters && (
+          <FilterModal
+            tags={tags}
+            onClear={onClear}
+            onClick={onClick}
+            onClose={onClose}
+            activeFilters={activeFilters}
+          />
+        )}
+      </AnimatePresence>
 
-        return (
-          <button key={tag} onClick={() => onClick(tag)} type="button">
-            <ButtonContainer
-              className={classNames(
-                'font-medium text-zinc-900 transition-colors duration-500 dark:text-zinc-100',
-                isActive && 'bg-orange-500 text-zinc-100 dark:bg-orange-500',
-              )}
-              toggled={isActive}
-            >
-              {tag}
-            </ButtonContainer>
-          </button>
-        );
-      })}
-      <button onClick={() => onClear()} type="button">
-        <div className="font-medium text-zinc-900 transition-colors duration-500 dark:text-zinc-100">
-          Clear Filters
-        </div>
-      </button>
-    </div>
+      <div className="flex flex-wrap items-center gap-4">
+        <button onClick={onShow} type="button">
+          <ButtonContainer
+            className={classNames(
+              'font-medium text-zinc-900 transition-colors duration-500 dark:text-zinc-100',
+            )}
+          >
+            Show Filters
+          </ButtonContainer>
+        </button>
+
+        <button onClick={() => onClear()} type="button">
+          <div className="font-medium text-zinc-900 transition-colors duration-500 dark:text-zinc-100">
+            Reset Filters
+          </div>
+        </button>
+      </div>
+    </>
   );
 }
 

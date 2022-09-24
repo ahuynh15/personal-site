@@ -51,6 +51,7 @@ export default function Home() {
       </Head>
 
       <main
+        id="root"
         className={`scrollbar relative flex h-screen w-screen overflow-hidden ${mode}`}
       >
         {/* Pages */}
