@@ -2,7 +2,6 @@
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
-  swcMinify: true,
   async rewrites() {
     return [
       // Rewrite everything to `pages/index`
